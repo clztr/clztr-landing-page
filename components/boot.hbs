@@ -1,9 +1,9 @@
 <section
-  id='view-1-view-1'
-  class='screen-view-1 relative isolate transform-gpu bg-background-dark text-gray-100 font-body overflow-x-hidden selection:bg-primary selection:text-black transition-colors duration-300 min-h-screen'
+  id='boot-boot'
+  class='screen-boot relative isolate transform-gpu bg-background-dark text-gray-100 font-body overflow-x-hidden selection:bg-primary selection:text-black transition-colors duration-300 min-h-screen'
 >
   <style>
-    .screen-view-1 .clip-notch {
+    .screen-boot .clip-notch {
       clip-path: polygon(
         20px 0,
         100% 0,
@@ -13,7 +13,7 @@
         0 20px
       );
     }
-    .screen-view-1 .clip-corner-brackets {
+    .screen-boot .clip-corner-brackets {
       --b: 2px;
       --s: 30px;
       --c: #ffd700;
@@ -50,13 +50,13 @@
       background-repeat: no-repeat;
       z-index: 20;
     }
-    .screen-view-1 .skew-box {
+    .screen-boot .skew-box {
       transform: skewX(-12deg);
     }
-    .screen-view-1 .unskew-text {
+    .screen-boot .unskew-text {
       transform: skewX(12deg);
     }
-    .screen-view-1 .scanlines {
+    .screen-boot .scanlines {
       background: linear-gradient(
         to bottom,
         rgba(255, 255, 255, 0),
@@ -67,31 +67,31 @@
       background-size: 100% 4px;
       pointer-events: none;
     }
-    .screen-view-1 .glow-box-primary {
+    .screen-boot .glow-box-primary {
       box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
     }
-    .screen-view-1 .glow-box-cyan {
+    .screen-boot .glow-box-cyan {
       box-shadow: 0 0 15px rgba(0, 224, 255, 0.2);
     }
-    .screen-view-1 .glow-mesh {
+    .screen-boot .glow-mesh {
       box-shadow: 0 0 40px rgba(255, 107, 53, 0.4);
     }
-    .screen-view-1 .ley-lines-btn {
+    .screen-boot .ley-lines-btn {
       background: rgba(0, 0, 0, 0.8);
       border: 1px solid #ffd700;
       color: #ffd700;
       box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
     }
-    .screen-view-1 .ley-lines-btn:hover {
+    .screen-boot .ley-lines-btn:hover {
       background: rgba(255, 215, 0, 0.1);
       box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
     }
-    .screen-view-1 .tech-table th,
-    .screen-view-1 .tech-table td {
+    .screen-boot .tech-table th,
+    .screen-boot .tech-table td {
       padding: 0.75rem 1rem;
       border-bottom: 1px solid #1f2937;
     }
-    .screen-view-1 .tech-table th {
+    .screen-boot .tech-table th {
       text-align: left;
       font-family: 'Russo One', sans-serif;
       font-style: italic;
@@ -99,25 +99,25 @@
       font-size: 0.75rem;
       text-transform: uppercase;
     }
-    .screen-view-1 .tech-table tr:hover {
+    .screen-boot .tech-table tr:hover {
       background-color: rgba(255, 255, 255, 0.02);
     }
-    
-      .scanline {
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(
-          to right,
-          transparent,
-          #d4af37,
-          transparent
-        );
-        position: absolute;
-        z-index: 10;
-        box-shadow:
-          0 0 15px #d4af37,
-          0 0 5px #00f0ff;
-      }
+
+    .scanline {
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(
+        to right,
+        transparent,
+        #d4af37,
+        transparent
+      );
+      position: absolute;
+      z-index: 10;
+      box-shadow:
+        0 0 15px #d4af37,
+        0 0 5px #00f0ff;
+    }
   </style>
   <div
     class='fixed inset-0 scanlines z-50 pointer-events-none opacity-30 h-full w-full mix-blend-overlay'
@@ -282,7 +282,7 @@
       <div class='max-w-[1920px] mx-auto p-6 lg:p-12 space-y-8'>
         <section
           class='grid grid-cols-1 lg:grid-cols-12 gap-0 border border-gray-800 bg-surface-dark overflow-hidden'
-          id='view-1-identity'
+          id='boot-identity'
         >
           <div
             class='lg:col-span-4 p-8 lg:p-12 flex flex-col justify-center border-r border-gray-800 relative z-10 bg-surface-dark'
@@ -296,25 +296,22 @@
             <h2
               class='font-display italic text-4xl lg:text-5xl text-white mb-4'
             >
-              PRESENCE<br /><span
-                class='text-gray-600'
-              >CAPTURE</span>
+              APP ACCESS<br /><span class='text-gray-600'>PROOF OF
+                PRESENCE</span>
             </h2>
             <p
               class='text-gray-400 font-mono text-sm leading-relaxed mb-8'
             >
-              Local liveness runs on-device. Align your face, pass the
-              1–2s check, and we mint a short-lived presence token.
-              No passwords, just presence.
+              Camera-first access. No typing. No forms. No CAPTCHA. We
+              ask one thing: is a human here? A 1–2s liveness check
+              opens the world. No biometric data stored.
             </p>
             <div class='bg-black border border-gray-800 p-4 mb-6'>
               <div class='flex justify-between items-center mb-2'>
                 <span
                   class='text-xs text-accent-cyan font-mono uppercase'
-                >Device Checks</span>
-                <span
-                  class='text-xs text-white font-mono'
-                >OK</span>
+                >Front Camera</span>
+                <span class='text-xs text-white font-mono'>READY</span>
               </div>
               <div class='w-full bg-gray-900 h-1'>
                 <div class='bg-accent-cyan h-full w-full'></div>
@@ -323,7 +320,7 @@
             <button
               class='w-full py-4 border border-accent-cyan/30 text-accent-cyan hover:bg-accent-cyan hover:text-black transition-colors skew-box uppercase font-display italic tracking-wider font-bold'
             >
-              <span class='unskew-text'>Start Liveness</span>
+              <span class='unskew-text'>Access</span>
             </button>
           </div>
           <div
@@ -354,55 +351,55 @@
                 class='relative z-10 flex flex-col items-center justify-center w-full h-full'
               >
                 <div
-            class="w-full lg:w-6/12 order-1 lg:order-2 flex flex-col items-center justify-center relative"
-          >
-            <div
-              class="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96"
-            >
-              <div
-                class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary drop-shadow-[0_0_5px_#D4AF37]"
-              ></div>
-              <div
-                class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary drop-shadow-[0_0_5px_#D4AF37]"
-              ></div>
-              <div
-                class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary drop-shadow-[0_0_5px_#D4AF37]"
-              ></div>
-              <div
-                class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary drop-shadow-[0_0_5px_#D4AF37]"
-              ></div>
-              <div
-                class="absolute inset-4 rounded-lg overflow-hidden bg-black/80 border border-white/5 shadow-2xl"
-              >
-                <img
-                  alt="Wireframe holographic AI head scanning"
-                  class="w-full h-full object-cover opacity-90 mix-blend-screen filter contrast-125 sepia-[.3] hue-rotate-[170deg] brightness-125 hover:brightness-150 transition-all duration-700 holo-glow"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_YqmNAqgCpS_CvOax0Wj-M4SgxnJscKCHlET17w9wptyDV5RohQvKU-WOURSnT0jXV9z2Ry59o_QpOCMJwTv0IQ8DwrcFbBdw8-jGY-x5cFYtXnUoqdq90Vd8XW1zFCUlni1lGkl5URIrwMmAZ4mWLoN7QU6Obz6PL02uQA3etRWmKBazKrI-LWJaKlHdO1vLKgrgm8OYlg3vMHgbVEYW6Sbo_7WUQnmzJo25G0YIfX3oFPn-Ea02ljnifuzPcPNV4EpP2-SYPjUG"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-cyan-500/20 mix-blend-color-dodge pointer-events-none"
-                ></div>
-                <div
-                  class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-40 mix-blend-overlay"
-                ></div>
-                <div class="scanline animate-scan"></div>
-                <div
-                  class="absolute inset-0 bg-[linear-gradient(rgba(0,240,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,240,255,0.1)_1px,transparent_1px)] bg-[size:20px_20px] opacity-20 pointer-events-none"
-                ></div>
-              </div>
-              <div
-                class="absolute top-1/2 -left-12 w-10 h-px bg-primary/50 hidden md:block shadow-[0_0_5px_#D4AF37]"
-              ></div>
-              
-              <div
-                class="absolute top-10 right-10 w-1 h-1 bg-white rounded-full animate-ping"
-              ></div>
-              <div
-                class="absolute bottom-20 left-10 w-1.5 h-1.5 bg-primary rounded-full animate-pulse shadow-[0_0_10px_#D4AF37]"
-              ></div>
-            </div>
-            
-          </div>
+                  class='w-full lg:w-6/12 order-1 lg:order-2 flex flex-col items-center justify-center relative'
+                >
+                  <div
+                    class='relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96'
+                  >
+                    <div
+                      class='absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary drop-shadow-[0_0_5px_#D4AF37]'
+                    ></div>
+                    <div
+                      class='absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary drop-shadow-[0_0_5px_#D4AF37]'
+                    ></div>
+                    <div
+                      class='absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary drop-shadow-[0_0_5px_#D4AF37]'
+                    ></div>
+                    <div
+                      class='absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary drop-shadow-[0_0_5px_#D4AF37]'
+                    ></div>
+                    <div
+                      class='absolute inset-4 rounded-lg overflow-hidden bg-black/80 border border-white/5 shadow-2xl'
+                    >
+                      <img
+                        alt='Wireframe holographic AI head scanning'
+                        class='w-full h-full object-cover opacity-90 mix-blend-screen filter contrast-125 sepia-[.3] hue-rotate-[170deg] brightness-125 hover:brightness-150 transition-all duration-700 holo-glow'
+                        src='https://lh3.googleusercontent.com/aida-public/AB6AXuC_YqmNAqgCpS_CvOax0Wj-M4SgxnJscKCHlET17w9wptyDV5RohQvKU-WOURSnT0jXV9z2Ry59o_QpOCMJwTv0IQ8DwrcFbBdw8-jGY-x5cFYtXnUoqdq90Vd8XW1zFCUlni1lGkl5URIrwMmAZ4mWLoN7QU6Obz6PL02uQA3etRWmKBazKrI-LWJaKlHdO1vLKgrgm8OYlg3vMHgbVEYW6Sbo_7WUQnmzJo25G0YIfX3oFPn-Ea02ljnifuzPcPNV4EpP2-SYPjUG'
+                      />
+                      <div
+                        class='absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-cyan-500/20 mix-blend-color-dodge pointer-events-none'
+                      ></div>
+                      <div
+                        class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-40 mix-blend-overlay"
+                      ></div>
+                      <div class='scanline animate-scan'></div>
+                      <div
+                        class='absolute inset-0 bg-[linear-gradient(rgba(0,240,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,240,255,0.1)_1px,transparent_1px)] bg-[size:20px_20px] opacity-20 pointer-events-none'
+                      ></div>
+                    </div>
+                    <div
+                      class='absolute top-1/2 -left-12 w-10 h-px bg-primary/50 hidden md:block shadow-[0_0_5px_#D4AF37]'
+                    ></div>
+
+                    <div
+                      class='absolute top-10 right-10 w-1 h-1 bg-white rounded-full animate-ping'
+                    ></div>
+                    <div
+                      class='absolute bottom-20 left-10 w-1.5 h-1.5 bg-primary rounded-full animate-pulse shadow-[0_0_10px_#D4AF37]'
+                    ></div>
+                  </div>
+
+                </div>
                 <div
                   class='absolute top-10 right-10 flex flex-col items-end z-20'
                 >
@@ -411,10 +408,10 @@
                   ></div>
                   <span
                     class='text-primary font-mono text-xs tracking-widest border-b border-primary/50 pb-1 mb-1'
-                  >ALIGN FACE</span>
+                  >A HUMAN MUST BE HERE.</span>
                   <span
                     class='text-[10px] text-gray-500 font-mono'
-                  >LIVENESS IN PROGRESS...</span>
+                  >CHECKING PRESENCE...</span>
                 </div>
                 <div class='absolute bottom-20 left-10 z-20'>
                   <div
@@ -609,7 +606,7 @@
         </section>
         <section
           class='relative border border-gray-800 bg-[#0a0a0a] min-h-[600px] w-full flex flex-col lg:flex-row group overflow-hidden'
-          id='view-1-map'
+          id='boot-map'
         >
           <div
             class='absolute inset-0 z-0 opacity-40 mix-blend-screen'
@@ -842,7 +839,7 @@
           </div>
           <div
             class='bg-[#111] border border-gray-800 p-6 clip-notch relative hover:border-gray-600 transition-colors'
-            id='view-1-wallet'
+            id='boot-wallet'
           >
             <div class='flex justify-between items-start mb-6'>
               <div>
@@ -912,7 +909,7 @@
           </div>
           <div
             class='bg-[#111] border border-gray-800 p-6 clip-notch relative hover:border-gray-600 transition-colors'
-            id='view-1-host'
+            id='boot-host'
           >
             <div class='flex justify-between items-start mb-6'>
               <div>
@@ -976,8 +973,7 @@
               BUY CLZTR
               <span class='text-gray-600'>FLOW</span>
             </h3>
-            <span class='text-xs font-mono text-gray-500'>QUOTE
-              READY</span>
+            <span class='text-xs font-mono text-gray-500'>QUOTE READY</span>
           </div>
           <div
             class='relative flex justify-between items-center max-w-4xl mx-auto py-8'
@@ -1129,7 +1125,7 @@
         </section>
         <section
           class='border-t border-gray-800 pt-16 pb-20 relative overflow-hidden'
-          id='view-1-clearance'
+          id='clearance'
         >
           <div
             class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-screen pointer-events-none"
@@ -1138,233 +1134,372 @@
             <div class='flex items-end justify-between mb-12'>
               <div>
                 <h2
-                  class='font-display italic text-4xl text-white'
-                >TIER
-                  <span class='text-gray-600'>UPSELL</span></h2>
+                  class='font-display italic text-4xl lg:text-5xl text-white tracking-tight'
+                >CLEARANCE
+                  <span class='text-gray-600'>LEVELS</span></h2>
                 <p
-                  class='text-sm text-gray-500 mt-2 max-w-md font-mono'
-                >Upgrade your tier to unlock VIP/company events,
-                  gated media, and priority access.</p>
+                  class='text-sm text-gray-500 mt-2 max-w-md font-mono border-l-2 border-primary pl-3'
+                >Upgrade clearance for restricted zone access,
+                  exclusive drops, and staking multipliers.</p>
               </div>
               <button
-                class='group flex items-center gap-2 text-primary font-mono text-xs hover:text-white transition-colors border-b border-primary/30 pb-1'
+                class='group flex items-center gap-2 text-primary font-mono text-xs hover:text-white transition-colors border-b border-primary/30 pb-1 uppercase tracking-widest font-bold'
               >
-                <span>VIEW TIERS</span>
+                <span>Full Matrix</span>
                 <i
                   class='ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform'
                 ></i>
               </button>
             </div>
             <div
-              class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 px-4 lg:px-0'
+              class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 px-4 lg:px-0'
             >
               <div class='relative group h-full'>
                 <div
-                  class='h-full glass-panel-card border border-gray-700/50 skew-box p-8 transition-all duration-300 hover:scale-[1.03] hover:bg-gray-800/60 shadow-[0_0_20px_rgba(255,255,255,0.02)] hover:shadow-[0_0_30px_rgba(255,255,255,0.08)]'
+                  class='absolute -inset-1 bg-gradient-to-b from-gray-700 to-transparent rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200'
+                ></div>
+                <div
+                  class='relative h-full glass-panel-card border border-gray-700/50 p-6 transition-all duration-300 hover:-translate-y-2 clip-hud-corner flex flex-col'
+                >
+                  <div
+                    class='absolute inset-0 opacity-10 topo-pattern mix-blend-overlay'
+                  ></div>
+                  <div class='flex justify-between items-start mb-8'>
+                    <div
+                      class='skew-box bg-gray-800 px-3 py-1 border border-gray-600'
+                    >
+                      <span
+                        class='unskew-text font-mono text-[10px] uppercase tracking-[0.2em] text-gray-300 font-bold'
+                      >Lvl.01</span>
+                    </div>
+                    <div
+                      class='w-12 h-12 flex items-center justify-center bg-gray-800/50 rounded-full border border-gray-700 shadow-[0_0_15px_rgba(255,255,255,0.05)] group-hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-shadow'
+                    >
+                      <i
+                        class='ph-fill ph-user-circle text-2xl text-gray-400 group-hover:text-white transition-colors'
+                      ></i>
+                    </div>
+                  </div>
+                  <h3
+                    class='font-display italic text-3xl text-gray-300 mb-1 group-hover:text-white transition-colors tracking-wide'
+                  >ESSENTIAL</h3>
+                  <div
+                    class='h-0.5 w-8 bg-gray-600 mb-8 group-hover:w-full transition-all duration-500'
+                  ></div>
+                  <div
+                    class='absolute right-4 top-1/3 opacity-10 group-hover:opacity-20 transition-opacity transform rotate-12 scale-150 pointer-events-none'
+                  >
+                    <i
+                      class='ph-duotone ph-shield-check text-8xl text-white'
+                    ></i>
+                  </div>
+                  <ul class='space-y-3 mb-8 flex-1 relative z-10'>
+                    <li
+                      class='flex items-center gap-3 text-sm text-gray-400'
+                    >
+                      <i class='ph-bold ph-check text-gray-500'></i>
+                      Standard Grid Access
+                    </li>
+                    <li
+                      class='flex items-center gap-3 text-sm text-gray-400'
+                    >
+                      <i class='ph-bold ph-check text-gray-500'></i>
+                      Public Events
+                    </li>
+                    <li
+                      class='flex items-center gap-3 text-sm text-gray-600 line-through decoration-gray-600'
+                    >
+                      <i class='ph-bold ph-x text-gray-800'></i>
+                      No Staking
+                    </li>
+                  </ul>
+                  <div class='mt-auto'>
+                    <div class='flex items-baseline gap-1 mb-2'>
+                      <span
+                        class='font-display text-4xl text-white italic'
+                      >FREE</span>
+                    </div>
+                    <button
+                      class='w-full py-3 border border-gray-600 text-gray-400 font-display italic text-sm uppercase hover:bg-white hover:text-black hover:border-white transition-all skew-box'
+                    >
+                      <span
+                        class='unskew-text font-bold'
+                      >Initialize</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class='relative group h-full'>
+                <div
+                  class='absolute -inset-1 bg-gradient-to-b from-accent-purple to-transparent rounded-lg blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200'
+                ></div>
+                <div
+                  class='relative h-full glass-panel-card border border-accent-purple/30 p-6 transition-all duration-300 hover:-translate-y-2 clip-hud-corner bg-[#1a0f2e]/30 flex flex-col'
                 >
                   <div
                     class='absolute inset-0 opacity-20 topo-pattern mix-blend-overlay'
                   ></div>
-                  <div
-                    class='unskew-text flex flex-col h-full relative z-10'
-                  >
+                  <div class='flex justify-between items-start mb-8'>
                     <div
-                      class='flex justify-between items-start mb-6'
+                      class='skew-box bg-purple-900/30 px-3 py-1 border border-accent-purple/50 shadow-[0_0_10px_rgba(160,32,240,0.2)]'
                     >
                       <span
-                        class='font-mono text-[10px] uppercase tracking-widest text-gray-400 border border-gray-600 px-2 py-1 bg-black/50'
-                      >Level 01</span>
-                      <div class='relative'>
-                        <i
-                          class='ph-fill ph-user-circle text-4xl text-gray-500 drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)] transform group-hover:rotate-12 transition-transform duration-500'
-                        ></i>
-                      </div>
+                        class='unskew-text font-mono text-[10px] uppercase tracking-[0.2em] text-accent-purple font-bold'
+                      >Lvl.05</span>
                     </div>
-                    <h3
-                      class='font-display italic text-3xl text-gray-300 mb-2 group-hover:text-white transition-colors'
-                    >FREE</h3>
                     <div
-                      class='h-1 w-12 bg-gray-600 mb-6 group-hover:w-full transition-all duration-500'
-                    ></div>
-                    <div class='mt-auto'>
-                      <div class='flex items-baseline gap-1'>
-                        <span
-                          class='font-display text-4xl text-white'
-                        >0</span>
-                        <span
-                          class='font-mono text-xs text-gray-400'
-                        >CLZTR</span>
-                      </div>
-                      <p
-                        class='text-xs text-gray-500 mt-2 font-mono'
-                      >Standard clearance access.</p>
+                      class='w-12 h-12 flex items-center justify-center bg-purple-900/20 rounded-full border border-accent-purple/50 shadow-[0_0_15px_rgba(160,32,240,0.2)] group-hover:shadow-[0_0_25px_rgba(160,32,240,0.4)] transition-shadow'
+                    >
+                      <i
+                        class='ph-fill ph-star-four text-2xl text-accent-purple animate-pulse'
+                      ></i>
                     </div>
                   </div>
+                  <h3
+                    class='font-display italic text-3xl text-white mb-1 tracking-wide drop-shadow-[0_0_5px_rgba(160,32,240,0.5)]'
+                  >EXOTIC</h3>
                   <div
-                    class='absolute inset-0 border border-white/5 pointer-events-none'
+                    class='h-0.5 w-8 bg-accent-purple mb-8 group-hover:w-full transition-all duration-500 shadow-[0_0_8px_rgba(160,32,240,0.8)]'
                   ></div>
+                  <div
+                    class='absolute right-4 top-1/3 opacity-10 group-hover:opacity-20 transition-opacity transform -rotate-12 scale-150 pointer-events-none'
+                  >
+                    <i
+                      class='ph-duotone ph-sparkle text-8xl text-accent-purple'
+                    ></i>
+                  </div>
+                  <ul class='space-y-3 mb-8 flex-1 relative z-10'>
+                    <li
+                      class='flex items-center gap-3 text-sm text-gray-300'
+                    >
+                      <div
+                        class='bg-accent-purple/20 p-1 rounded-full'
+                      ><i
+                          class='ph-bold ph-check text-accent-purple text-xs'
+                        ></i></div>
+                      1.2x Staking Power
+                    </li>
+                    <li
+                      class='flex items-center gap-3 text-sm text-gray-300'
+                    >
+                      <div
+                        class='bg-accent-purple/20 p-1 rounded-full'
+                      ><i
+                          class='ph-bold ph-check text-accent-purple text-xs'
+                        ></i></div>
+                      Governance Voting
+                    </li>
+                    <li
+                      class='flex items-center gap-3 text-sm text-gray-300'
+                    >
+                      <div
+                        class='bg-accent-purple/20 p-1 rounded-full'
+                      ><i
+                          class='ph-bold ph-check text-accent-purple text-xs'
+                        ></i></div>
+                      Rare NFT Drops
+                    </li>
+                  </ul>
+                  <div class='mt-auto'>
+                    <div class='flex items-baseline gap-1 mb-2'>
+                      <span
+                        class='font-display text-4xl text-white italic'
+                      >50</span>
+                      <span
+                        class='font-mono text-xs text-purple-300'
+                      >CLZTR/MO</span>
+                    </div>
+                    <button
+                      class='w-full py-3 border border-accent-purple text-accent-purple font-display italic text-sm uppercase hover:bg-accent-purple hover:text-white hover:shadow-[0_0_20px_rgba(160,32,240,0.5)] transition-all skew-box'
+                    >
+                      <span class='unskew-text font-bold'>Upgrade Node</span>
+                    </button>
+                  </div>
                 </div>
               </div>
               <div class='relative group h-full'>
                 <div
-                  class='h-full glass-panel-card border border-accent-purple/30 skew-box p-8 transition-all duration-300 hover:scale-[1.03] bg-[#1a0f2e]/40 shadow-[0_0_15px_rgba(160,32,240,0.15)] hover:shadow-[0_0_40px_rgba(160,32,240,0.3)]'
+                  class='absolute -inset-1 bg-gradient-to-b from-primary to-transparent rounded-lg blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200'
+                ></div>
+                <div
+                  class='relative h-full glass-panel-card border border-primary/30 p-6 transition-all duration-300 hover:-translate-y-2 clip-hud-corner bg-[#241e0b]/30 flex flex-col'
+                >
+                  <div
+                    class='absolute inset-0 opacity-20 topo-pattern mix-blend-overlay'
+                  ></div>
+                  <div class='flex justify-between items-start mb-8'>
+                    <div
+                      class='skew-box bg-yellow-900/30 px-3 py-1 border border-primary/50 shadow-[0_0_10px_rgba(255,215,0,0.2)]'
+                    >
+                      <span
+                        class='unskew-text font-mono text-[10px] uppercase tracking-[0.2em] text-primary font-bold'
+                      >Lvl.10</span>
+                    </div>
+                    <div
+                      class='w-12 h-12 flex items-center justify-center bg-yellow-900/20 rounded-full border border-primary/50 shadow-[0_0_15px_rgba(255,215,0,0.2)] group-hover:shadow-[0_0_25px_rgba(255,215,0,0.4)] transition-shadow'
+                    >
+                      <i
+                        class='ph-fill ph-crown text-2xl text-primary transform group-hover:-translate-y-1 transition-transform'
+                      ></i>
+                    </div>
+                  </div>
+                  <h3
+                    class='font-display italic text-3xl text-white mb-1 tracking-wide drop-shadow-[0_0_5px_rgba(255,215,0,0.5)]'
+                  >ELITE</h3>
+                  <div
+                    class='h-0.5 w-8 bg-primary mb-8 group-hover:w-full transition-all duration-500 shadow-[0_0_8px_rgba(255,215,0,0.8)]'
+                  ></div>
+                  <div
+                    class='absolute right-4 top-1/3 opacity-10 group-hover:opacity-20 transition-opacity transform rotate-6 scale-150 pointer-events-none'
+                  >
+                    <i
+                      class='ph-duotone ph-crown-simple text-8xl text-primary'
+                    ></i>
+                  </div>
+                  <ul class='space-y-3 mb-8 flex-1 relative z-10'>
+                    <li
+                      class='flex items-center gap-3 text-sm text-gray-200 font-bold'
+                    >
+                      <div class='bg-primary/20 p-1 rounded-full'><i
+                          class='ph-bold ph-check text-primary text-xs'
+                        ></i></div>
+                      2.0x Staking Multiplier
+                    </li>
+                    <li
+                      class='flex items-center gap-3 text-sm text-gray-200'
+                    >
+                      <div class='bg-primary/20 p-1 rounded-full'><i
+                          class='ph-bold ph-check text-primary text-xs'
+                        ></i></div>
+                      VIP Zone Access
+                    </li>
+                    <li
+                      class='flex items-center gap-3 text-sm text-gray-200'
+                    >
+                      <div class='bg-primary/20 p-1 rounded-full'><i
+                          class='ph-bold ph-check text-primary text-xs'
+                        ></i></div>
+                      Host Capabilities
+                    </li>
+                  </ul>
+                  <div class='mt-auto'>
+                    <div class='flex items-baseline gap-1 mb-2'>
+                      <span
+                        class='font-display text-4xl text-white italic'
+                      >250</span>
+                      <span
+                        class='font-mono text-xs text-yellow-200'
+                      >CLZTR/MO</span>
+                    </div>
+                    <button
+                      class='w-full py-3 bg-primary text-black font-display italic text-sm uppercase hover:bg-white hover:shadow-[0_0_20px_rgba(255,215,0,0.6)] transition-all skew-box'
+                    >
+                      <span class='unskew-text font-bold'>Secure
+                        Access</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class='relative group h-full'>
+                <div
+                  class='absolute -inset-1 bg-gradient-to-b from-accent-cyan to-transparent rounded-lg blur opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-200'
+                ></div>
+                <div
+                  class='relative h-full glass-panel-card border border-accent-cyan/40 p-6 transition-all duration-300 hover:-translate-y-2 clip-hud-corner bg-[#082f36]/40 flex flex-col overflow-hidden'
                 >
                   <div
                     class='absolute inset-0 opacity-30 topo-pattern mix-blend-overlay'
                   ></div>
                   <div
-                    class='absolute -right-10 -top-10 w-32 h-32 bg-accent-purple/20 blur-3xl rounded-full pointer-events-none group-hover:bg-accent-purple/30 transition-colors'
+                    class='absolute inset-0 bg-gradient-to-br from-accent-cyan/10 to-transparent pointer-events-none'
                   ></div>
                   <div
-                    class='unskew-text flex flex-col h-full relative z-10'
+                    class='flex justify-between items-start mb-8 relative z-10'
                   >
                     <div
-                      class='flex justify-between items-start mb-6'
+                      class='skew-box bg-accent-cyan px-3 py-1 border border-white/50 shadow-[0_0_15px_rgba(0,224,255,0.4)]'
                     >
                       <span
-                        class='font-mono text-[10px] uppercase tracking-widest text-accent-purple border border-accent-purple/50 bg-purple-900/20 px-2 py-1 shadow-[0_0_10px_rgba(160,32,240,0.2)]'
-                      >Level 05</span>
-                      <div class='relative'>
-                        <i
-                          class='ph-fill ph-star-four text-4xl text-accent-purple drop-shadow-[0_0_15px_rgba(160,32,240,0.6)] transform group-hover:rotate-45 transition-transform duration-700'
-                        ></i>
-                      </div>
+                        class='unskew-text font-mono text-[10px] uppercase tracking-[0.2em] text-black font-black'
+                      >Lvl.99</span>
                     </div>
-                    <h3
-                      class='font-display italic text-3xl text-white mb-2 text-shadow-purple'
-                    >ESSENTIAL</h3>
                     <div
-                      class='h-1 w-12 bg-accent-purple mb-6 group-hover:w-full transition-all duration-500 shadow-[0_0_10px_rgba(160,32,240,0.5)]'
-                    ></div>
-                    <div class='mt-auto'>
-                      <div class='flex items-baseline gap-1'>
-                        <span
-                          class='font-display text-4xl text-white'
-                        >50</span>
-                        <span
-                          class='font-mono text-xs text-gray-400'
-                        >CLZTR</span>
-                        <span
-                          class='font-mono text-xs text-purple-300'
-                        >/ MO</span>
-                      </div>
-                      <p
-                        class='text-xs text-gray-400 mt-2 font-mono'
-                      >Staking &amp; Governance enabled.</p>
+                      class='w-12 h-12 flex items-center justify-center bg-cyan-900/40 rounded-full border border-accent-cyan shadow-[0_0_20px_rgba(0,224,255,0.3)] group-hover:shadow-[0_0_30px_rgba(0,224,255,0.6)] transition-shadow'
+                    >
+                      <i
+                        class='ph-fill ph-diamond text-2xl text-accent-cyan'
+                      ></i>
                     </div>
                   </div>
+                  <h3
+                    class='font-display italic text-3xl text-white mb-1 tracking-wide drop-shadow-[0_0_10px_rgba(0,224,255,0.6)]'
+                  >BILLIONAIRE</h3>
                   <div
-                    class='absolute inset-0 border border-accent-purple/20 pointer-events-none group-hover:border-accent-purple/50 transition-colors'
-                  ></div>
-                </div>
-              </div>
-              <div class='relative group h-full'>
-                <div
-                  class='h-full glass-panel-card border border-primary/30 skew-box p-8 transition-all duration-300 hover:scale-[1.03] bg-[#241e0b]/40 shadow-[0_0_15px_rgba(255,215,0,0.15)] hover:shadow-[0_0_40px_rgba(255,215,0,0.3)]'
-                >
-                  <div
-                    class='absolute inset-0 opacity-30 topo-pattern mix-blend-overlay'
+                    class='h-0.5 w-8 bg-accent-cyan mb-8 group-hover:w-full transition-all duration-500 shadow-[0_0_10px_rgba(0,224,255,0.8)]'
                   ></div>
                   <div
-                    class='absolute -left-10 -bottom-10 w-40 h-40 bg-primary/10 blur-3xl rounded-full pointer-events-none group-hover:bg-primary/20 transition-colors'
-                  ></div>
-                  <div
-                    class='unskew-text flex flex-col h-full relative z-10'
+                    class='absolute right-[-20px] top-[100px] opacity-20 group-hover:opacity-40 transition-all duration-700 transform rotate-45 group-hover:rotate-[60deg] group-hover:scale-110 pointer-events-none perspective-1000'
                   >
-                    <div
-                      class='flex justify-between items-start mb-6'
-                    >
-                      <span
-                        class='font-mono text-[10px] uppercase tracking-widest text-primary border border-primary/50 bg-yellow-900/20 px-2 py-1 shadow-[0_0_10px_rgba(255,215,0,0.2)]'
-                      >Level 10</span>
-                      <div class='relative'>
-                        <i
-                          class='ph-fill ph-crown text-4xl text-primary drop-shadow-[0_0_15px_rgba(255,215,0,0.6)] transform group-hover:-translate-y-2 transition-transform duration-500'
-                        ></i>
-                      </div>
-                    </div>
-                    <h3
-                      class='font-display italic text-3xl text-white mb-2'
-                    >VIP</h3>
-                    <div
-                      class='h-1 w-12 bg-primary mb-6 group-hover:w-full transition-all duration-500 shadow-[0_0_10px_rgba(255,215,0,0.5)]'
-                    ></div>
-                    <div class='mt-auto'>
-                      <div class='flex items-baseline gap-1'>
-                        <span
-                          class='font-display text-4xl text-white'
-                        >250</span>
-                        <span
-                          class='font-mono text-xs text-gray-400'
-                        >CLZTR</span>
-                        <span
-                          class='font-mono text-xs text-yellow-200'
-                        >/ MO</span>
-                      </div>
-                      <p
-                        class='text-xs text-gray-400 mt-2 font-mono'
-                      >Priority VIP Zone Access.</p>
-                    </div>
+                    <i
+                      class='ph-fill ph-sketch-logo text-9xl text-accent-cyan drop-shadow-[10px_10px_0_rgba(0,0,0,0.5)]'
+                    ></i>
                   </div>
-                  <div
-                    class='absolute inset-0 border border-primary/20 pointer-events-none group-hover:border-primary/50 transition-colors'
-                  ></div>
-                </div>
-              </div>
-              <div class='relative group h-full'>
-                <div
-                  class='h-full glass-panel-card border border-accent-cyan/30 skew-box p-8 transition-all duration-300 hover:scale-[1.03] bg-[#082f36]/40 shadow-[0_0_20px_rgba(0,224,255,0.15)] hover:shadow-[0_0_50px_rgba(0,224,255,0.4)] overflow-visible'
-                >
-                  <div
-                    class='absolute inset-0 opacity-40 topo-pattern mix-blend-overlay'
-                  ></div>
-                  <div
-                    class='absolute inset-0 bg-gradient-to-br from-accent-cyan/10 to-transparent opacity-30 group-hover:opacity-50 transition-opacity'
-                  ></div>
-                  <div
-                    class='unskew-text flex flex-col h-full relative z-10'
-                  >
-                    <div
-                      class='flex justify-between items-start mb-6'
+                  <ul class='space-y-3 mb-8 flex-1 relative z-10'>
+                    <li
+                      class='flex items-center gap-3 text-sm text-white font-bold'
                     >
+                      <div
+                        class='bg-accent-cyan/20 p-1 rounded-full border border-accent-cyan/50'
+                      ><i
+                          class='ph-bold ph-check text-accent-cyan text-xs'
+                        ></i></div>
+                      5.0x Yield Multiplier
+                    </li>
+                    <li
+                      class='flex items-center gap-3 text-sm text-white font-bold'
+                    >
+                      <div
+                        class='bg-accent-cyan/20 p-1 rounded-full border border-accent-cyan/50'
+                      ><i
+                          class='ph-bold ph-check text-accent-cyan text-xs'
+                        ></i></div>
+                      Council Seat
+                    </li>
+                    <li
+                      class='flex items-center gap-3 text-sm text-white font-bold'
+                    >
+                      <div
+                        class='bg-accent-cyan/20 p-1 rounded-full border border-accent-cyan/50'
+                      ><i
+                          class='ph-bold ph-check text-accent-cyan text-xs'
+                        ></i></div>
+                      World Ownership
+                    </li>
+                  </ul>
+                  <div class='mt-auto relative z-10'>
+                    <div class='flex items-baseline gap-1 mb-2'>
                       <span
-                        class='font-mono text-[10px] uppercase tracking-widest text-black bg-accent-cyan border border-accent-cyan px-2 py-1 font-bold shadow-[0_0_15px_rgba(0,224,255,0.5)]'
-                      >Level 99</span>
-                      <div class='relative'>
-                        <i
-                          class='ph-fill ph-diamond text-4xl text-accent-cyan drop-shadow-[0_0_20px_rgba(0,224,255,0.8)] transform group-hover:scale-110 transition-transform duration-500'
-                        ></i>
-                      </div>
+                        class='font-display text-4xl text-white italic'
+                      >1,000</span>
+                      <span
+                        class='font-mono text-xs text-cyan-200'
+                      >CLZTR/YR</span>
                     </div>
-                    <h3
-                      class='font-display italic text-3xl text-white mb-2'
-                    >COMPANY</h3>
-                    <div
-                      class='h-1 w-12 bg-accent-cyan mb-6 group-hover:w-full transition-all duration-500 shadow-[0_0_10px_rgba(0,224,255,0.5)]'
-                    ></div>
-                    <div class='mt-auto'>
-                      <div class='flex items-baseline gap-1'>
-                        <span
-                          class='font-display text-4xl text-white'
-                        >1,000</span>
-                        <span
-                          class='font-mono text-xs text-gray-400'
-                        >CLZTR</span>
-                        <span
-                          class='font-mono text-xs text-cyan-200'
-                        >/ YR</span>
-                      </div>
-                      <p
-                        class='text-xs text-gray-400 mt-2 font-mono'
-                      >World Ownership Rights.</p>
-                    </div>
+                    <button
+                      class='w-full py-3 border border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-black font-display italic text-sm uppercase hover:shadow-[0_0_30px_rgba(0,224,255,0.4)] transition-all skew-box relative overflow-hidden group/btn'
+                    >
+                      <div
+                        class='absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300'
+                      ></div>
+                      <span
+                        class='unskew-text font-bold relative z-10'
+                      >Claim Authority</span>
+                    </button>
                   </div>
-                  <div
-                    class='absolute inset-0 border border-accent-cyan/30 pointer-events-none group-hover:border-accent-cyan/60 transition-colors'
-                  ></div>
                 </div>
               </div>
             </div>
+            
           </div>
         </section>
       </div>
