@@ -1,6 +1,6 @@
 <section
   id='boot-boot'
-  class='screen-boot relative isolate transform-gpu bg-background-dark text-gray-100 font-body overflow-x-hidden selection:bg-primary selection:text-black transition-colors duration-300 min-h-screen'
+  class='screen-boot relative isolate transform-gpu bg-background-dark text-gray-100 font-body overflow-x-hidden selection:bg-primary selection:text-black transition-colors duration-300 min-h-screen mb-10 sm:mb-12 lg:mb-16'
 >
   <style>
     .screen-boot .clip-notch {
@@ -134,42 +134,42 @@
           class='bg-primary px-4 h-full flex items-center justify-center z-10 skew-box -ml-4'
         >
           <span
-            class='unskew-text font-display italic font-bold text-black text-xs'
+            class='unskew-text font-display italic font-bold text-black text-[10px] sm:text-xs'
           >BOOT STATUS</span>
         </div>
         <div class='flex-1 overflow-hidden relative'>
           <div
-            class='animate-marquee whitespace-nowrap flex gap-12 items-center text-xs font-mono text-gray-400'
+            class='animate-marquee whitespace-nowrap flex gap-4 sm:gap-8 lg:gap-12 items-center text-[9px] sm:text-[10px] md:text-xs font-mono text-gray-400'
           >
             <span class='flex items-center gap-2'><i
                 class='ph-fill ph-check-circle text-success'
               ></i>
-              SUPABASE ANON SIGN-IN: OK</span>
+              CAMERA-FIRST ENTRY: READY</span>
             <span class='flex items-center gap-2'><i
                 class='ph-fill ph-arrows-left-right text-accent-cyan'
               ></i>
-              CONFIG PREFETCH: FLAGS LOADED</span>
+              FAST BOOT: CONFIG + MAP</span>
             <span class='flex items-center gap-2'><i
-                class='ph-fill ph-warning text-primary'
+                class='ph-fill ph-camera text-primary'
               ></i>
-              DEVICE CHECKS: CAMERA + LOCATION</span>
+              FACE + LIVENESS: 1–2s</span>
             <span class='flex items-center gap-2'><i
-                class='ph-fill ph-check-circle text-success'
+                class='ph-fill ph-shield-check text-success'
               ></i>
-              CONSENT REQUIRED: CAMERA + LOCATION</span>
+              PRESENCE_VALIDATED: REQUIRED</span>
             <span class='flex items-center gap-2'><i
                 class='ph-fill ph-trophy text-primary'
               ></i>
-              PRESENCE TOKEN: PENDING</span>
+              ROLE ICONS: STAR / TRI / CIRCLE</span>
             <span class='flex items-center gap-2'><i
-                class='ph-fill ph-check-circle text-success'
+                class='ph-fill ph-map-trifold text-success'
               ></i>
-              MAP PRELOAD: QUEUED</span>
+              LIVING MAP: CLUSTERS + EVENTS</span>
           </div>
         </div>
       </div>
       <section
-        class='relative h-[85vh] w-full overflow-hidden flex items-end pb-20 px-8 lg:px-16 border-b border-gray-800'
+        class='relative min-h-[75vh] md:h-[85vh] w-full overflow-hidden flex items-end pb-16 md:pb-20 px-4 sm:px-6 lg:px-16 border-b border-gray-800'
       >
         <div class='absolute inset-0 bg-black z-0'>
           <img
@@ -185,92 +185,91 @@
           ></div>
         </div>
         <div
-          class='relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-end justify-between gap-12'
+          class='relative z-10 w-full mx-auto flex flex-col md:flex-row items-start md:items-end justify-between gap-12'
         >
           <div class='max-w-3xl'>
-            <div class='inline-flex items-center gap-3 mb-6'>
+            <div class='inline-flex items-center gap-3 mb-6 mt-4 sm:mt-6'>
               <span
-                class='bg-primary text-black px-2 py-1 text-xs font-bold font-display skew-box'
+                class='bg-primary text-black px-2 py-1 text-[10px] sm:text-xs font-bold font-display skew-box'
               >
-                <span class='unskew-text'>BOOT SEQUENCE</span>
+                <span class='unskew-text'>ACCESS SEQUENCE</span>
               </span>
               <span
-                class='text-accent-cyan font-mono text-xs tracking-widest animate-pulse'
+                class='text-accent-cyan font-mono text-[10px] sm:text-xs tracking-widest animate-pulse'
               >
-                /// ANON SIGN-IN...
+                /// CREATE. DISCOVER. ARRIVE.
               </span>
             </div>
             <h1
-              class='font-display italic font-black text-6xl lg:text-9xl text-white tracking-tighter leading-[0.8] mb-6 drop-shadow-2xl'
+              class='font-display italic font-black text-4xl sm:text-6xl lg:text-9xl text-white tracking-tighter leading-[0.8] mb-6 drop-shadow-2xl'
             >
               CLZTR
               <span
                 class='text-transparent bg-clip-text bg-gradient-to-r from-primary to-white opacity-50 block md:inline'
-              >COLD START</span>
+              >PRESENCE</span>
             </h1>
             <p
-              class='text-xl text-gray-300 font-display italic max-w-xl mb-10 border-l-4 border-primary pl-6'
+              class='text-base sm:text-xl text-gray-300 font-display italic max-w-xl mb-10 border-l-4 border-primary pl-6'
             >
-              Splash logo + version label. Silent session loader,
-              config prefetch, and device checks.
+              Enter fast, move with intent, and explore what’s live around you. The experience is frictionless by design
             </p>
-            <div class='flex gap-4'>
+            <div class='flex flex-col sm:flex-row gap-4 w-full sm:w-auto'>
               <button
-                class='group relative px-12 py-4 bg-primary skew-box transition-all hover:scale-105 active:scale-95 glow-box-primary'
+                class='group relative px-12 py-4 bg-primary skew-box transition-all hover:scale-105 active:scale-95 glow-box-primary w-full sm:w-auto'
               >
                 <div
-                  class='unskew-text flex items-center gap-3 text-black font-display text-xl italic font-black tracking-widest'
+                  class='unskew-text flex items-center gap-3 text-black font-display text-base sm:text-lg md:text-xl italic font-black tracking-widest'
                 >
-                  START SESSION
+                  ENTER MAP
                   <i
                     class='ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform'
                   ></i>
                 </div>
               </button>
               <button
-                class='group px-8 py-4 border border-white/20 bg-black/40 backdrop-blur-sm skew-box hover:bg-white/10 transition-all'
+                class='group px-6 sm:px-8 py-4 border border-white/20 bg-black/40 backdrop-blur-sm skew-box hover:bg-white/10 transition-all w-full sm:w-auto'
               >
                 <div
-                  class='unskew-text text-white font-display text-sm italic font-bold tracking-widest uppercase'
+                  class='unskew-text text-white font-display text-xs sm:text-sm italic font-bold tracking-widest uppercase'
                 >
-                  VIEW CONSENT
+                  ACCESS RULES
                 </div>
               </button>
             </div>
           </div>
           <div
-            class='hidden md:block w-72 bg-black/80 backdrop-blur-md border border-gray-700 p-6 clip-notch'
+            class='w-full sm:w-80 md:w-72 bg-black/80 backdrop-blur-md border border-gray-700 p-6 clip-notch mt-8 md:mt-0'
           >
             <div
               class='flex justify-between items-center mb-4 pb-4 border-b border-gray-700'
             >
               <span
-                class='text-xs font-mono text-gray-500 uppercase'
-              >Boot Status</span>
+                class='text-[10px] sm:text-xs font-mono text-gray-500 uppercase'
+              >Access Status</span>
               <div class='flex gap-1'>
                 <div
                   class='w-2 h-2 bg-red-500 rounded-full animate-ping'
                 ></div>
                 <span
-                  class='text-xs font-mono text-red-500 font-bold'
-                >LOADING</span>
+                  class='text-[10px] sm:text-xs font-mono text-red-500 font-bold'
+                >VALIDATING</span>
               </div>
             </div>
             <div class='space-y-4'>
               <div>
                 <div class='text-[10px] text-gray-400 uppercase mb-1'>
-                  Session Tokens
+                  Presence Sessions
                 </div>
-                <div class='font-display text-2xl text-white italic'>
+                <div class='font-display text-xl sm:text-2xl text-white italic'>
                   8,420,119
                 </div>
               </div>
               <div>
                 <div class='text-[10px] text-gray-400 uppercase mb-1'>
-                  Presence Checks
+                  Liveness Passes
                 </div>
                 <div
-                  class='font-display text-2xl text-primary italic'
+                  class='font-display text-xl sm:text-2xl text-primary italic'
                 >
                   1,204
                 </div>
@@ -285,33 +284,33 @@
           id='boot-identity'
         >
           <div
-            class='lg:col-span-4 p-8 lg:p-12 flex flex-col justify-center border-r border-gray-800 relative z-10 bg-surface-dark'
+            class='lg:col-span-4 p-6 sm:p-8 lg:p-12 flex flex-col justify-center border-r border-gray-800 relative z-10 bg-surface-dark'
           >
             <div
               class='absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent-cyan to-transparent'
             ></div>
             <i
-              class='ph-duotone ph-scan text-5xl text-accent-cyan mb-6'
+              class='ph-duotone ph-scan text-4xl sm:text-5xl text-accent-cyan mb-6'
             ></i>
             <h2
-              class='font-display italic text-4xl lg:text-5xl text-white mb-4'
+              class='font-display italic text-2xl sm:text-3xl lg:text-4xl text-white mb-4'
             >
               APP ACCESS<br /><span class='text-gray-600'>PROOF OF
                 PRESENCE</span>
             </h2>
             <p
-              class='text-gray-400 font-mono text-sm leading-relaxed mb-8'
+              class='text-gray-400 font-mono text-xs sm:text-sm leading-relaxed mb-8'
             >
-              Camera-first access. No typing. No forms. No CAPTCHA. We
-              ask one thing: is a human here? A 1–2s liveness check
-              opens the world. No biometric data stored.
+              Camera-first access. No typing. No forms. No CAPTCHA.
+              A 1–2s face + liveness gate validates presence.
+              No face storage. Map opens in under 3 seconds.
             </p>
             <div class='bg-black border border-gray-800 p-4 mb-6'>
               <div class='flex justify-between items-center mb-2'>
                 <span
-                  class='text-xs text-accent-cyan font-mono uppercase'
-                >Front Camera</span>
-                <span class='text-xs text-white font-mono'>READY</span>
+                  class='text-[10px] sm:text-xs text-accent-cyan font-mono uppercase'
+                >Front Camera + Liveness</span>
+                <span class='text-[10px] sm:text-xs text-white font-mono'>ARMED</span>
               </div>
               <div class='w-full bg-gray-900 h-1'>
                 <div class='bg-accent-cyan h-full w-full'></div>
@@ -320,11 +319,11 @@
             <button
               class='w-full py-4 border border-accent-cyan/30 text-accent-cyan hover:bg-accent-cyan hover:text-black transition-colors skew-box uppercase font-display italic tracking-wider font-bold'
             >
-              <span class='unskew-text'>Access</span>
+              <span class='unskew-text'>Validate & Enter</span>
             </button>
           </div>
           <div
-            class='lg:col-span-8 relative min-h-[500px] bg-black overflow-hidden flex items-center justify-center p-8'
+            class='lg:col-span-8 relative min-h-[420px] sm:min-h-[500px] bg-black overflow-hidden flex items-center justify-center p-6 sm:p-8'
           >
             <div class='absolute inset-0 z-0'>
               <div
@@ -345,7 +344,7 @@
               class='relative w-full max-w-2xl aspect-square lg:aspect-video flex items-center justify-center'
             >
               <div
-                class='clip-corner-brackets absolute inset-0 z-20'
+                class='clip-corner-brackets absolute inset-0 z-20 hidden lg:block'
               ></div>
               <div
                 class='relative z-10 flex flex-col items-center justify-center w-full h-full'
@@ -401,17 +400,17 @@
 
                 </div>
                 <div
-                  class='absolute top-10 right-10 flex flex-col items-end z-20'
+                  class='absolute top-6 sm:top-10 right-6 sm:right-10 flex flex-col items-end z-20'
                 >
                   <div
                     class='w-2 h-2 bg-white rounded-full mb-2 animate-pulse'
                   ></div>
                   <span
-                    class='text-primary font-mono text-xs tracking-widest border-b border-primary/50 pb-1 mb-1'
-                  >A HUMAN MUST BE HERE.</span>
+                    class='text-primary font-mono text-[10px] sm:text-xs tracking-widest border-b border-primary/50 pb-1 mb-1'
+                  >PRESENCE REQUIRED.</span>
                   <span
-                    class='text-[10px] text-gray-500 font-mono'
-                  >CHECKING PRESENCE...</span>
+                    class='text-[9px] sm:text-[10px] text-gray-500 font-mono'
+                  >VALIDATING LIVENESS...</span>
                 </div>
                 <div class='absolute bottom-20 left-10 z-20'>
                   <div
@@ -454,12 +453,12 @@
                 </svg>
               </div>
               <div
-                class='absolute bottom-8 left-1/2 -translate-x-1/2 z-30'
+                class='absolute bottom-8 left-1/2 -translate-x-1/2 z-30 hidden sm:block'
               >
                 <button
-                  class='ley-lines-btn px-8 py-2 rounded-full font-mono text-sm tracking-[0.2em] font-bold uppercase backdrop-blur-md transition-all'
+                  class='ley-lines-btn px-6 sm:px-8 py-2 rounded-full font-mono text-[10px] sm:text-sm tracking-[0.2em] font-bold uppercase backdrop-blur-md transition-all'
                 >
-                  SESSION LOADED
+                  MAP UNLOCKED
                 </button>
               </div>
             </div>
@@ -475,10 +474,10 @@
               ></i>
             </div>
             <h3 class='font-display italic text-xl text-white mb-2'>
-              18+ GATE
+              AGE GATE
             </h3>
             <p class='text-xs text-gray-500 font-mono mb-6'>
-              Age verification required
+              18+ / 21+ / 40+ bands
             </p>
             <div
               class='bg-gray-900 border border-gray-700 p-4 rounded-sm relative overflow-hidden'
@@ -488,10 +487,10 @@
                 class='relative z-10 flex items-center justify-between mb-2'
               >
                 <span class='text-xs font-bold text-gray-400'>AGE
-                  CHECKLIST</span>
+                  PROOF</span>
                 <span
                   class='bg-green-500/20 text-green-500 text-[10px] px-2 py-0.5 rounded border border-green-500/30'
-                >VERIFIED</span>
+                >ON FILE</span>
               </div>
               <div class='flex items-center gap-4'>
                 <div
@@ -503,11 +502,11 @@
                 </div>
                 <div>
                   <div class='text-lg font-display italic text-white'>
-                    18+ VERIFIED
+                    AGE BAND OK
                   </div>
                   <div class='text-[10px] font-mono text-gray-500'>
-                    DOB:
-                    <span class='blur-sm'>HIDDEN-ZK-PROOF</span>
+                    PROOF:
+                    <span class='blur-sm'>ONE-TIME VERIFY</span>
                   </div>
                 </div>
               </div>
@@ -520,10 +519,10 @@
               <i class='ph-bold ph-link text-3xl text-gray-700'></i>
             </div>
             <h3 class='font-display italic text-xl text-white mb-2'>
-              FACE LOGIN / BINDING
+              FACE + WALLET
             </h3>
             <p class='text-xs text-gray-500 font-mono mb-6'>
-              Wallet ↔ Face binding
+              Presence ID linked to wallet
             </p>
             <div class='flex items-center justify-between px-2'>
               <div class='flex flex-col items-center gap-2'>
@@ -534,7 +533,7 @@
                 </div>
                 <span
                   class='text-[10px] font-mono text-gray-400'
-                >FACE_HASH</span>
+                >PRESENCE ID</span>
               </div>
               <div class='flex-1 px-2 relative'>
                 <div class='h-[1px] bg-gray-700 w-full'></div>
@@ -579,7 +578,7 @@
               PRESENCE FAIL
             </h3>
             <p class='text-xs text-gray-500 font-mono mb-6'>
-              Retry window enforced
+              Rate-limited retries
             </p>
             <div
               class='bg-red-900/10 border border-red-900/30 p-3 space-y-2'
@@ -621,7 +620,7 @@
             class="absolute inset-0 z-0 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-10"
           ></div>
           <div
-            class='relative z-10 w-full lg:w-80 bg-black/90 backdrop-blur border-r border-gray-800 p-6 flex flex-col h-full overflow-y-auto'
+            class='relative z-10 w-full lg:w-80 bg-black/90 backdrop-blur border-r border-gray-800 p-6 flex flex-col h-auto lg:h-full overflow-visible lg:overflow-y-auto'
           >
             <div>
               <div class='flex items-center gap-2 mb-2'>
@@ -630,18 +629,18 @@
                 ></div>
                 <span
                   class='text-xs font-bold text-green-500 uppercase tracking-wider'
-                >MAP FEED</span>
+                >LIVING MAP</span>
               </div>
               <h2
                 class='font-display italic text-4xl text-white mb-6'
               >
-                MAP HOME
+                MAP FIRST
               </h2>
               <div class='mb-8 border-b border-gray-800 pb-6'>
                 <h4
                   class='text-xs font-mono text-gray-500 uppercase mb-4 tracking-widest'
                 >
-                  MAP FILTERS
+                  LAYERS
                 </h4>
                 <div class='space-y-3'>
                   <label
@@ -653,7 +652,7 @@
                       ></div>
                       <span
                         class='text-sm font-display italic text-gray-300 group-hover/toggle:text-white'
-                      >CLUSTERS</span>
+                      >CROWDS</span>
                     </div>
                     <div
                       class='relative w-8 h-4 bg-gray-700 rounded-full transition-colors group-hover/toggle:bg-primary/50'
@@ -672,7 +671,7 @@
                       ></div>
                       <span
                         class='text-sm font-display italic text-gray-300 group-hover/toggle:text-white'
-                      >VIP</span>
+                      >EVENTS</span>
                     </div>
                     <div
                       class='relative w-8 h-4 bg-gray-700 rounded-full transition-colors group-hover/toggle:bg-accent-purple/50'
@@ -691,7 +690,7 @@
                       ></div>
                       <span
                         class='text-sm font-display italic text-gray-300 group-hover/toggle:text-white'
-                      >COMPANY</span>
+                      >LOCKED</span>
                     </div>
                     <div
                       class='relative w-8 h-4 bg-gray-700 rounded-full'
@@ -711,7 +710,7 @@
                     <h4
                       class='font-display italic text-white group-hover/card:text-primary'
                     >
-                      ENTRY GATE
+                      EVENT MARKER
                     </h4>
                     <i
                       class='ph-bold ph-caret-right text-gray-500'
@@ -721,7 +720,7 @@
                     class='flex gap-2 text-[10px] font-mono text-gray-400'
                   >
                     <span class='bg-gray-800 px-1'>NOW</span>
-                    <span class='bg-gray-800 px-1'>2.4km</span>
+                    <span class='bg-gray-800 px-1'>0.6km</span>
                   </div>
                 </div>
                 <div
@@ -731,7 +730,7 @@
                     <h4
                       class='font-display italic text-white group-hover/card:text-primary'
                     >
-                      LOCKED PREVIEW
+                      LOCKED EXPERIENCE
                     </h4>
                     <i
                       class='ph-bold ph-caret-right text-gray-500'
@@ -740,8 +739,8 @@
                   <div
                     class='flex gap-2 text-[10px] font-mono text-gray-400'
                   >
-                    <span class='bg-gray-800 px-1'>WEEKEND</span>
-                    <span class='bg-gray-800 px-1'>0.8km</span>
+                    <span class='bg-gray-800 px-1'>TONIGHT</span>
+                    <span class='bg-gray-800 px-1'>1.2km</span>
                   </div>
                 </div>
               </div>
@@ -749,10 +748,10 @@
             <button
               class='mt-8 w-full bg-white text-black font-display italic font-black py-3 skew-box hover:bg-gray-200'
             >
-              <span class='unskew-text'>OPEN MAP</span>
+              <span class='unskew-text'>ENTER MAP</span>
             </button>
           </div>
-          <div class='flex-1 relative hidden lg:block'>
+          <div class='flex-1 relative w-full min-h-[320px] sm:min-h-[420px]'>
             <div
               class='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
             >
@@ -767,7 +766,7 @@
                 <div
                   class='absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-black text-white text-xs font-display px-2 py-1 whitespace-nowrap'
                 >
-                  PRESENCE VERIFIED
+                  PRESENCE VALIDATED
                 </div>
               </div>
             </div>
@@ -782,10 +781,10 @@
             <div class='flex justify-between items-start mb-8'>
               <div>
                 <h3 class='font-display italic text-xl text-white'>
-                  RADIUS & HUD
+                  DYNAMIC RADIUS
                 </h3>
                 <div class='text-[10px] text-gray-500 font-mono mt-1'>
-                  RADIUS LIMIT
+                  LOCAL-FIRST SCOPE
                 </div>
               </div>
               <i
@@ -833,7 +832,7 @@
               <button
                 class='text-xs text-primary underline decoration-primary/50 underline-offset-4 hover:text-white'
               >
-                EXTEND +
+                EXPAND +
               </button>
             </div>
           </div>
@@ -847,7 +846,7 @@
                   WALLET CONNECT
                 </h3>
                 <div class='text-[10px] text-gray-500 font-mono mt-1'>
-                  USDC / CLZTR BRIDGE
+                  VALUE FLOW BRIDGE
                 </div>
               </div>
               <i
@@ -874,7 +873,7 @@
               </div>
               <div class='flex justify-center -my-2 relative z-10'>
                 <div
-                  class='bg-gray-800 rounded-full p-1 border border-gray-600'
+                  class='bg-gray-800 rounded-full w-8 h-8 border border-gray-600 flex items-center justify-center'
                 >
                   <i
                     class='ph-bold ph-arrow-down text-gray-400 text-xs'
@@ -904,7 +903,7 @@
             >
               <span
                 class='unskew-text block text-black font-display italic font-bold tracking-wider text-sm'
-              >CONNECT WALLET</span>
+              >CONNECT & EARN</span>
             </button>
           </div>
           <div
@@ -914,10 +913,10 @@
             <div class='flex justify-between items-start mb-6'>
               <div>
                 <h3 class='font-display italic text-xl text-white'>
-                  HOST MODE ENTRY
+                  POWER PANELS
                 </h3>
                 <div class='text-[10px] text-gray-500 font-mono mt-1'>
-                  CREATE / MANAGE EVENTS
+                  CREATE + MANAGE EVENTS
                 </div>
               </div>
               <div
@@ -954,102 +953,104 @@
               <p
                 class='text-accent-purple font-display italic text-lg mb-1'
               >
-                ACTIVE EVENT
+                ACTIVE DRAFT
               </p>
               <p class='text-white text-xs font-mono'>
-                EVENT DRAFT #1
+                EVENT DRAFT: #01
               </p>
               <div class='mt-2 text-[10px] text-gray-400'>
-                STARTS IN 24H 10M
+                PUBLISH WINDOW: 24H
               </div>
             </div>
           </div>
         </section>
         <section
-          class='border border-gray-800 bg-[#0c0c0c] p-8 clip-notch relative'
+          class='border border-gray-800 bg-[#0c0c0c] p-6 sm:p-8 clip-notch relative'
         >
-          <div class='mb-6 flex items-center justify-between'>
+          <div class='mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2'>
             <h3 class='font-display italic text-2xl text-white'>
-              BUY CLZTR
+              JOIN
               <span class='text-gray-600'>FLOW</span>
             </h3>
-            <span class='text-xs font-mono text-gray-500'>QUOTE READY</span>
+            <span class='text-xs font-mono text-gray-500'>VALUE FLOW READY</span>
           </div>
           <div
-            class='relative flex justify-between items-center max-w-4xl mx-auto py-8'
+            class='relative max-w-4xl mx-auto py-6 sm:py-8'
           >
             <div
-              class='absolute top-1/2 left-0 w-full h-1 bg-gray-800 -z-10'
+              class='absolute top-12 sm:top-14 md:top-16 left-0 w-full h-1 bg-gray-800 -z-10'
             ></div>
-            <div class='flex flex-col items-center gap-2 group'>
-              <div
-                class='w-10 h-10 rounded-full bg-success border-2 border-success flex items-center justify-center shadow-[0_0_15px_#00FF94]'
-              >
-                <i class='ph-bold ph-check text-black'></i>
-              </div>
-              <span
-                class='text-xs font-mono text-success font-bold uppercase mt-2'
-              >1. Connect Wallet</span>
-            </div>
-            <div class='flex flex-col items-center gap-2 group'>
-              <div
-                class='w-10 h-10 rounded-full bg-black border-2 border-white flex items-center justify-center relative'
-              >
-                <span class='text-white font-display text-sm'>2</span>
+            <div class='grid grid-cols-4 gap-0'>
+              <div class='flex flex-col items-center gap-2 group text-center'>
                 <div
-                  class='absolute inset-0 rounded-full animate-ping border border-white opacity-50'
-                ></div>
-              </div>
-              <span
-                class='text-xs font-mono text-white font-bold uppercase mt-2'
-              >2. Approve</span>
-            </div>
-            <div
-              class='flex flex-col items-center gap-2 group opacity-50'
-            >
-              <div
-                class='w-10 h-10 rounded-full bg-black border-2 border-gray-600 flex items-center justify-center'
-              >
+                  class='w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-success border-2 border-success flex items-center justify-center shadow-[0_0_15px_#00FF94]'
+                >
+                  <i class='ph-bold ph-check text-black'></i>
+                </div>
                 <span
-                  class='text-gray-400 font-display text-sm'
-                >3</span>
+                  class='text-[9px] sm:text-[10px] md:text-xs font-mono text-success font-bold uppercase mt-2 px-1 leading-tight'
+                >1. Connect</span>
               </div>
-              <span
-                class='text-xs font-mono text-gray-500 font-bold uppercase mt-2'
-              >3. Buy</span>
-            </div>
-            <div
-              class='flex flex-col items-center gap-2 group opacity-50'
-            >
-              <div
-                class='w-10 h-10 rounded-full bg-black border-2 border-gray-600 flex items-center justify-center'
-              >
+              <div class='flex flex-col items-center gap-2 group text-center'>
+                <div
+                  class='w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black border-2 border-white flex items-center justify-center relative'
+                >
+                  <span class='text-white font-display text-[10px] sm:text-sm'>2</span>
+                  <div
+                    class='absolute inset-0 rounded-full animate-ping border border-white opacity-50'
+                  ></div>
+                </div>
                 <span
-                  class='text-gray-400 font-display text-sm'
-                >4</span>
+                  class='text-[9px] sm:text-[10px] md:text-xs font-mono text-white font-bold uppercase mt-2 px-1 leading-tight'
+                >2. Verify</span>
               </div>
-              <span
-                class='text-xs font-mono text-gray-500 font-bold uppercase mt-2'
-              >4. Confirmed</span>
+              <div
+                class='flex flex-col items-center gap-2 group opacity-50 text-center'
+              >
+                <div
+                  class='w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black border-2 border-gray-600 flex items-center justify-center'
+                >
+                  <span
+                    class='text-gray-400 font-display text-[10px] sm:text-sm'
+                  >3</span>
+                </div>
+                <span
+                  class='text-[9px] sm:text-[10px] md:text-xs font-mono text-gray-500 font-bold uppercase mt-2 px-1 leading-tight'
+                >3. Join</span>
+              </div>
+              <div
+                class='flex flex-col items-center gap-2 group opacity-50 text-center'
+              >
+                <div
+                  class='w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black border-2 border-gray-600 flex items-center justify-center'
+                >
+                  <span
+                    class='text-gray-400 font-display text-[10px] sm:text-sm'
+                  >4</span>
+                </div>
+                <span
+                  class='text-[9px] sm:text-[10px] md:text-xs font-mono text-gray-500 font-bold uppercase mt-2 px-1 leading-tight'
+                >4. Live</span>
+              </div>
             </div>
           </div>
         </section>
         <section class='grid grid-cols-1 lg:grid-cols-2 gap-8'>
           <div
-            class='border border-gray-800 bg-[#0f0f0f] p-8 clip-notch'
+            class='border border-gray-800 bg-[#0f0f0f] p-6 sm:p-8 clip-notch'
           >
             <h3 class='font-display italic text-2xl text-white mb-6'>
-              HOST TIME
+              TIME
               <span class='text-accent-purple'>BUDGET</span>
             </h3>
             <div class='mb-8'>
               <div class='flex justify-between mb-2'>
                 <span
                   class='text-xs font-mono text-gray-400 uppercase'
-                >Daily Time Budget</span>
+                >VIP Daily Budget</span>
                 <span
                   class='text-xs font-mono text-accent-purple font-bold'
-                >18/24 HRS USED</span>
+                >18 / 24 HRS (VIP)</span>
               </div>
               <div
                 class='h-4 bg-gray-900 border border-gray-700 w-full skew-box overflow-hidden relative'
@@ -1063,7 +1064,7 @@
             <div>
               <span
                 class='text-xs font-mono text-gray-400 uppercase mb-2 block'
-              >Media Gate Requirements (1 video + 3–6 photos)</span>
+              >Media Gate: 1 video + 3–6 photos</span>
               <div
                 class='border border-dashed border-gray-600 bg-gray-900/50 p-6 flex flex-col items-center justify-center text-center gap-2 hover:border-accent-purple hover:bg-accent-purple/5 transition-all cursor-pointer'
               >
@@ -1080,7 +1081,7 @@
             </div>
           </div>
           <div
-            class='border border-gray-800 bg-[#0f0f0f] p-8 clip-notch flex flex-col'
+            class='border border-gray-800 bg-[#0f0f0f] p-6 sm:p-8 clip-notch flex flex-col'
           >
             <h3 class='font-display italic text-2xl text-white mb-6'>
               ELIGIBILITY
@@ -1131,25 +1132,17 @@
             class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-screen pointer-events-none"
           ></div>
           <div class='relative z-10'>
-            <div class='flex items-end justify-between mb-12'>
+            <div class='flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-12 gap-4'>
               <div>
                 <h2
-                  class='font-display italic text-4xl lg:text-5xl text-white tracking-tight'
+                  class='font-display italic text-2xl sm:text-3xl lg:text-5xl text-white tracking-tight'
                 >CLEARANCE
                   <span class='text-gray-600'>LEVELS</span></h2>
                 <p
-                  class='text-sm text-gray-500 mt-2 max-w-md font-mono border-l-2 border-primary pl-3'
-                >Upgrade clearance for restricted zone access,
-                  exclusive drops, and staking multipliers.</p>
+                  class='text-xs sm:text-sm text-gray-500 mt-2 max-w-md font-mono border-l-2 border-primary pl-3'
+                >Upgrade clearance to unlock higher access, host power,
+                  and deeper map visibility.</p>
               </div>
-              <button
-                class='group flex items-center gap-2 text-primary font-mono text-xs hover:text-white transition-colors border-b border-primary/30 pb-1 uppercase tracking-widest font-bold'
-              >
-                <span>Full Matrix</span>
-                <i
-                  class='ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform'
-                ></i>
-              </button>
             </div>
             <div
               class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 px-4 lg:px-0'
@@ -1190,7 +1183,7 @@
                     class='absolute right-4 top-1/3 opacity-10 group-hover:opacity-20 transition-opacity transform rotate-12 scale-150 pointer-events-none'
                   >
                     <i
-                      class='ph-duotone ph-shield-check text-8xl text-white'
+                      class='ph-duotone ph-shield-check text-6xl sm:text-8xl text-white'
                     ></i>
                   </div>
                   <ul class='space-y-3 mb-8 flex-1 relative z-10'>
@@ -1198,19 +1191,19 @@
                       class='flex items-center gap-3 text-sm text-gray-400'
                     >
                       <i class='ph-bold ph-check text-gray-500'></i>
-                      Standard Grid Access
+                      Live Map Access
                     </li>
                     <li
                       class='flex items-center gap-3 text-sm text-gray-400'
                     >
                       <i class='ph-bold ph-check text-gray-500'></i>
-                      Public Events
+                      Public Events + Crowds
                     </li>
                     <li
                       class='flex items-center gap-3 text-sm text-gray-600 line-through decoration-gray-600'
                     >
                       <i class='ph-bold ph-x text-gray-800'></i>
-                      No Staking
+                      Host Tools Locked
                     </li>
                   </ul>
                   <div class='mt-auto'>
@@ -1265,7 +1258,7 @@
                     class='absolute right-4 top-1/3 opacity-10 group-hover:opacity-20 transition-opacity transform -rotate-12 scale-150 pointer-events-none'
                   >
                     <i
-                      class='ph-duotone ph-sparkle text-8xl text-accent-purple'
+                      class='ph-duotone ph-sparkle text-6xl sm:text-8xl text-accent-purple'
                     ></i>
                   </div>
                   <ul class='space-y-3 mb-8 flex-1 relative z-10'>
@@ -1273,31 +1266,31 @@
                       class='flex items-center gap-3 text-sm text-gray-300'
                     >
                       <div
-                        class='bg-accent-purple/20 p-1 rounded-full'
+                        class='bg-accent-purple/20 w-6 h-6 rounded-full flex items-center justify-center'
                       ><i
                           class='ph-bold ph-check text-accent-purple text-xs'
                         ></i></div>
-                      1.2x Staking Power
+                      VIP Access Tier
                     </li>
                     <li
                       class='flex items-center gap-3 text-sm text-gray-300'
                     >
                       <div
-                        class='bg-accent-purple/20 p-1 rounded-full'
+                        class='bg-accent-purple/20 w-6 h-6 rounded-full flex items-center justify-center'
                       ><i
                           class='ph-bold ph-check text-accent-purple text-xs'
                         ></i></div>
-                      Governance Voting
+                      Priority Visibility
                     </li>
                     <li
                       class='flex items-center gap-3 text-sm text-gray-300'
                     >
                       <div
-                        class='bg-accent-purple/20 p-1 rounded-full'
+                        class='bg-accent-purple/20 w-6 h-6 rounded-full flex items-center justify-center'
                       ><i
                           class='ph-bold ph-check text-accent-purple text-xs'
                         ></i></div>
-                      Rare NFT Drops
+                      Host Time Budget: 24h/day
                     </li>
                   </ul>
                   <div class='mt-auto'>
@@ -1353,33 +1346,33 @@
                     class='absolute right-4 top-1/3 opacity-10 group-hover:opacity-20 transition-opacity transform rotate-6 scale-150 pointer-events-none'
                   >
                     <i
-                      class='ph-duotone ph-crown-simple text-8xl text-primary'
+                      class='ph-duotone ph-crown-simple text-6xl sm:text-8xl text-primary'
                     ></i>
                   </div>
                   <ul class='space-y-3 mb-8 flex-1 relative z-10'>
                     <li
                       class='flex items-center gap-3 text-sm text-gray-200 font-bold'
                     >
-                      <div class='bg-primary/20 p-1 rounded-full'><i
+                      <div class='bg-primary/20 w-6 h-6 rounded-full flex items-center justify-center'><i
                           class='ph-bold ph-check text-primary text-xs'
                         ></i></div>
-                      2.0x Staking Multiplier
+                      Company Access Tier
                     </li>
                     <li
                       class='flex items-center gap-3 text-sm text-gray-200'
                     >
-                      <div class='bg-primary/20 p-1 rounded-full'><i
+                      <div class='bg-primary/20 w-6 h-6 rounded-full flex items-center justify-center'><i
                           class='ph-bold ph-check text-primary text-xs'
                         ></i></div>
-                      VIP Zone Access
+                      Host Time Budget: 48h/day
                     </li>
                     <li
                       class='flex items-center gap-3 text-sm text-gray-200'
                     >
-                      <div class='bg-primary/20 p-1 rounded-full'><i
+                      <div class='bg-primary/20 w-6 h-6 rounded-full flex items-center justify-center'><i
                           class='ph-bold ph-check text-primary text-xs'
                         ></i></div>
-                      Host Capabilities
+                      Power Panels + Media Gate
                     </li>
                   </ul>
                   <div class='mt-auto'>
@@ -1441,7 +1434,7 @@
                     class='absolute right-[-20px] top-[100px] opacity-20 group-hover:opacity-40 transition-all duration-700 transform rotate-45 group-hover:rotate-[60deg] group-hover:scale-110 pointer-events-none perspective-1000'
                   >
                     <i
-                      class='ph-fill ph-sketch-logo text-9xl text-accent-cyan drop-shadow-[10px_10px_0_rgba(0,0,0,0.5)]'
+                      class='ph-fill ph-sketch-logo text-7xl sm:text-9xl text-accent-cyan drop-shadow-[10px_10px_0_rgba(0,0,0,0.5)]'
                     ></i>
                   </div>
                   <ul class='space-y-3 mb-8 flex-1 relative z-10'>
@@ -1449,17 +1442,7 @@
                       class='flex items-center gap-3 text-sm text-white font-bold'
                     >
                       <div
-                        class='bg-accent-cyan/20 p-1 rounded-full border border-accent-cyan/50'
-                      ><i
-                          class='ph-bold ph-check text-accent-cyan text-xs'
-                        ></i></div>
-                      5.0x Yield Multiplier
-                    </li>
-                    <li
-                      class='flex items-center gap-3 text-sm text-white font-bold'
-                    >
-                      <div
-                        class='bg-accent-cyan/20 p-1 rounded-full border border-accent-cyan/50'
+                        class='bg-accent-cyan/20 w-6 h-6 rounded-full border border-accent-cyan/50 flex items-center justify-center'
                       ><i
                           class='ph-bold ph-check text-accent-cyan text-xs'
                         ></i></div>
@@ -1469,13 +1452,26 @@
                       class='flex items-center gap-3 text-sm text-white font-bold'
                     >
                       <div
-                        class='bg-accent-cyan/20 p-1 rounded-full border border-accent-cyan/50'
+                        class='bg-accent-cyan/20 w-6 h-6 rounded-full border border-accent-cyan/50 flex items-center justify-center'
                       ><i
                           class='ph-bold ph-check text-accent-cyan text-xs'
                         ></i></div>
-                      World Ownership
+                      Prime Zone Access
+                    </li>
+                    <li
+                      class='flex items-center gap-3 text-sm text-white font-bold'
+                    >
+                      <div
+                        class='bg-accent-cyan/20 w-6 h-6 rounded-full border border-accent-cyan/50 flex items-center justify-center'
+                      ><i
+                          class='ph-bold ph-check text-accent-cyan text-xs'
+                        ></i></div>
+                      Priority Payout Flow
                     </li>
                   </ul>
+                  <div class='text-[10px] font-mono text-accent-cyan/70 uppercase tracking-widest mb-4'>
+                    Invite-only or verified post-purchase
+                  </div>
                   <div class='mt-auto relative z-10'>
                     <div class='flex items-baseline gap-1 mb-2'>
                       <span

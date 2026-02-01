@@ -1,4 +1,4 @@
-<section id="coin-trade" class="screen-coin-trade bg-background-dark font-display text-white selection:bg-primary selection:text-black antialiased">
+<section id="coin-trade" class="screen-coin-trade bg-background-dark font-display text-white selection:bg-primary selection:text-black antialiased mb-10 sm:mb-12 lg:mb-16">
   <style>
 .screen-coin-trade {
       color-scheme: dark;
@@ -375,8 +375,8 @@
         }
         .coin-container {
           position: relative;
-          width: 320px;
-          height: 320px;
+          width: min(320px, 70vw);
+          height: min(320px, 70vw);
           transform-style: preserve-3d;
           animation: float 6s ease-in-out infinite;
         }
@@ -444,8 +444,8 @@
           transform-style: preserve-3d;
         }
         .orbital-ring-1 {
-          width: 400px;
-          height: 400px;
+          width: min(400px, 90vw);
+          height: min(400px, 90vw);
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%) rotateX(60deg)
@@ -453,8 +453,8 @@
           animation: spin-slow 15s linear infinite;
         }
         .orbital-ring-2 {
-          width: 360px;
-          height: 360px;
+          width: min(360px, 80vw);
+          height: min(360px, 80vw);
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%) rotateX(60deg)
@@ -500,19 +500,44 @@
           text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
           color: #fff;
         }
+        .coin-trade-floats {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 1rem;
+          width: 100%;
+          margin-top: 1rem;
+          justify-items: center;
+        }
+        .coin-trade-anchor {
+          grid-column: 1 / -1;
+          justify-self: center;
+        }
+        @media (min-width: 640px) {
+          .coin-trade-floats {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+        }
+        @media (min-width: 1024px) {
+          .coin-trade-floats {
+            display: contents;
+          }
+          .coin-trade-anchor {
+            justify-self: auto;
+          }
+        }
     
   </style>
 <div
-      class="fixed inset-0 topographic-bg opacity-20 pointer-events-none z-0"
+      class="fixed inset-0 topographic-bg opacity-20 pointer-events-none z-0 h-full"
       id="parallax-bg"
     ></div>
     <div
-      class="relative min-h-screen w-full flex items-center justify-center p-4 lg:p-12 carbon-pattern z-10"
+      class="relative min-h-screen w-full flex items-start lg:items-center justify-center p-4 lg:p-12 carbon-pattern z-10"
     >
       <div
-        class="relative w-full max-w-[1400px] h-full lg:h-[850px] grid grid-cols-1 lg:grid-cols-12 gap-6"
+        class="relative w-full max-w-[1400px] h-auto min-h-[560px] sm:min-h-[620px] lg:min-h-[850px] grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-y-8 pt-10 sm:pt-12 lg:pt-14"
       >
-        <div class="absolute -top-12 left-0 flex items-center gap-4">
+        <div class="relative lg:absolute lg:top-0 left-0 flex items-center gap-4 mb-6 lg:mb-0">
           <div
             class="w-2 h-10 bg-primary neon-line-orange animate-pulse"
           ></div>
@@ -531,7 +556,7 @@
         </div>
         <div class="lg:col-span-8 relative flex flex-col gap-6">
           <div
-            class="flex-1 dashboard-panel razor-border relative flex items-center justify-center overflow-hidden p-12 transition-all duration-700 hover:border-primary/20 group"
+            class="flex-1 dashboard-panel razor-border relative flex flex-col lg:flex-row items-center justify-center gap-6 overflow-hidden p-6 sm:p-8 lg:p-12 transition-all duration-700 hover:border-primary/20 group"
           >
             <div
               class="absolute inset-0 carbon-pattern opacity-10"
@@ -590,95 +615,97 @@
                 </div>
               </div>
             </div>
-            <div
-              class="absolute -top-16 -left-24 lg:-left-40 hologram-card p-5 razor-border-sm w-56 border-primary/40 group/card transition-all duration-100 z-30"
-              id="card-1"
-            >
+            <div class="coin-trade-floats">
               <div
-                class="text-primary text-[10px] font-black uppercase tracking-widest mb-1 flex justify-between"
+                class="relative lg:absolute lg:-top-16 lg:-left-24 xl:-left-40 hologram-card p-5 razor-border-sm w-full max-w-xs lg:w-56 border-primary/40 group/card transition-all duration-100 z-30"
+                id="card-1"
               >
-                UTILITY_01
-                <span class="material-symbols-outlined text-[10px]"
-                  >sensors</span
+                <div
+                  class="text-primary text-[10px] font-black uppercase tracking-widest mb-1 flex justify-between"
                 >
-              </div>
-              <div class="text-base font-black italic">
-                JOIN DEPOSIT
-              </div>
-              <div
-                class="h-[1px] w-full bg-primary/20 my-2 relative overflow-hidden"
-              >
-                <div class="absolute inset-0 energy-flow"></div>
-              </div>
-              <p
-                class="text-[9px] text-white/40 uppercase leading-tight"
-              >
-                Stake to enter the circuit
-              </p>
-            </div>
-            <div
-              class="absolute top-1/2 -right-28 lg:-right-48 -translate-y-1/2 hologram-card p-5 razor-border-sm w-48 animate-float border-forza-yellow/40 group/card hover:scale-105 transition-all duration-500"
-              style="animation-delay: -2s"
-            >
-              <div
-                class="text-forza-yellow text-[10px] font-black uppercase tracking-widest mb-1 flex justify-between"
-              >
-                UTILITY_02
-                <span class="material-symbols-outlined text-[10px]"
-                  >speed</span
+                  UTILITY_01
+                  <span class="material-symbols-outlined text-[10px]"
+                    >sensors</span
+                  >
+                </div>
+                <div class="text-base font-black italic">
+                  JOIN DEPOSIT
+                </div>
+                <div
+                  class="h-[1px] w-full bg-primary/20 my-2 relative overflow-hidden"
                 >
-              </div>
-              <div class="text-base font-black italic">
-                TIER GATING
-              </div>
-              <div
-                class="h-[1px] w-full bg-forza-yellow/20 my-2"
-              ></div>
-              <p
-                class="text-[9px] text-white/40 uppercase leading-tight"
-              >
-                Exclusive high-limit access
-              </p>
-            </div>
-            <div
-              class="absolute -bottom-16 -left-24 lg:-left-40 hologram-card p-5 razor-border-sm w-48 animate-float border-accent-blue/40 group/card hover:scale-105 transition-all duration-500"
-              style="animation-delay: -4s"
-            >
-              <div
-                class="text-accent-blue text-[10px] font-black uppercase tracking-widest mb-1 flex justify-between"
-              >
-                UTILITY_03
-                <span class="material-symbols-outlined text-[10px]"
-                  >account_balance_wallet</span
+                  <div class="absolute inset-0 energy-flow"></div>
+                </div>
+                <p
+                  class="text-[9px] text-white/40 uppercase leading-tight"
                 >
-              </div>
-              <div class="text-base font-black italic">
-                HOST EARNINGS
-              </div>
-              <div
-                class="h-[1px] w-full bg-accent-blue/20 my-2"
-              ></div>
-              <p
-                class="text-[9px] text-white/40 uppercase leading-tight"
-              >
-                Trustless protocol payouts
-              </p>
-            </div>
-            <div class="absolute top-6 left-8 pointer-events-none">
-              <div
-                class="text-[10px] font-black text-primary/40 uppercase tracking-[0.5em] mb-1"
-              >
-                SYSTEM ANCHOR
+                  Stake to enter the circuit
+                </p>
               </div>
               <div
-                class="text-3xl font-black italic tracking-tighter mix-blend-plus-lighter"
+                class="relative lg:absolute lg:top-1/2 lg:-right-28 xl:-right-48 lg:-translate-y-1/2 hologram-card p-5 razor-border-sm w-full max-w-xs lg:w-48 animate-float border-forza-yellow/40 group/card hover:scale-105 transition-all duration-500"
+                style="animation-delay: -2s"
               >
-                FUEL OF TRUTH
+                <div
+                  class="text-forza-yellow text-[10px] font-black uppercase tracking-widest mb-1 flex justify-between"
+                >
+                  UTILITY_02
+                  <span class="material-symbols-outlined text-[10px]"
+                    >speed</span
+                  >
+                </div>
+                <div class="text-base font-black italic">
+                  TIER GATING
+                </div>
+                <div
+                  class="h-[1px] w-full bg-forza-yellow/20 my-2"
+                ></div>
+                <p
+                  class="text-[9px] text-white/40 uppercase leading-tight"
+                >
+                  Exclusive high-limit access
+                </p>
+              </div>
+              <div
+                class="relative lg:absolute lg:-bottom-16 lg:-left-24 xl:-left-40 hologram-card p-5 razor-border-sm w-full max-w-xs lg:w-48 animate-float border-accent-blue/40 group/card hover:scale-105 transition-all duration-500"
+                style="animation-delay: -4s"
+              >
+                <div
+                  class="text-accent-blue text-[10px] font-black uppercase tracking-widest mb-1 flex justify-between"
+                >
+                  UTILITY_03
+                  <span class="material-symbols-outlined text-[10px]"
+                    >account_balance_wallet</span
+                  >
+                </div>
+                <div class="text-base font-black italic">
+                  HOST EARNINGS
+                </div>
+                <div
+                  class="h-[1px] w-full bg-accent-blue/20 my-2"
+                ></div>
+                <p
+                  class="text-[9px] text-white/40 uppercase leading-tight"
+                >
+                  Trustless protocol payouts
+                </p>
+              </div>
+              <div class="coin-trade-anchor relative lg:absolute lg:top-6 lg:left-6 xl:left-8 pointer-events-none w-full lg:w-auto text-center lg:text-left">
+                <div
+                  class="text-[10px] font-black text-primary/40 uppercase tracking-[0.5em] mb-1"
+                >
+                  SYSTEM ANCHOR
+                </div>
+                <div
+                  class="text-3xl font-black italic tracking-tighter mix-blend-plus-lighter"
+                >
+                  FUEL OF TRUTH
+                </div>
               </div>
             </div>
           </div>
           <div
-            class="h-28 dashboard-panel razor-border flex items-center px-10 gap-12 border-t-2 border-primary/30 relative group hover:border-primary/60 transition-colors"
+            class="h-auto lg:h-28 dashboard-panel razor-border flex flex-col lg:flex-row items-start lg:items-center px-4 sm:px-6 lg:px-10 py-6 lg:py-0 gap-6 lg:gap-12 border-t-2 border-primary/30 relative group hover:border-primary/60 transition-colors"
           >
             <div class="flex flex-col">
               <span
@@ -695,7 +722,7 @@
               </span>
             </div>
             <div
-              class="flex-1 grid grid-cols-2 gap-12 border-l border-white/10 pl-10"
+              class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12 border-l border-white/10 pl-6 lg:pl-10"
             >
               <div
                 class="flex items-center justify-between group/stat"
@@ -707,7 +734,7 @@
                     Total Burned (No-Shows)
                   </div>
                   <div
-                    class="text-3xl font-black italic text-primary leading-none tracking-tighter tabular-nums overflow-hidden h-8 diagnostic-number transition-all duration-300"
+                    class="text-2xl sm:text-3xl font-black italic text-primary leading-none tracking-tighter tabular-nums overflow-hidden h-7 sm:h-8 diagnostic-number transition-all duration-300"
                   >
                     <div
                       class="flex flex-col transition-transform duration-500  group-hover:text-white"
@@ -737,7 +764,7 @@
                     Successful Refunds
                   </div>
                   <div
-                    class="text-3xl font-black italic text-accent-blue leading-none tracking-tighter tabular-nums overflow-hidden h-8 diagnostic-number transition-all duration-300"
+                    class="text-2xl sm:text-3xl font-black italic text-accent-blue leading-none tracking-tighter tabular-nums overflow-hidden h-7 sm:h-8 diagnostic-number transition-all duration-300"
                   >
                     <div
                       class="flex flex-col transition-transform duration-500  group-hover:text-white"
@@ -782,16 +809,16 @@
         </div>
         <div class="lg:col-span-4 flex flex-col gap-6">
           <div
-            class="flex-1 dashboard-panel border-r-2 border-primary/20 relative p-8 flex flex-col justify-between overflow-hidden razor-border transition-all duration-500 group"
+            class="flex-1 dashboard-panel border-r-2 border-primary/20 relative p-5 sm:p-6 lg:p-8 flex flex-col justify-between overflow-hidden razor-border transition-all duration-500 group"
           >
             <div
               class="absolute top-0 right-0 w-32 h-32 carbon-pattern opacity-20 -rotate-45 translate-x-12 -translate-y-12"
             ></div>
             <div class="relative z-10 h-full flex flex-col">
-              <div class="flex justify-between items-start mb-10">
+              <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-6 sm:mb-8 lg:mb-10">
                 <div>
                   <h3
-                    class="text-3xl font-black italic uppercase leading-none mb-1"
+                    class="text-2xl sm:text-3xl font-black italic uppercase leading-none mb-1"
                   >
                     TREASURY<br />TERMINAL
                   </h3>
@@ -802,7 +829,7 @@
                   </p>
                 </div>
                 <div
-                  class="bg-primary/10 border border-primary/50 px-4 py-1.5 text-primary text-xs font-black italic flex items-center gap-2"
+                  class="bg-primary/10 border border-primary/50 px-4 py-1.5 text-primary text-xs font-black italic flex items-center gap-2 self-start"
                 >
                   <span
                     class="w-2 h-2 bg-primary rounded-full animate-pulse"
@@ -823,13 +850,13 @@
                     >
                   </div>
                   <div
-                    class="p-6 bg-carbon border border-white/10 group-hover/input:border-primary/40 transition-all duration-500 flex justify-between items-center relative overflow-hidden"
+                    class="p-4 sm:p-6 bg-carbon border border-white/10 group-hover/input:border-primary/40 transition-all duration-500 flex justify-between items-center relative overflow-hidden"
                   >
                     <div
                       class="absolute bottom-0 left-0 h-[2px] w-0 bg-primary group-hover/input:w-full transition-all duration-700"
                     ></div>
                     <span
-                      class="text-3xl font-black italic tracking-tighter"
+                      class="text-2xl sm:text-3xl font-black italic tracking-tighter"
                       >1,000.00</span
                     >
                     <div class="flex items-center gap-3">
@@ -860,13 +887,13 @@
                     >
                   </div>
                   <div
-                    class="p-6 bg-primary/5 border border-primary/20 group-hover/input:border-primary transition-all duration-500 flex justify-between items-center relative overflow-hidden"
+                    class="p-4 sm:p-6 bg-primary/5 border border-primary/20 group-hover/input:border-primary transition-all duration-500 flex justify-between items-center relative overflow-hidden"
                   >
                     <div
                       class="absolute top-0 left-0 h-[2px] w-0 bg-primary group-hover/input:w-full transition-all duration-700"
                     ></div>
                     <span
-                      class="text-3xl font-black italic tracking-tighter text-primary"
+                      class="text-2xl sm:text-3xl font-black italic tracking-tighter text-primary"
                       >8,500.00</span
                     >
                     <div class="flex items-center gap-3">
@@ -879,7 +906,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div
                     class="p-4 border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-colors"
                   >
@@ -916,7 +943,7 @@
               </div>
             </div>
             <button
-              class="relative mt-8 w-full py-7 bg-primary text-black font-black uppercase italic tracking-tighter text-2xl transition-all duration-200 razor-border high-energy-btn overflow-hidden border-2 border-transparent"
+              class="relative mt-8 w-full py-5 sm:py-6 lg:py-7 bg-primary text-black font-black uppercase italic tracking-tighter text-lg sm:text-xl lg:text-2xl transition-all duration-200 razor-border high-energy-btn overflow-hidden border-2 border-transparent"
             >
               <span
                 class="relative z-10 flex items-center justify-center gap-3"
@@ -933,7 +960,7 @@
           </div>
         </div>
         <div
-          class="lg:col-span-12 h-24 dashboard-panel razor-border px-10 flex items-center relative overflow-hidden group"
+          class="lg:col-span-12 h-auto xl:h-24 dashboard-panel razor-border px-4 sm:px-6 xl:px-10 py-6 xl:py-0 flex flex-col xl:flex-row items-start xl:items-center relative overflow-hidden group"
         >
           <div
             class="absolute left-0 top-0 bottom-0 w-2 bg-primary neon-line-orange animate-pulse"
@@ -945,9 +972,9 @@
               class="absolute top-0 left-0 h-full bg-primary/20 animate-trail"
             ></div>
           </div>
-          <div class="flex items-center gap-12 w-full relative z-10">
+          <div class="flex flex-col xl:flex-row items-start xl:items-center gap-5 xl:gap-12 w-full relative z-10">
             <div
-              class="flex flex-col min-w-max border-r border-white/10 pr-12"
+              class="flex flex-col w-full xl:w-auto min-w-max border-b border-white/10 xl:border-b-0 xl:border-r border-white/10 pr-0 xl:pr-12 pb-4 xl:pb-0"
             >
               <span
                 class="text-[10px] font-black text-primary uppercase italic tracking-widest"
@@ -958,9 +985,9 @@
                 >COMMITMENT LOOP</span
               >
             </div>
-            <div class="flex-1 grid grid-cols-4 gap-8 items-center">
+            <div class="flex-1 grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6 items-start w-full">
               <div
-                class="flex items-center gap-5 group/step cursor-default"
+                class="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 group/step cursor-default"
               >
                 <div
                   class="w-10 h-10 flex items-center justify-center border border-white/10 bg-carbon group-hover/step:border-primary group-hover/step:bg-primary/10 transition-all duration-500 relative"
@@ -973,20 +1000,20 @@
                     class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover/step:w-full transition-all duration-500"
                   ></div>
                 </div>
-                <div class="hidden xl:block">
+                <div class="block">
                   <div
-                    class="text-[9px] font-black uppercase text-white/40 group-hover/step:text-primary/60"
+                    class="text-[8px] sm:text-[9px] font-black uppercase text-white/40 group-hover/step:text-primary/60"
                   >
                     Acquire
                   </div>
                   <div
-                    class="text-xs font-black italic uppercase whitespace-nowrap transition-transform duration-500 group-hover/step:translate-x-1"
+                    class="text-[10px] sm:text-xs font-black italic uppercase whitespace-nowrap transition-transform duration-500 group-hover/step:translate-x-1"
                   >
                     USDC &gt; CLZTR
                   </div>
                 </div>
                 <div
-                  class="flex-1 h-[2px] bg-white/5 hidden lg:block overflow-hidden relative"
+                  class="flex-1 h-[2px] bg-white/5 hidden xl:block overflow-hidden relative"
                 >
                   <div
                     class="absolute inset-0 bg-primary/30 -translate-x-full group-hover/step:translate-x-0 transition-transform duration-500 delay-100"
@@ -994,7 +1021,7 @@
                 </div>
               </div>
               <div
-                class="flex items-center gap-5 group/step cursor-default"
+                class="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 group/step cursor-default"
               >
                 <div
                   class="w-10 h-10 flex items-center justify-center border border-white/10 bg-carbon group-hover/step:border-accent-blue group-hover/step:bg-accent-blue/10 transition-all duration-500 relative"
@@ -1007,20 +1034,20 @@
                     class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-blue group-hover/step:w-full transition-all duration-500"
                   ></div>
                 </div>
-                <div class="hidden xl:block">
+                <div class="block">
                   <div
-                    class="text-[9px] font-black uppercase text-white/40 group-hover/step:text-accent-blue/60"
+                    class="text-[8px] sm:text-[9px] font-black uppercase text-white/40 group-hover/step:text-accent-blue/60"
                   >
                     Commit
                   </div>
                   <div
-                    class="text-xs font-black italic uppercase whitespace-nowrap transition-transform duration-500 group-hover/step:translate-x-1"
+                    class="text-[10px] sm:text-xs font-black italic uppercase whitespace-nowrap transition-transform duration-500 group-hover/step:translate-x-1"
                   >
                     Lock Deposit
                   </div>
                 </div>
                 <div
-                  class="flex-1 h-[2px] bg-white/5 hidden lg:block overflow-hidden relative"
+                  class="flex-1 h-[2px] bg-white/5 hidden xl:block overflow-hidden relative"
                 >
                   <div
                     class="absolute inset-0 bg-accent-blue/30 -translate-x-full group-hover/step:translate-x-0 transition-transform duration-500 delay-100"
@@ -1028,7 +1055,7 @@
                 </div>
               </div>
               <div
-                class="flex items-center gap-5 group/step cursor-default"
+                class="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 group/step cursor-default"
               >
                 <div
                   class="w-10 h-10 flex items-center justify-center border border-white/10 bg-carbon group-hover/step:border-forza-yellow group-hover/step:bg-forza-yellow/10 transition-all duration-500 relative"
@@ -1041,20 +1068,20 @@
                     class="absolute -bottom-1 left-0 w-0 h-0.5 bg-forza-yellow group-hover/step:w-full transition-all duration-500"
                   ></div>
                 </div>
-                <div class="hidden xl:block">
+                <div class="block">
                   <div
-                    class="text-[9px] font-black uppercase text-white/40 group-hover/step:text-forza-yellow/60"
+                    class="text-[8px] sm:text-[9px] font-black uppercase text-white/40 group-hover/step:text-forza-yellow/60"
                   >
                     Verify
                   </div>
                   <div
-                    class="text-xs font-black italic uppercase whitespace-nowrap transition-transform duration-500 group-hover/step:translate-x-1"
+                    class="text-[10px] sm:text-xs font-black italic uppercase whitespace-nowrap transition-transform duration-500 group-hover/step:translate-x-1"
                   >
                     Arrival Scan
                   </div>
                 </div>
                 <div
-                  class="flex-1 h-[2px] bg-white/5 hidden lg:block overflow-hidden relative"
+                  class="flex-1 h-[2px] bg-white/5 hidden xl:block overflow-hidden relative"
                 >
                   <div
                     class="absolute inset-0 bg-forza-yellow/30 -translate-x-full group-hover/step:translate-x-0 transition-transform duration-500 delay-100"
@@ -1062,7 +1089,7 @@
                 </div>
               </div>
               <div
-                class="flex items-center gap-5 group/step cursor-default"
+                class="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 group/step cursor-default"
               >
                 <div
                   class="w-10 h-10 flex items-center justify-center border border-white/10 bg-carbon group-hover/step:border-safety-green group-hover/step:bg-safety-green/10 transition-all duration-500 relative"
@@ -1075,14 +1102,14 @@
                     class="absolute -bottom-1 left-0 w-0 h-0.5 bg-safety-green group-hover/step:w-full transition-all duration-500"
                   ></div>
                 </div>
-                <div class="hidden xl:block">
+                <div class="block">
                   <div
-                    class="text-[9px] font-black uppercase text-white/40 group-hover/step:text-safety-green/60"
+                    class="text-[8px] sm:text-[9px] font-black uppercase text-white/40 group-hover/step:text-safety-green/60"
                   >
                     Reward
                   </div>
                   <div
-                    class="text-xs font-black italic uppercase whitespace-nowrap transition-transform duration-500 group-hover/step:translate-x-1"
+                    class="text-[10px] sm:text-xs font-black italic uppercase whitespace-nowrap transition-transform duration-500 group-hover/step:translate-x-1"
                   >
                     Refund + Yield
                   </div>
@@ -1090,7 +1117,7 @@
               </div>
             </div>
             <div
-              class="flex items-center gap-6 pl-12 border-l border-white/10"
+              class="flex items-center gap-6 w-full xl:w-auto justify-start sm:justify-end xl:justify-start pl-0 xl:pl-12 border-l-0 xl:border-l border-white/10 pt-2 xl:pt-0"
             >
               <span
                 class="material-symbols-outlined text-white/20 text-xl hover:text-primary transition-colors cursor-pointer animate-pulse"

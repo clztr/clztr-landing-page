@@ -1,4 +1,4 @@
-<section id="publish-publish" class="screen-publish relative isolate transform-gpu bg-background-dark text-gray-100 font-body overflow-x-hidden selection:bg-primary selection:text-black transition-colors duration-300 min-h-screen">
+<section id="publish-publish" class="screen-publish relative isolate transform-gpu bg-background-dark text-gray-100 font-body overflow-x-hidden selection:bg-primary selection:text-black transition-colors duration-300">
   <style>
 .screen-publish .clip-notch {
         clip-path: polygon(
@@ -39,7 +39,7 @@
         class="flex-1 w-full relative min-h-screen flex flex-col"
       >
 
-        <div class="flex-1 relative p-6 lg:p-12 overflow-y-auto">
+        <div class="flex-1 relative p-4 sm:p-6 lg:p-12 overflow-y-auto">
           <div
             class="absolute inset-0 bg-black z-0 pointer-events-none"
           >
@@ -52,26 +52,26 @@
               class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/90 to-background-dark/80"
             ></div>
           </div>
-          <div class="relative z-10 max-w-7xl mx-auto">
+          <div class="relative z-10 w-full mx-auto">
             <div
               class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-gray-800 pb-6 gap-4"
             >
               <div>
                 <div class="text-xs font-mono text-accent-cyan mb-1">
-                  HOST PROTOCOL
+                  HOST PROTOCOL // PUBLISH
                 </div>
                 <h1
-                  class="text-4xl lg:text-5xl font-display italic text-white"
+                  class="text-3xl sm:text-4xl lg:text-5xl font-display italic text-white"
                 >
                   FINALIZE
                   <span class="text-gray-600">&amp; PUBLISH</span>
                 </h1>
               </div>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 pb-16 lg:pb-20">
               <div class="lg:col-span-7 space-y-6">
                 <div
-                  class="bg-[#0f0f0f]/90 backdrop-blur-md border border-gray-800 p-8 clip-notch relative group hover:border-gray-600 transition-all"
+                  class="bg-[#0f0f0f]/90 backdrop-blur-md border border-gray-800 p-6 sm:p-8 clip-notch relative group hover:border-gray-600 transition-all"
                 >
                   <div class="absolute top-0 right-0 p-2 opacity-50">
                     <i
@@ -96,6 +96,7 @@
                           class="w-full bg-black border border-gray-700 text-white font-display text-xl p-4 pr-12 focus:border-primary focus:ring-0 outline-none transition-colors placeholder-gray-700"
                           type="number"
                           value="50"
+                          data-price-input
                         />
                         <div
                           class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 font-mono text-xs pointer-events-none"
@@ -113,7 +114,10 @@
                         class="grid grid-cols-2 gap-2 h-[62px] p-1 bg-black border border-gray-700"
                       >
                         <button
-                          class="bg-gray-800 text-white font-mono text-xs font-bold border border-gray-600 shadow-sm flex items-center justify-center gap-2"
+                          class="currency-tab h-full bg-gray-800 text-white font-mono text-xs font-bold border border-gray-600 shadow-sm flex items-center justify-center gap-2 transition-colors"
+                          data-currency="USDC"
+                          aria-pressed="true"
+                          type="button"
                         >
                           <div
                             class="w-2 h-2 rounded-full bg-blue-500"
@@ -121,7 +125,10 @@
                           USDC
                         </button>
                         <button
-                          class="text-gray-500 hover:text-white font-mono text-xs hover:bg-gray-900 transition-colors flex items-center justify-center gap-2"
+                          class="currency-tab h-full text-gray-500 font-mono text-xs font-bold hover:text-white hover:bg-gray-900 transition-colors flex items-center justify-center gap-2 border border-transparent"
+                          data-currency="CLZTR"
+                          aria-pressed="false"
+                          type="button"
                         >
                           <div
                             class="w-2 h-2 rounded-full bg-primary opacity-50"
@@ -142,7 +149,7 @@
                       >
                       <span
                         class="text-[10px] text-gray-500 block max-w-xs"
-                        >Refundable deposit held until event ends. Released after check‑in closes.</span
+                        >Commitment deposit held through the event window. Auto‑released after check‑in closes.</span
                       >
                     </div>
                     <div
@@ -156,8 +163,8 @@
                       <div
                         class="font-display text-2xl text-accent-cyan"
                       >
-                        250.00
-                        <span class="text-sm text-gray-500"
+                        <span data-deposit-value>100.00</span>
+                        <span class="text-sm text-gray-500" data-deposit-currency
                           >USDC</span
                         >
                       </div>
@@ -165,7 +172,7 @@
                   </div>
                 </div>
                 <div
-                  class="bg-[#0f0f0f]/90 backdrop-blur-md border border-gray-800 p-8 clip-notch relative"
+                class="bg-[#0f0f0f]/90 backdrop-blur-md border border-gray-800 p-6 sm:p-8 clip-notch relative"
                 >
                   <div class="flex justify-between items-center mb-6">
                     <h3
@@ -201,7 +208,7 @@
                           <div
                             class="text-[10px] font-mono text-gray-500"
                           >
-                            3 HIGH-RES IMAGES, 1 TRAILER MP4
+                            1 VIDEO + 3–6 PHOTOS REQUIRED
                           </div>
                         </div>
                       </div>
@@ -239,7 +246,7 @@
                           <div
                             class="text-[10px] font-mono text-gray-500"
                           >
-                            4 HOURS ALLOCATED (22:00 - 02:00)
+                            DURATION: 3H (1H / 3H / 6H OPTIONS)
                           </div>
                         </div>
                       </div>
@@ -279,7 +286,7 @@
                           <div
                             class="text-[10px] font-mono text-gray-500"
                           >
-                            AGE GATE: 18+, VIP TIER ONLY
+                            TIER ALLOWLIST + AGE BAND (18+/21+/40+)
                           </div>
                         </div>
                       </div>
@@ -302,7 +309,7 @@
               </div>
               <div class="lg:col-span-5 space-y-6">
                 <div
-                  class="bg-[#0f0f0f] border border-gray-700 p-8 rounded-sm relative overflow-hidden group shadow-2xl"
+                  class="bg-[#0f0f0f] border border-gray-700 p-6 sm:p-8 rounded-sm relative overflow-hidden group shadow-2xl"
                 >
                   <div
                     class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"
@@ -325,7 +332,7 @@
                       ID: #8829A_TEMP
                     </div>
                     <h2
-                      class="text-4xl lg:text-5xl font-display italic text-white mb-4 leading-[0.9]"
+                      class="text-3xl sm:text-4xl lg:text-5xl font-display italic text-white mb-4 leading-[0.9]"
                     >
                       READY FOR<br /><span
                         class="text-transparent bg-clip-text bg-gradient-to-r from-success to-white"
@@ -335,8 +342,8 @@
                     <p
                       class="text-gray-400 font-mono text-xs leading-relaxed border-l-2 border-gray-700 pl-3"
                     >
-                      Checklist complete. Publishing creates the
-                      event without a creation fee. Estimated time:
+                      Checklist complete. Publishing locks access rules
+                      and media gate, then consumes time budget. Estimated time:
                       <span class="text-white">~12s</span>.
                     </p>
                   </div>
@@ -371,7 +378,7 @@
                     <p class="pl-4">
                       name:
                       <span class="text-white"
-                        >"EVENT DRAFT"</span
+                        >"EVENT_DRAFT"</span
                       >,
                     </p>
                     <p class="pl-4">
@@ -386,12 +393,16 @@
                     </p>
                     <p class="pl-4">params: {</p>
                     <p class="pl-8">
-                      max_capacity:
-                      <span class="text-primary">500</span>,
+                      duration_hours:
+                      <span class="text-primary">3</span>,
                     </p>
                     <p class="pl-8">
-                      age_gate_enforced:
-                      <span class="text-success">true</span>,
+                      visibility:
+                      <span class="text-white">"HYBRID"</span>,
+                    </p>
+                    <p class="pl-8">
+                      age_gate_band:
+                      <span class="text-primary">21</span>,
                     </p>
                     <p class="pl-8">
                       tier_req:
@@ -399,20 +410,28 @@
                       >,
                     </p>
                     <p class="pl-8">
+                      media_gate:
+                      <span class="text-success">true</span>,
+                    </p>
+                    <p class="pl-8">
+                      time_budget:
+                      <span class="text-white">"VIP_24H"</span>,
+                    </p>
+                    <p class="pl-8">
                       deposit_status:
                       <span class="text-accent-purple"
-                        >"AWAITING_SIG"</span
+                        >"READY"</span
                       >
                     </p>
                     <p class="pl-4">},</p>
                     <p class="pl-4">
                       assets: [<span class="text-gray-600"
-                        >"img_1.jpg", "img_2.jpg", "trailer.mp4"</span
+                        >"img_1.jpg", "img_2.jpg", "img_3.jpg", "trailer.mp4"</span
                       >]
                     </p>
                     <p>}</p>
                     <p class="mt-4 text-gray-600 animate-pulse">
-                      _Cursor waiting...
+                       waiting...
                     </p>
                   </div>
                 </div>

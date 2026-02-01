@@ -1,4 +1,4 @@
-<section id="event-creation-event-creation" class="screen-event-creation relative isolate transform-gpu bg-background-dark text-gray-100 font-body overflow-x-hidden selection:bg-primary selection:text-black transition-colors duration-300">
+<section id="event-creation-event-creation" class="screen-event-creation relative isolate transform-gpu bg-background-dark text-gray-100 font-body overflow-x-hidden selection:bg-primary selection:text-black transition-colors duration-300 mb-10 sm:mb-12 lg:mb-16">
   <style>
 .screen-event-creation .clip-notch {
         clip-path: polygon(
@@ -82,7 +82,7 @@
         class="flex-1 w-full relative bg-background-dark"
       >     
         <div
-          class="relative w-full h-full p-6 lg:p-12 overflow-x-hidden"
+          class="relative w-full h-full p-4 sm:p-6 lg:p-12 overflow-x-hidden"
         >
           <div
             class="absolute inset-0 z-0 bg-topography opacity-10 pointer-events-none mix-blend-overlay"
@@ -90,12 +90,13 @@
           <div class="relative z-10 mx-auto">
             <div class="mb-12">
               <h1
-                class="font-display italic text-4xl lg:text-5xl text-white mb-2"
+                class="font-display italic text-3xl sm:text-4xl lg:text-5xl text-white mb-2"
               >
                 VISIBILITY <span class="text-primary">&amp; ACCESS</span>
               </h1>
               <p class="font-mono text-gray-500 text-sm mb-10">
-                Set visibility, age gate, and tier access for this event.
+                Define how the event appears on the living map, who can see details,
+                and why access is locked.
               </p>
               <div
                 class="relative flex items-center justify-between w-full max-w-4xl"
@@ -176,7 +177,7 @@
               </div>
             </div>
             <div
-              class="bg-surface-dark border border-gray-800 p-8 lg:p-12 clip-notch relative shadow-2xl"
+              class="bg-surface-dark border border-gray-800 p-6 sm:p-8 lg:p-12 clip-notch relative shadow-2xl"
             >
               <div
                 class="absolute top-0 right-0 p-4 opacity-10 pointer-events-none"
@@ -230,7 +231,7 @@
                         <p
                           class="text-xs font-mono text-gray-500 leading-relaxed"
                         >
-                          Visible on the map and feed. Anyone nearby can view and request access.
+                          Visible on the living map. Nearby users can see the marker and request access.
                         </p>
                         <div
                           class="mt-4 opacity-0 peer-checked:opacity-100 transition-opacity"
@@ -271,7 +272,7 @@
                         <p
                           class="text-xs font-mono text-gray-500 leading-relaxed"
                         >
-                          Hidden from the main map. Share link only for private or invite-only drops.
+                          Not listed on the map. Share a private link for invite-only access.
                         </p>
                         <div
                           class="mt-4 opacity-0 peer-checked:opacity-100 transition-opacity"
@@ -312,7 +313,7 @@
                         <p
                           class="text-xs font-mono text-gray-500 leading-relaxed"
                         >
-                          Only verified members can view and join. Anti‑bot checks enforced.
+                          Shown as locked presence to others. Full details for verified members only.
                         </p>
                         <div
                           class="mt-4 opacity-0 peer-checked:opacity-100 transition-opacity"
@@ -334,30 +335,21 @@
                 <div class="space-y-6">
                   <div class="flex items-center justify-between">
                     <h2
-                      class="font-display italic text-2xl text-white flex items-center gap-3"
+                      class="font-display italic text-xl sm:text-2xl text-white flex items-center gap-3"
                     >
                       <i
                         class="ph-fill ph-identification-card text-gray-400"
                       ></i>
                       AGE GATE
                     </h2>
-                    <div class="flex items-center gap-2">
-                      <span
-                        class="w-2 h-2 bg-green-500 rounded-full animate-pulse"
-                      ></span>
-                      <span
-                        class="text-[10px] font-mono text-green-500 uppercase"
-                        >System Online</span
-                      >
-                    </div>
                   </div>
                   <div
                     class="bg-[#111] border border-gray-800 p-8 clip-notch relative"
                   >
-                    <p class="text-sm font-mono text-gray-400 mb-6">
-                      Select the required age band. Users must verify age before joining.
+                    <p class="text-xs sm:text-sm font-mono text-gray-400 mb-6">
+                      Select the age band. Users can submit proof once and reuse it for future joins.
                     </p>
-                    <div class="flex flex-wrap gap-4">
+                    <div class="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4 lg:gap-4">
                       <label class="cursor-pointer">
                         <input
                           class="sr-only peer"
@@ -365,7 +357,7 @@
                           type="radio"
                         />
                         <div
-                          class="skew-box w-32 h-12 flex items-center justify-center border border-gray-700 bg-gray-900 text-gray-400 hover:border-gray-500 hover:text-white transition-all peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary font-display italic font-bold"
+                          class="skew-box w-full h-12 sm:h-14 flex items-center justify-center border border-gray-700 bg-gray-900 text-gray-400 hover:border-gray-500 hover:text-white transition-all peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary font-display italic font-bold text-sm sm:text-base md:text-lg"
                         >
                           <span class="unskew-text">NONE</span>
                         </div>
@@ -378,7 +370,7 @@
                           type="radio"
                         />
                         <div
-                          class="skew-box w-32 h-12 flex items-center justify-center border border-gray-700 bg-gray-900 text-gray-400 hover:border-gray-500 hover:text-white transition-all peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary font-display italic font-bold"
+                          class="skew-box w-full h-12 sm:h-14 flex items-center justify-center border border-gray-700 bg-gray-900 text-gray-400 hover:border-gray-500 hover:text-white transition-all peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary font-display italic font-bold text-sm sm:text-base md:text-lg"
                         >
                           <span class="unskew-text">18+</span>
                         </div>
@@ -390,7 +382,7 @@
                           type="radio"
                         />
                         <div
-                          class="skew-box w-32 h-12 flex items-center justify-center border border-gray-700 bg-gray-900 text-gray-400 hover:border-gray-500 hover:text-white transition-all peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary font-display italic font-bold"
+                          class="skew-box w-full h-12 sm:h-14 flex items-center justify-center border border-gray-700 bg-gray-900 text-gray-400 hover:border-gray-500 hover:text-white transition-all peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary font-display italic font-bold text-sm sm:text-base md:text-lg"
                         >
                           <span class="unskew-text">25+</span>
                         </div>
@@ -402,7 +394,7 @@
                           type="radio"
                         />
                         <div
-                          class="skew-box w-32 h-12 flex items-center justify-center border border-gray-700 bg-gray-900 text-gray-400 hover:border-gray-500 hover:text-white transition-all peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary font-display italic font-bold"
+                          class="skew-box w-full h-12 sm:h-14 flex items-center justify-center border border-gray-700 bg-gray-900 text-gray-400 hover:border-gray-500 hover:text-white transition-all peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary font-display italic font-bold text-sm sm:text-base md:text-lg"
                         >
                           <span class="unskew-text">40+</span>
                         </div>
@@ -416,7 +408,7 @@
                 <div class="space-y-6">
                   <div class="flex items-center justify-between">
                     <h2
-                      class="font-display italic text-2xl text-white flex items-center gap-3"
+                      class="font-display italic text-xl sm:text-2xl text-white flex items-center gap-3"
                     >
                       <i
                         class="ph-fill ph-lock-key text-gray-400"
@@ -424,7 +416,7 @@
                       TIER ALLOWLIST
                     </h2>
                     <span
-                      class="text-[10px] font-mono text-accent-purple border border-accent-purple/30 bg-accent-purple/10 px-2 py-1 uppercase"
+                      class="text-[9px] sm:text-[10px] font-mono text-accent-purple border border-accent-purple/30 bg-accent-purple/10 px-2 py-1 uppercase"
                       >Advanced Feature</span
                     >
                   </div>
@@ -436,16 +428,16 @@
                         <div
                           class="w-12 h-12 rounded bg-yellow-900/20 border border-primary/20 flex items-center justify-center text-primary shadow-[0_0_10px_rgba(255,215,0,0.1)]"
                         >
-                          <i class="ph-fill ph-star text-2xl"></i>
+                          <i class="ph-fill ph-star text-xl sm:text-2xl"></i>
                         </div>
                         <div>
                           <h4
-                            class="font-display italic text-white text-lg group-hover:text-primary transition-colors"
+                            class="font-display italic text-white text-base sm:text-lg group-hover:text-primary transition-colors"
                           >
                             VIP TIER
                           </h4>
-                          <p class="text-xs font-mono text-gray-500">
-                            Requires VIP access or higher.
+                          <p class="text-[11px] sm:text-xs font-mono text-gray-500">
+                            VIP+ only. Locked for lower tiers.
                           </p>
                         </div>
                       </div>
@@ -469,16 +461,16 @@
                         <div
                           class="w-12 h-12 rounded bg-cyan-900/20 border border-accent-cyan/20 flex items-center justify-center text-accent-cyan shadow-[0_0_10px_rgba(0,224,255,0.1)]"
                         >
-                          <i class="ph-fill ph-diamond text-2xl"></i>
+                          <i class="ph-fill ph-diamond text-xl sm:text-2xl"></i>
                         </div>
                         <div>
                           <h4
-                            class="font-display italic text-white text-lg group-hover:text-accent-cyan transition-colors"
+                            class="font-display italic text-white text-base sm:text-lg group-hover:text-accent-cyan transition-colors"
                           >
                             COMPANY TIER
                           </h4>
-                          <p class="text-xs font-mono text-gray-500">
-                            Company tier only. Invite‑only.
+                          <p class="text-[11px] sm:text-xs font-mono text-gray-500">
+                            Company only. Invite or verified access.
                           </p>
                         </div>
                       </div>

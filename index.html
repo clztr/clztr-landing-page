@@ -171,9 +171,16 @@
 
       <main class="flex-1 w-full">
         <header
-          class="w-full bg-black/90 border-b border-gray-800 px-6 lg:px-12 py-4 flex items-center justify-between sticky top-0 z-50 backdrop-blur"
+          class="w-full bg-black/90 border-b border-gray-800 px-6 lg:px-12 py-4 flex items-center justify-between sticky top-0 z-[80] backdrop-blur"
         >
-          <div class="text-3xl font-display font-black tracking-widest italic text-white">CLZTR</div>
+          <div class="text-3xl font-display font-black tracking-widest italic text-white flex items-center gap-1">
+            <img
+              src="public/clztr_icon_1024.png"
+              alt="CLZTR Logo"
+              class="w-8 h-auto object-contain"
+            />
+            CLZTR
+          </div>
           <nav class="hidden md:flex items-center gap-6 text-xs font-mono">
             <a class="text-gray-400 hover:text-primary transition-colors" href="#boot">Boot</a>
             <a class="text-gray-400 hover:text-primary transition-colors" href="#coin-trade">Economy</a>
@@ -184,12 +191,38 @@
             <a class="text-gray-400 hover:text-primary transition-colors" href="#mediaAssets-media-assets">Media</a>
             <a class="text-gray-400 hover:text-primary transition-colors" href="#publish-publish">Publish</a>
           </nav>
-          <button
-            class="bg-primary text-black px-4 py-2 text-xs font-display italic font-bold skew-box hover:bg-white transition-colors"
-          >
-            <span class="unskew-text">ACCESS</span>
-          </button>
+          <div class="flex items-center gap-3">
+            <button
+              class="bg-primary text-black px-4 py-2 text-xs font-display italic font-bold skew-box hover:bg-white transition-colors"
+            >
+              <span class="unskew-text">ACCESS</span>
+            </button>
+            <button
+              class="md:hidden w-10 h-10 flex items-center justify-center border border-gray-700 text-gray-200 hover:text-primary hover:border-primary transition-colors"
+              id="nav-toggle"
+              aria-expanded="false"
+              aria-controls="mobile-nav"
+              aria-label="Toggle navigation"
+            >
+              <i class="ph-bold ph-list"></i>
+            </button>
+          </div>
         </header>
+        <nav
+          class="md:hidden bg-black/95 border-b border-gray-800 px-6 py-4 hidden sticky top-[64px] z-[70]"
+          id="mobile-nav"
+        >
+          <div class="grid grid-cols-2 gap-3 text-xs font-mono">
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#boot">Boot</a>
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#coin-trade">Economy</a>
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#view-2">Consent</a>
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#hostwizard-hostwizard">Host</a>
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#createEvent-create-event">Budget</a>
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#event-creation-event-creation">Access</a>
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#mediaAssets-media-assets">Media</a>
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#publish-publish">Publish</a>
+          </div>
+        </nav>
         {{> boot}}
         {{> coin-trade}}
         {{> hostwizard}}
@@ -197,6 +230,8 @@
         {{> event-creation}}
         {{> mediaAssets}}
         {{> publish}}
+        {{> mobile-access}}
+        {{> footer}}
       </main>
     </script>
 
@@ -210,6 +245,8 @@
         'event-creation',
         'mediaAssets',
         'publish',
+        'mobile-access',
+        'footer',
       ];
 
       const initCoinTrade = () => {
@@ -229,7 +266,7 @@
         }
 
         if (card) {
-          window.addEventListener('mousemove', (e) => {
+          const handleTilt = (e) => {
             const rect = card.getBoundingClientRect();
             const cardX = rect.left + rect.width / 2;
             const cardY = rect.top + rect.height / 2;
@@ -238,8 +275,9 @@
             const rotateX = (mouseY / 20).toFixed(2);
             const rotateY = -(mouseX / 20).toFixed(2);
             card.style.transform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-          });
+          };
 
+          card.addEventListener('mousemove', handleTilt);
           card.addEventListener('mouseleave', () => {
             card.style.transform =
               'perspective(500px) rotateX(0deg) rotateY(0deg)';
@@ -261,6 +299,86 @@
         }
       };
 
+      const initPublishPricing = () => {
+        const root = document.getElementById('publish-publish');
+        if (!root || window.__publishInit) return;
+        window.__publishInit = true;
+
+        const priceInput = root.querySelector('[data-price-input]');
+        const depositValue = root.querySelector('[data-deposit-value]');
+        const depositCurrency = root.querySelector('[data-deposit-currency]');
+        const currencyButtons = Array.from(
+          root.querySelectorAll('[data-currency]')
+        );
+
+        if (!priceInput || !depositValue || !depositCurrency || !currencyButtons.length) {
+          return;
+        }
+
+        const format = (value) =>
+          Number.isFinite(value) ? value.toFixed(2) : '0.00';
+
+        const updateDeposit = () => {
+          const price = parseFloat(priceInput.value);
+          const deposit = Number.isFinite(price) ? price * 2 : 0;
+          depositValue.textContent = format(deposit);
+        };
+
+        const setCurrency = (currency) => {
+          depositCurrency.textContent = currency;
+          currencyButtons.forEach((btn) => {
+            const isActive = btn.dataset.currency === currency;
+            btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            btn.classList.toggle('bg-gray-800', isActive);
+            btn.classList.toggle('text-white', isActive);
+            btn.classList.toggle('border-gray-600', isActive);
+            btn.classList.toggle('shadow-sm', isActive);
+            btn.classList.toggle('text-gray-500', !isActive);
+            btn.classList.toggle('border-transparent', !isActive);
+            btn.classList.toggle('hover:text-white', !isActive);
+            btn.classList.toggle('hover:bg-gray-900', !isActive);
+          });
+        };
+
+        priceInput.addEventListener('input', updateDeposit);
+        currencyButtons.forEach((btn) => {
+          btn.addEventListener('click', () => setCurrency(btn.dataset.currency));
+        });
+
+        const defaultCurrency =
+          currencyButtons.find((btn) => btn.getAttribute('aria-pressed') === 'true')
+            ?.dataset.currency || currencyButtons[0].dataset.currency;
+
+        updateDeposit();
+        setCurrency(defaultCurrency);
+      };
+
+      const initNav = () => {
+        const toggle = document.getElementById('nav-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        if (!toggle || !mobileNav || window.__navInit) return;
+        window.__navInit = true;
+
+        const closeNav = () => {
+          mobileNav.classList.add('hidden');
+          toggle.setAttribute('aria-expanded', 'false');
+        };
+
+        toggle.addEventListener('click', () => {
+          const isOpen = !mobileNav.classList.contains('hidden');
+          if (isOpen) {
+            closeNav();
+            return;
+          }
+          mobileNav.classList.remove('hidden');
+          toggle.setAttribute('aria-expanded', 'true');
+        });
+
+        mobileNav.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', closeNav);
+        });
+      };
+
       const renderApp = async () => {
         try {
           await Promise.all(
@@ -277,7 +395,9 @@
           const templateSource = document.getElementById('app-template').innerHTML;
           const template = Handlebars.compile(templateSource);
           app.innerHTML = template({});
+          initNav();
           initCoinTrade();
+          initPublishPricing();
         } catch (err) {
           app.innerHTML = `
             <div class="min-h-screen flex items-center justify-center p-6">

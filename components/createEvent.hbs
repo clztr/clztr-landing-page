@@ -1,4 +1,4 @@
-<section id="createEvent-create-event" class="screen-createEvent relative isolate transform-gpu bg-background-dark text-gray-100 font-body overflow-x-hidden selection:bg-primary selection:text-black transition-colors duration-300 min-h-screen">
+<section id="createEvent-create-event" class="screen-createEvent relative isolate transform-gpu bg-background-dark text-gray-100 font-body overflow-x-hidden selection:bg-primary selection:text-black transition-colors duration-300 min-h-screen mb-10 sm:mb-12 lg:mb-16">
   <style>
 .screen-createEvent .clip-notch {
         clip-path: polygon(
@@ -93,10 +93,10 @@
         class="flex-1 w-full relative flex flex-col min-h-screen"
       >
         <div
-          class="flex-1 p-6 lg:p-12 max-w-[1920px] mx-auto w-full flex flex-col relative z-10"
+          class="flex-1 p-4 sm:p-6 lg:p-12 max-w-[1920px] mx-auto w-full flex flex-col relative z-10"
         >
           <div
-            class="mb-10 flex flex-col md:flex-row justify-between items-end border-b border-gray-800 pb-6"
+            class="mb-10 flex flex-col md:flex-row justify-between items-start md:items-end border-b border-gray-800 pb-6 gap-6"
           >
             <div>
               <div class="flex items-center gap-3 mb-2">
@@ -109,7 +109,7 @@
                 >
               </div>
               <h1
-                class="font-display italic text-4xl lg:text-5xl text-white tracking-wide"
+                class="font-display italic text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white tracking-wide"
               >
                 CREATE
                 <span
@@ -118,7 +118,7 @@
                 >
               </h1>
             </div>
-            <div class="flex flex-col items-end gap-2 mt-6 md:mt-0">
+            <div class="flex flex-col items-start md:items-end gap-2 md:mt-0">
               <span
                 class="text-xs font-mono text-primary mb-1 tracking-widest"
                 >STEP 02/05: TIME CONFIG</span
@@ -147,11 +147,11 @@
             </div>
           </div>
           <div
-            class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 flex-1"
+            class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 lg:flex-1"
           >
             <div class="lg:col-span-3 flex flex-col">
               <div
-                class="bg-[#0f0f0f] border border-gray-800 h-full p-6 clip-notch relative flex flex-col group hover:border-accent-purple/50 transition-colors"
+                class="bg-[#0f0f0f] border border-gray-800 lg:h-full p-5 sm:p-6 clip-notch relative flex flex-col group hover:border-accent-purple/50 transition-colors"
               >
                 <div class="absolute top-0 right-0 p-3">
                   <i
@@ -159,7 +159,7 @@
                   ></i>
                 </div>
                 <h3
-                  class="font-display italic text-xl text-gray-300 mb-2"
+                  class="font-display italic text-base sm:text-lg md:text-xl text-gray-300 mb-2"
                 >
                   TIME BUDGET
                 </h3>
@@ -172,7 +172,7 @@
                   class="flex-1 flex flex-col items-center justify-center relative py-4"
                 >
                   <div
-                    class="relative w-full h-full max-h-[400px] flex items-end gap-1 px-4"
+                    class="relative w-full h-[240px] sm:h-[320px] lg:h-full max-h-[400px] flex items-end gap-1 px-4"
                   >
                     <div
                       class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20"
@@ -217,7 +217,7 @@
                 </div>
                 <div class="mt-8 text-center">
                   <div
-                    class="font-display italic text-4xl text-white"
+                    class="font-display italic text-2xl sm:text-3xl md:text-4xl text-white"
                   >
                     18<span class="text-gray-600 text-2xl">/24</span>
                   </div>
@@ -230,7 +230,7 @@
               </div>
             </div>
             <div class="lg:col-span-6 flex flex-col">
-              <div class="relative h-full py-2 px-4">
+              <div class="relative lg:h-full py-2 px-4">
                 <div
                   class="absolute inset-0 skew-box bg-[#0a0a0a] border border-gray-700 z-0 shadow-2xl"
                 >
@@ -239,11 +239,11 @@
                   ></div>
                 </div>
                 <div
-                  class="relative z-10 h-full p-8 flex flex-col justify-center"
+                  class="relative z-10 lg:h-full p-6 sm:p-8 flex flex-col justify-center"
                 >
                   <div class="mb-10 text-center">
                     <h2
-                      class="font-display italic text-3xl text-white mb-2"
+                      class="font-display italic text-xl sm:text-2xl md:text-3xl text-white mb-2"
                     >
                       SET EVENT DURATION
                     </h2>
@@ -265,7 +265,7 @@
                           class="unskew-text h-full flex flex-col items-center justify-center"
                         >
                           <span
-                            class="font-display italic text-3xl text-gray-400 group-hover:text-white peer-checked:text-black"
+                            class="font-display italic text-2xl sm:text-3xl text-gray-400 group-hover:text-white peer-checked:text-black"
                             >2H</span
                           >
                           <span
@@ -289,7 +289,7 @@
                           class="unskew-text h-full flex flex-col items-center justify-center"
                         >
                           <span
-                            class="font-display italic text-3xl text-gray-400 group-hover:text-white peer-checked:text-black"
+                            class="font-display italic text-2xl sm:text-3xl text-gray-400 group-hover:text-white peer-checked:text-black"
                             >4H</span
                           >
                           <span
@@ -317,7 +317,7 @@
                           class="unskew-text h-full flex flex-col items-center justify-center"
                         >
                           <span
-                            class="font-display italic text-3xl text-gray-400 group-hover:text-white peer-checked:text-black"
+                            class="font-display italic text-2xl sm:text-3xl text-gray-400 group-hover:text-white peer-checked:text-black"
                             >8H</span
                           >
                           <span
@@ -328,7 +328,7 @@
                       </div>
                     </label>
                   </div>
-                  <div class="grid grid-cols-2 gap-8 mb-8">
+                  <div class="grid md:grid-cols-2 grid-cols-1 gap-8 mb-8">
                     <div class="relative">
                       <label
                         class="block text-accent-cyan font-mono text-xs uppercase mb-2 tracking-wider"
@@ -336,7 +336,7 @@
                       >
                       <div class="relative group">
                         <input
-                          class="w-full bg-black/60 border border-gray-600 text-white font-display text-2xl p-4 focus:border-accent-cyan focus:ring-1 focus:ring-accent-cyan focus:shadow-[0_0_15px_rgba(0,224,255,0.3)] transition-all outline-none rounded-none"
+                          class="w-full bg-black/60 border border-gray-600 text-white font-display text-xl sm:text-2xl p-4 focus:border-accent-cyan focus:ring-1 focus:ring-accent-cyan focus:shadow-[0_0_15px_rgba(0,224,255,0.3)] transition-all outline-none rounded-none"
                           type="time"
                           value="22:00"
                         />
@@ -362,7 +362,7 @@
                       >
                       <div class="relative">
                         <input
-                          class="w-full bg-black/30 border border-gray-800 text-gray-400 font-display text-2xl p-4 outline-none rounded-none cursor-not-allowed"
+                          class="w-full bg-black/30 border border-gray-800 text-gray-400 font-display text-xl sm:text-2xl p-4 outline-none rounded-none cursor-not-allowed"
                           readonly=""
                           type="time"
                           value="02:00"
@@ -388,10 +388,10 @@
             </div>
             <div class="lg:col-span-3 flex flex-col">
               <div
-                class="bg-[#0f0f0f] border border-gray-800 h-full p-6 clip-notch relative flex flex-col"
+                class="bg-[#0f0f0f] border border-gray-800 lg:h-full p-6 clip-notch relative flex flex-col"
               >
                 <h3
-                  class="font-display italic text-xl text-gray-300 mb-6"
+                  class="font-display italic text-lg sm:text-xl text-gray-300 mb-6"
                 >
                   BUDGET IMPACT
                 </h3>
@@ -413,7 +413,7 @@
                     </div>
                     <div class="h-px w-full bg-gray-700"></div>
                     <div
-                      class="flex justify-between items-center font-display italic text-xl text-white"
+                      class="flex justify-between items-center font-display italic text-lg sm:text-xl text-white"
                     >
                       <span>NEW TOTAL</span>
                       <span class="text-white">22h</span>

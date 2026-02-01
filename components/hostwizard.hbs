@@ -1,4 +1,4 @@
-<section id="hostwizard-hostwizard" class="screen-hostwizard relative isolate transform-gpu bg-background-dark text-gray-100 font-body overflow-hidden w-full selection:bg-primary selection:text-black">
+<section id="hostwizard-hostwizard" class="screen-hostwizard relative isolate transform-gpu bg-background-dark text-gray-100 font-body overflow-hidden w-full selection:bg-primary selection:text-black mb-10 sm:mb-12 lg:mb-16">
   <style>
 .screen-hostwizard .clip-notch {
         clip-path: polygon(
@@ -53,11 +53,11 @@
     <div
       class="fixed inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_#000_100%)] z-40 pointer-events-none opacity-60"
     ></div>
-    <div class="flex h-full">
+    <div class="flex flex-col lg:flex-row min-h-screen">
       <aside
-        class="w-full md:w-1/3 lg:w-[400px] bg-[#080808] border-r border-gray-800 flex flex-col justify-between z-30 relative shadow-[10px_0_30px_rgba(0,0,0,0.5)]"
+        class="w-full lg:w-[400px] bg-[#080808] border-r border-gray-800 flex flex-col justify-between z-30 relative shadow-[10px_0_30px_rgba(0,0,0,0.5)]"
       >
-        <div class="p-8 overflow-y-auto">
+        <div class="p-6 sm:p-8 overflow-y-auto">
           <div class="mb-12 space-y-0">
             <div class="relative pl-8 pb-8 border-l-2 border-primary">
               <div
@@ -67,7 +67,7 @@
                 class="text-xs font-bold text-primary font-mono mb-1 block"
                 >STEP 01</span
               >
-              <h3 class="font-display italic text-2xl text-white">
+              <h3 class="font-display italic text-xl sm:text-2xl text-white">
                 DROP PIN LOCATION
               </h3>
             </div>
@@ -81,7 +81,7 @@
                 class="text-xs font-bold text-gray-500 font-mono mb-1 block"
                 >STEP 02</span
               >
-              <h3 class="font-display italic text-xl text-gray-400">
+              <h3 class="font-display italic text-lg sm:text-xl text-gray-400">
                 DURATION &amp; TIME BUDGET
               </h3>
             </div>
@@ -95,7 +95,7 @@
                 class="text-xs font-bold text-gray-500 font-mono mb-1 block"
                 >STEP 03</span
               >
-              <h3 class="font-display italic text-xl text-gray-400">
+              <h3 class="font-display italic text-lg sm:text-xl text-gray-400">
                 VISIBILITY &amp; ACCESS
               </h3>
             </div>
@@ -109,7 +109,7 @@
                 class="text-xs font-bold text-gray-500 font-mono mb-1 block"
                 >STEP 04</span
               >
-              <h3 class="font-display italic text-xl text-gray-400">
+              <h3 class="font-display italic text-lg sm:text-xl text-gray-400">
                 MEDIA GATE
               </h3>
             </div>
@@ -123,19 +123,19 @@
                 class="text-xs font-bold text-gray-500 font-mono mb-1 block"
                 >STEP 05</span
               >
-              <h3 class="font-display italic text-xl text-gray-400">
+              <h3 class="font-display italic text-lg sm:text-xl text-gray-400">
                 PRICING &amp; RULES
               </h3>
             </div>
           </div>
-          <div class="space-y-6">
+            <div class="space-y-6">
             <div>
               <label
                 class="block text-xs font-mono text-gray-400 uppercase mb-2"
                 >Event Name</label
               >
               <input
-                class="w-full bg-[#111] border border-gray-700 text-white font-display italic p-3 focus:ring-1 focus:ring-primary focus:border-primary placeholder-gray-600 clip-notch"
+                class="w-full bg-[#111] border border-gray-700 text-white font-display italic p-3 focus:ring-1 focus:ring-primary focus:border-primary placeholder-gray-600 clip-notch text-sm sm:text-base"
                 placeholder="ENTER EVENT TITLE"
                 type="text"
               />
@@ -185,7 +185,7 @@
         
       </aside>
       <main
-        class="flex-1 relative bg-[#050505] overflow-hidden group"
+        class="flex-1 relative bg-[#050505] overflow-hidden group min-h-[60vh] lg:min-h-screen"
       >
         <div class="absolute inset-0 z-0">
           <img
@@ -204,13 +204,13 @@
           class="absolute inset-0 z-20 flex items-center justify-center"
         >
           <div
-            class="relative w-[500px] h-[500px] rounded-full border border-primary/30 bg-primary/5 flex items-center justify-center animate-pulse-slow"
+            class="relative w-[260px] h-[260px] sm:w-[360px] sm:h-[360px] lg:w-[500px] lg:h-[500px] rounded-full border border-primary/30 bg-primary/5 flex items-center justify-center animate-pulse-slow"
           >
             <div
               class="absolute inset-0 border border-dashed border-primary/50 rounded-full animate-[spin_60s_linear_infinite]"
             ></div>
             <div
-              class="absolute w-[300px] h-[300px] rounded-full border border-primary/20"
+              class="absolute w-[160px] h-[160px] sm:w-[240px] sm:h-[240px] lg:w-[300px] lg:h-[300px] rounded-full border border-primary/20"
             ></div>
             <div class="relative z-30">
               <div
