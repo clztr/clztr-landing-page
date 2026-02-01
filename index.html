@@ -1,0 +1,254 @@
+<!doctype html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CLZTR - Combined Views (Handlebars)</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Russo+One&family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,typography"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.8/dist/handlebars.min.js"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#FFD700',
+              accent: '#00E5FF',
+              'neon-orange': '#FF6B00',
+              'background-light': '#F3F4F6',
+              'background-dark': '#050505',
+              'surface-light': '#FFFFFF',
+              'surface-dark': '#0F0F0F',
+              'secondary-dark': '#1A1A20',
+              'accent-cyan': '#00E0FF',
+              'accent-purple': '#A020F0',
+              'dim-gray': '#1A1A1A',
+              'mesh-orange': '#FF6B35',
+              success: '#00FF94',
+              error: '#FF2A2A',
+            },
+            fontFamily: {
+              display: ['"Russo One"', 'sans-serif'],
+              body: ['"Chakra Petch"', 'sans-serif'],
+              mono: ['"Share Tech Mono"', 'monospace'],
+            },
+            backgroundImage: {
+              'grid-pattern':
+                'linear-gradient(to right, #222 1px, transparent 1px), linear-gradient(to bottom, #222 1px, transparent 1px)',
+            },
+            screens: {
+              '3xl': '1600px',
+            },
+            boxShadow: {
+              'neon-yellow':
+                '0 0 10px rgba(252, 238, 10, 0.5), 0 0 20px rgba(252, 238, 10, 0.3)',
+              'neon-cyan':
+                '0 0 10px rgba(0, 229, 255, 0.5), 0 0 20px rgba(0, 229, 255, 0.3)',
+              'neon-orange':
+                '0 0 10px rgba(255, 107, 0, 0.5), 0 0 20px rgba(255, 107, 0, 0.3)',
+              'neon-white':
+                '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
+            },
+            animation: {
+              marquee: 'marquee 25s linear infinite',
+              'scan-fast': 'scanline 2s linear infinite',
+              'spin-slow': 'spin 10s linear infinite',
+              'spin-reverse': 'spin 15s linear infinite reverse',
+              shimmer: 'shimmer 2s infinite',
+              scan: 'scan 3s ease-in-out infinite',
+              'pulse-slow':
+                'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            },
+            keyframes: {
+              marquee: {
+                '0%': { transform: 'translateX(0%)' },
+                '100%': { transform: 'translateX(-100%)' },
+              },
+              scanline: {
+                '0%': { transform: 'translateY(-100%)', opacity: '0' },
+                '50%': { opacity: '1' },
+                '100%': { transform: 'translateY(100%)', opacity: '0' },
+              },
+              shimmer: {
+                '0%': { transform: 'translateX(-100%)' },
+                '100%': { transform: 'translateX(100%)' },
+              },
+              scan: {
+                '0%, 100%': { top: '0%' },
+                '50%': { top: '100%' },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: radial-gradient(
+            circle at top left,
+            rgba(255, 215, 0, 0.08),
+            transparent 40%
+          ),
+          #050505;
+      }
+      .screen-view-1,
+      .screen-view-2,
+      .screen-hostwizard,
+      .screen-createEvent,
+      .screen-event-creation,
+      .screen-mediaAssets,
+      .screen-publish {
+        filter: brightness(1.06) contrast(1.05);
+      }
+      .screen-view-1 .scanlines,
+      .screen-hostwizard .scanlines,
+      .screen-createEvent .scanlines,
+      .screen-event-creation .scanlines,
+      .screen-mediaAssets .scanlines,
+      .screen-publish .scanlines {
+        opacity: 0.12 !important;
+      }
+      .screen-view-1 [class*="bg-[radial-gradient(circle_at_center"],
+      .screen-hostwizard [class*="bg-[radial-gradient(circle_at_center"],
+      .screen-createEvent [class*="bg-[radial-gradient(circle_at_center"],
+      .screen-event-creation [class*="bg-[radial-gradient(circle_at_center"],
+      .screen-mediaAssets [class*="bg-[radial-gradient(circle_at_center"],
+      .screen-publish [class*="bg-[radial-gradient(circle_at_center"] {
+        opacity: 0.35 !important;
+      }
+      .screen-view-1 .mix-blend-overlay,
+      .screen-hostwizard .mix-blend-overlay,
+      .screen-createEvent .mix-blend-overlay,
+      .screen-event-creation .mix-blend-overlay,
+      .screen-mediaAssets .mix-blend-overlay,
+      .screen-publish .mix-blend-overlay {
+        opacity: 0.15 !important;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0b0b0b;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #ffd700;
+      }
+    </style>
+  </head>
+  <body class="text-gray-100 font-body">
+    <div id="app"></div>
+
+    <script id="app-template" type="text/x-handlebars-template">
+
+      <main class="flex-1 w-full">
+        <header
+          class="w-full bg-black/90 border-b border-gray-800 px-6 lg:px-12 py-4 flex items-center justify-between sticky top-0 z-50 backdrop-blur"
+        >
+          <div class="flex items-center gap-4">
+            <i class="ph-fill ph-hexagon text-2xl text-primary"></i>
+            <span class="font-display italic text-lg text-white tracking-widest">
+              CLZTR
+            </span>
+            <span
+              class="hidden md:inline text-[10px] font-mono text-gray-500 border border-gray-700 px-2 py-1"
+            >
+              v0.9 BOOT
+            </span>
+          </div>
+          <nav class="hidden md:flex items-center gap-6 text-xs font-mono">
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#view-1">Boot</a>
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#view-2">Consent</a>
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#hostwizard-hostwizard">Host</a>
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#createEvent-create-event">Budget</a>
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#event-creation-event-creation">Access</a>
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#mediaAssets-media-assets">Media</a>
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#publish-publish">Publish</a>
+          </nav>
+          <button
+            class="bg-primary text-black px-4 py-2 text-xs font-display italic font-bold skew-box hover:bg-white transition-colors"
+          >
+            <span class="unskew-text">ACCESS</span>
+          </button>
+        </header>
+        {{> view-1}}
+        {{> hostwizard}}
+        {{> createEvent}}
+        {{> event-creation}}
+        {{> mediaAssets}}
+        {{> publish}}
+      </main>
+    </script>
+
+    <script>
+      const app = document.getElementById('app');
+      const partials = [
+        'view-1',
+        'view-2',
+        'hostwizard',
+        'createEvent',
+        'event-creation',
+        'mediaAssets',
+        'publish',
+      ];
+
+      const renderApp = async () => {
+        try {
+          await Promise.all(
+            partials.map(async (name) => {
+              const res = await fetch(`components/${name}.hbs`);
+              if (!res.ok) {
+                throw new Error(`Missing partial: ${name}.hbs`);
+              }
+              const source = await res.text();
+              Handlebars.registerPartial(name, source);
+            })
+          );
+
+          const templateSource = document.getElementById('app-template').innerHTML;
+          const template = Handlebars.compile(templateSource);
+          app.innerHTML = template({});
+        } catch (err) {
+          app.innerHTML = `
+            <div class="min-h-screen flex items-center justify-center p-6">
+              <div class="max-w-xl text-center">
+                <h1 class="text-2xl font-display italic text-white mb-2">Render Error</h1>
+                <p class="text-sm text-red-400 font-mono mb-4">${err.message}</p>
+                <p class="text-xs text-gray-500 font-mono">
+                  If you opened this file via <span class="text-gray-300">file://</span>,
+                  start a local server so fetch() can load partials.
+                </p>
+              </div>
+            </div>
+          `;
+        }
+      };
+
+      renderApp();
+    </script>
+  </body>
+</html>

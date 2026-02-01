@@ -1,0 +1,478 @@
+<section id="createEvent-create-event" class="screen-createEvent relative isolate transform-gpu bg-background-dark text-gray-100 font-body overflow-x-hidden selection:bg-primary selection:text-black transition-colors duration-300 min-h-screen">
+  <style>
+.screen-createEvent .clip-notch {
+        clip-path: polygon(
+          20px 0,
+          100% 0,
+          100% calc(100% - 20px),
+          calc(100% - 20px) 100%,
+          0 100%,
+          0 20px
+        );}
+.screen-createEvent .clip-corner-brackets {
+        --b: 2px;
+        --s: 30px;
+        --c: #ffd700;
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        border: var(--b) solid transparent;
+        background:
+          conic-gradient(
+              from 90deg at top var(--b) left var(--b),
+              var(--c) 25%,
+              #0000 0
+            )
+            0 0,
+          conic-gradient(
+              from 180deg at top var(--b) right var(--b),
+              var(--c) 25%,
+              #0000 0
+            )
+            100% 0,
+          conic-gradient(
+              from 0deg at bottom var(--b) left var(--b),
+              var(--c) 25%,
+              #0000 0
+            )
+            0 100%,
+          conic-gradient(
+              from -90deg at bottom var(--b) right var(--b),
+              var(--c) 25%,
+              #0000 0
+            )
+            100% 100%;
+        background-size: var(--s) var(--s);
+        background-repeat: no-repeat;
+        z-index: 20;}
+.screen-createEvent .skew-box {
+        transform: skewX(-12deg);}
+.screen-createEvent .unskew-text {
+        transform: skewX(12deg);}
+.screen-createEvent .scanlines {
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0) 50%,
+          rgba(0, 0, 0, 0.2) 50%,
+          rgba(0, 0, 0, 0.2)
+        );
+        background-size: 100% 4px;
+        pointer-events: none;}
+.screen-createEvent .glow-box-primary {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);}
+.screen-createEvent .glow-box-cyan {
+        box-shadow: 0 0 15px rgba(0, 224, 255, 0.2);}
+.screen-createEvent .glow-mesh {
+        box-shadow: 0 0 40px rgba(255, 107, 53, 0.4);}
+.screen-createEvent .tech-input {
+        background: rgba(0, 0, 0, 0.6);
+        border: 1px solid #374151;
+        transition: all 0.3s ease;}
+.screen-createEvent .tech-input:focus {
+        border-color: #00e0ff;
+        box-shadow: 0 0 15px rgba(0, 224, 255, 0.2);
+        outline: none;}
+.screen-createEvent ::-webkit-scrollbar {
+        width: 8px;}
+.screen-createEvent ::-webkit-scrollbar-track {
+        background: #0f0f0f;}
+.screen-createEvent ::-webkit-scrollbar-thumb {
+        background: #333;}
+.screen-createEvent ::-webkit-scrollbar-thumb:hover {
+        background: #ffd700;}
+  </style>
+<div
+      class="fixed inset-0 scanlines z-50 pointer-events-none opacity-30 h-full w-full mix-blend-overlay"
+    ></div>
+    <div
+      class="fixed inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_#000_100%)] z-40 pointer-events-none opacity-80"
+    ></div>
+    <div class="flex min-h-screen">
+      <main
+        class="flex-1 w-full relative flex flex-col min-h-screen"
+      >
+        <div
+          class="flex-1 p-6 lg:p-12 max-w-[1920px] mx-auto w-full flex flex-col relative z-10"
+        >
+          <div
+            class="mb-10 flex flex-col md:flex-row justify-between items-end border-b border-gray-800 pb-6"
+          >
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <span
+                  class="text-accent-purple font-mono text-xs border border-accent-purple px-2 py-0.5 rounded-sm bg-accent-purple/10"
+                  >HOST_ID: 8842X</span
+                >
+                <span class="text-gray-500 font-mono text-xs"
+                  >SESSION ACTIVE</span
+                >
+              </div>
+              <h1
+                class="font-display italic text-4xl lg:text-5xl text-white tracking-wide"
+              >
+                CREATE
+                <span
+                  class="text-transparent bg-clip-text bg-gradient-to-r from-accent-purple to-white"
+                  >EVENT</span
+                >
+              </h1>
+            </div>
+            <div class="flex flex-col items-end gap-2 mt-6 md:mt-0">
+              <span
+                class="text-xs font-mono text-primary mb-1 tracking-widest"
+                >STEP 02/05: TIME CONFIG</span
+              >
+              <div class="flex gap-1">
+                <div
+                  class="w-12 h-2 bg-success skew-box opacity-50"
+                ></div>
+                <div
+                  class="w-12 h-2 bg-primary skew-box shadow-[0_0_15px_#FFD700] relative overflow-hidden"
+                >
+                  <div
+                    class="absolute inset-0 bg-white/30 animate-pulse"
+                  ></div>
+                </div>
+                <div
+                  class="w-12 h-2 bg-gray-800 skew-box border border-gray-700"
+                ></div>
+                <div
+                  class="w-12 h-2 bg-gray-800 skew-box border border-gray-700"
+                ></div>
+                <div
+                  class="w-12 h-2 bg-gray-800 skew-box border border-gray-700"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 flex-1"
+          >
+            <div class="lg:col-span-3 flex flex-col">
+              <div
+                class="bg-[#0f0f0f] border border-gray-800 h-full p-6 clip-notch relative flex flex-col group hover:border-accent-purple/50 transition-colors"
+              >
+                <div class="absolute top-0 right-0 p-3">
+                  <i
+                    class="ph-duotone ph-hourglass-high text-2xl text-gray-700 group-hover:text-accent-purple transition-colors"
+                  ></i>
+                </div>
+                <h3
+                  class="font-display italic text-xl text-gray-300 mb-2"
+                >
+                  TIME BUDGET
+                </h3>
+                <p
+                  class="text-xs font-mono text-gray-500 mb-8 border-b border-gray-800 pb-4"
+                >
+                  DAILY HOST LIMIT
+                </p>
+                <div
+                  class="flex-1 flex flex-col items-center justify-center relative py-4"
+                >
+                  <div
+                    class="relative w-full h-full max-h-[400px] flex items-end gap-1 px-4"
+                  >
+                    <div
+                      class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20"
+                    >
+                      <div
+                        class="w-full h-px bg-gray-500 border-t border-dashed border-gray-500"
+                      ></div>
+                      <div
+                        class="w-full h-px bg-gray-500 border-t border-dashed border-gray-500"
+                      ></div>
+                      <div
+                        class="w-full h-px bg-gray-500 border-t border-dashed border-gray-500"
+                      ></div>
+                      <div
+                        class="w-full h-px bg-gray-500 border-t border-dashed border-gray-500"
+                      ></div>
+                    </div>
+                    <div
+                      class="w-full bg-gray-900 border border-gray-700 h-full relative p-2"
+                    >
+                      <div
+                        class="absolute bottom-2 left-2 right-2 bg-gradient-to-t from-accent-purple/50 to-accent-purple h-[75%] shadow-[0_0_30px_rgba(160,32,240,0.3)] transition-all duration-1000 ease-out"
+                      >
+                        <div
+                          class="w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-30 mix-blend-overlay"
+                        ></div>
+                        <div
+                          class="absolute top-0 w-full h-1 bg-white opacity-50 animate-pulse"
+                        ></div>
+                      </div>
+                    </div>
+                    <div
+                      class="h-full flex flex-col justify-between py-2 text-[10px] font-mono text-gray-500 text-right"
+                    >
+                      <span>24h</span>
+                      <span>18h</span>
+                      <span>12h</span>
+                      <span>06h</span>
+                      <span>00h</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-8 text-center">
+                  <div
+                    class="font-display italic text-4xl text-white"
+                  >
+                    18<span class="text-gray-600 text-2xl">/24</span>
+                  </div>
+                  <div
+                    class="text-xs font-mono text-accent-purple uppercase tracking-widest mt-1 font-bold"
+                  >
+                    Hours Utilized
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lg:col-span-6 flex flex-col">
+              <div class="relative h-full py-2 px-4">
+                <div
+                  class="absolute inset-0 skew-box bg-[#0a0a0a] border border-gray-700 z-0 shadow-2xl"
+                >
+                  <div
+                    class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-5"
+                  ></div>
+                </div>
+                <div
+                  class="relative z-10 h-full p-8 flex flex-col justify-center"
+                >
+                  <div class="mb-10 text-center">
+                    <h2
+                      class="font-display italic text-3xl text-white mb-2"
+                    >
+                      SET EVENT DURATION
+                    </h2>
+                    <p class="text-sm font-mono text-gray-500">
+                      SELECT TIME WINDOW
+                    </p>
+                  </div>
+                  <div class="grid grid-cols-3 gap-4 mb-12">
+                    <label class="cursor-pointer group relative">
+                      <input
+                        class="peer sr-only"
+                        name="duration"
+                        type="radio"
+                      />
+                      <div
+                        class="skew-box h-24 border border-gray-700 bg-gray-900 group-hover:border-white transition-all peer-checked:bg-primary peer-checked:border-primary peer-checked:shadow-[0_0_20px_#FFD700]"
+                      >
+                        <div
+                          class="unskew-text h-full flex flex-col items-center justify-center"
+                        >
+                          <span
+                            class="font-display italic text-3xl text-gray-400 group-hover:text-white peer-checked:text-black"
+                            >2H</span
+                          >
+                          <span
+                            class="text-[10px] font-mono text-gray-600 uppercase peer-checked:text-black/70"
+                            >Short</span
+                          >
+                        </div>
+                      </div>
+                    </label>
+                    <label class="cursor-pointer group relative">
+                      <input
+                        checked=""
+                        class="peer sr-only"
+                        name="duration"
+                        type="radio"
+                      />
+                      <div
+                        class="skew-box h-24 border border-gray-700 bg-gray-900 group-hover:border-white transition-all peer-checked:bg-primary peer-checked:border-primary peer-checked:shadow-[0_0_20px_#FFD700]"
+                      >
+                        <div
+                          class="unskew-text h-full flex flex-col items-center justify-center"
+                        >
+                          <span
+                            class="font-display italic text-3xl text-gray-400 group-hover:text-white peer-checked:text-black"
+                            >4H</span
+                          >
+                          <span
+                            class="text-[10px] font-mono text-gray-600 uppercase peer-checked:text-black/70"
+                            >Standard</span
+                          >
+                        </div>
+                      </div>
+                      <div
+                        class="absolute -top-3 left-1/2 -translate-x-1/2 text-primary text-[10px] font-bold font-mono uppercase opacity-0 peer-checked:opacity-100 transition-opacity"
+                      >
+                        Recommended
+                      </div>
+                    </label>
+                    <label class="cursor-pointer group relative">
+                      <input
+                        class="peer sr-only"
+                        name="duration"
+                        type="radio"
+                      />
+                      <div
+                        class="skew-box h-24 border border-gray-700 bg-gray-900 group-hover:border-white transition-all peer-checked:bg-primary peer-checked:border-primary peer-checked:shadow-[0_0_20px_#FFD700]"
+                      >
+                        <div
+                          class="unskew-text h-full flex flex-col items-center justify-center"
+                        >
+                          <span
+                            class="font-display italic text-3xl text-gray-400 group-hover:text-white peer-checked:text-black"
+                            >8H</span
+                          >
+                          <span
+                            class="text-[10px] font-mono text-gray-600 uppercase peer-checked:text-black/70"
+                            >Extended</span
+                          >
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="grid grid-cols-2 gap-8 mb-8">
+                    <div class="relative">
+                      <label
+                        class="block text-accent-cyan font-mono text-xs uppercase mb-2 tracking-wider"
+                        >Start Time</label
+                      >
+                      <div class="relative group">
+                        <input
+                          class="w-full bg-black/60 border border-gray-600 text-white font-display text-2xl p-4 focus:border-accent-cyan focus:ring-1 focus:ring-accent-cyan focus:shadow-[0_0_15px_rgba(0,224,255,0.3)] transition-all outline-none rounded-none"
+                          type="time"
+                          value="22:00"
+                        />
+                        <div
+                          class="absolute right-4 top-1/2 -translate-y-1/2 text-accent-cyan pointer-events-none"
+                        >
+                          <i class="ph-bold ph-clock"></i>
+                        </div>
+                        <div
+                          class="absolute top-0 left-0 w-2 h-2 border-t border-l border-accent-cyan opacity-0 group-hover:opacity-100 transition-opacity"
+                        ></div>
+                        <div
+                          class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-accent-cyan opacity-0 group-hover:opacity-100 transition-opacity"
+                        ></div>
+                      </div>
+                    </div>
+                    <div
+                      class="relative opacity-50 cursor-not-allowed"
+                    >
+                      <label
+                        class="block text-gray-500 font-mono text-xs uppercase mb-2 tracking-wider"
+                        >End Time (auto)</label
+                      >
+                      <div class="relative">
+                        <input
+                          class="w-full bg-black/30 border border-gray-800 text-gray-400 font-display text-2xl p-4 outline-none rounded-none cursor-not-allowed"
+                          readonly=""
+                          type="time"
+                          value="02:00"
+                        />
+                        <div
+                          class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-600"
+                        >
+                          <i class="ph-bold ph-lock-key"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="flex items-center gap-3 justify-center text-xs font-mono text-gray-500 mt-4 bg-gray-900/50 py-2 border border-gray-800 rounded"
+                  >
+                    <i
+                      class="ph-fill ph-calendar-check text-success"
+                    ></i>
+                    <span>DATE: EVENT DAY</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lg:col-span-3 flex flex-col">
+              <div
+                class="bg-[#0f0f0f] border border-gray-800 h-full p-6 clip-notch relative flex flex-col"
+              >
+                <h3
+                  class="font-display italic text-xl text-gray-300 mb-6"
+                >
+                  BUDGET IMPACT
+                </h3>
+                <div class="space-y-6 flex-1">
+                  <div
+                    class="bg-black border border-gray-700 p-4 space-y-3 relative overflow-hidden"
+                  >
+                    <div
+                      class="flex justify-between items-center text-sm font-mono text-gray-400"
+                    >
+                      <span>Current Usage</span>
+                      <span>18h</span>
+                    </div>
+                    <div
+                      class="flex justify-between items-center text-sm font-mono text-primary"
+                    >
+                      <span>+ New Event</span>
+                      <span>4h</span>
+                    </div>
+                    <div class="h-px w-full bg-gray-700"></div>
+                    <div
+                      class="flex justify-between items-center font-display italic text-xl text-white"
+                    >
+                      <span>NEW TOTAL</span>
+                      <span class="text-white">22h</span>
+                    </div>
+                    <div
+                      class="hidden absolute inset-0 bg-red-900/80 backdrop-blur-sm flex items-center justify-center flex-col text-center"
+                    >
+                      <i
+                        class="ph-fill ph-warning-octagon text-3xl text-white mb-1"
+                      ></i>
+                      <span
+                        class="font-bold text-white uppercase text-xs"
+                        >Over Limit</span
+                      >
+                    </div>
+                  </div>
+                  <div>
+                    <div
+                      class="flex justify-between text-[10px] uppercase font-mono text-gray-500 mb-2"
+                    >
+                      <span>Budget Remaining</span>
+                      <span>2h Left</span>
+                    </div>
+                    <div
+                      class="w-full bg-gray-800 h-2 rounded-full overflow-hidden"
+                    >
+                      <div
+                        class="h-full bg-gray-600 w-[75%] float-left"
+                      ></div>
+                      <div
+                        class="h-full bg-primary w-[16.6%] float-left animate-pulse"
+                      ></div>
+                    </div>
+                  </div>
+                  <div
+                    class="bg-success/10 border border-success/30 p-3 flex gap-3 items-start"
+                  >
+                    <i
+                      class="ph-fill ph-check-circle text-success text-xl shrink-0 mt-0.5"
+                    ></i>
+                    <div>
+                      <h4
+                        class="text-success font-display italic text-sm"
+                      >
+                        APPROVED
+                      </h4>
+                      <p
+                        class="text-[10px] text-gray-400 leading-tight mt-1"
+                      >
+                        The proposed duration is within your weekly
+                        allowance. Proceed to venue selection.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+</section>

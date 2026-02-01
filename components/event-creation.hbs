@@ -1,0 +1,508 @@
+<section id="event-creation-event-creation" class="screen-event-creation relative isolate transform-gpu bg-background-dark text-gray-100 font-body overflow-x-hidden selection:bg-primary selection:text-black transition-colors duration-300">
+  <style>
+.screen-event-creation .clip-notch {
+        clip-path: polygon(
+          20px 0,
+          100% 0,
+          100% calc(100% - 20px),
+          calc(100% - 20px) 100%,
+          0 100%,
+          0 20px
+        );}
+.screen-event-creation .clip-corner-brackets {
+        --b: 2px;
+        --s: 30px;
+        --c: #ffd700;
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        border: var(--b) solid transparent;
+        background:
+          conic-gradient(
+              from 90deg at top var(--b) left var(--b),
+              var(--c) 25%,
+              #0000 0
+            )
+            0 0,
+          conic-gradient(
+              from 180deg at top var(--b) right var(--b),
+              var(--c) 25%,
+              #0000 0
+            )
+            100% 0,
+          conic-gradient(
+              from 0deg at bottom var(--b) left var(--b),
+              var(--c) 25%,
+              #0000 0
+            )
+            0 100%,
+          conic-gradient(
+              from -90deg at bottom var(--b) right var(--b),
+              var(--c) 25%,
+              #0000 0
+            )
+            100% 100%;
+        background-size: var(--s) var(--s);
+        background-repeat: no-repeat;
+        z-index: 20;}
+.screen-event-creation .skew-box {
+        transform: skewX(-12deg);}
+.screen-event-creation .unskew-text {
+        transform: skewX(12deg);}
+.screen-event-creation .scanlines {
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0) 50%,
+          rgba(0, 0, 0, 0.2) 50%,
+          rgba(0, 0, 0, 0.2)
+        );
+        background-size: 100% 4px;
+        pointer-events: none;}
+.screen-event-creation .glow-box-primary {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);}
+.screen-event-creation .glow-box-cyan {
+        box-shadow: 0 0 15px rgba(0, 224, 255, 0.2);}
+.screen-event-creation .glow-mesh {
+        box-shadow: 0 0 40px rgba(255, 107, 53, 0.4);}
+.screen-event-creation input[type='radio']:checked + div {
+        border-color: #ffd700;
+        background-color: rgba(255, 215, 0, 0.05);}
+.screen-event-creation input[type='radio']:checked + div i {
+        color: #ffd700;}
+  </style>
+<div
+      class="fixed inset-0 scanlines z-50 pointer-events-none opacity-30 h-full w-full mix-blend-overlay"
+    ></div>
+    <div
+      class="fixed inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_#000_100%)] z-40 pointer-events-none opacity-80"
+    ></div>
+    <div class="flex h-full">
+      <main
+        class="flex-1 w-full relative bg-background-dark"
+      >     
+        <div
+          class="relative w-full h-full p-6 lg:p-12 overflow-x-hidden"
+        >
+          <div
+            class="absolute inset-0 z-0 bg-topography opacity-10 pointer-events-none mix-blend-overlay"
+          ></div>
+          <div class="relative z-10 mx-auto">
+            <div class="mb-12">
+              <h1
+                class="font-display italic text-4xl lg:text-5xl text-white mb-2"
+              >
+                VISIBILITY <span class="text-primary">&amp; ACCESS</span>
+              </h1>
+              <p class="font-mono text-gray-500 text-sm mb-10">
+                Set visibility, age gate, and tier access for this event.
+              </p>
+              <div
+                class="relative flex items-center justify-between w-full max-w-4xl"
+              >
+                <div
+                  class="absolute top-1/2 left-0 w-full h-1 bg-gray-800 -z-10 transform -translate-y-1/2"
+                >
+                  <div class="h-full bg-primary w-1/2"></div>
+                </div>
+                <div
+                  class="flex flex-col items-center gap-3 cursor-pointer group"
+                >
+                  <div
+                    class="w-10 h-10 rounded-full bg-primary text-black flex items-center justify-center font-display italic font-bold z-10 border-4 border-background-dark"
+                  >
+                    <i class="ph-bold ph-check"></i>
+                  </div>
+                  <span
+                    class="text-[10px] font-mono font-bold text-primary uppercase tracking-widest hidden md:block"
+                    >Details</span
+                  >
+                </div>
+                <div
+                  class="flex flex-col items-center gap-3 cursor-pointer group"
+                >
+                  <div
+                    class="w-10 h-10 rounded-full bg-primary text-black flex items-center justify-center font-display italic font-bold z-10 border-4 border-background-dark"
+                  >
+                    <i class="ph-bold ph-check"></i>
+                  </div>
+                  <span
+                    class="text-[10px] font-mono font-bold text-primary uppercase tracking-widest hidden md:block"
+                    >Media</span
+                  >
+                </div>
+                <div
+                  class="flex flex-col items-center gap-3 relative"
+                >
+                  <div
+                    class="absolute -inset-4 bg-primary/20 rounded-full blur-xl animate-pulse"
+                  ></div>
+                  <div
+                    class="w-12 h-12 rounded-full bg-primary text-black flex items-center justify-center font-display italic font-bold text-lg z-10 border-4 border-background-dark shadow-[0_0_20px_rgba(255,215,0,0.5)]"
+                  >
+                    03
+                  </div>
+                  <span
+                    class="text-xs font-mono font-bold text-white uppercase tracking-widest hidden md:block"
+                    >Visibility</span
+                  >
+                </div>
+                <div
+                  class="flex flex-col items-center gap-3 opacity-40"
+                >
+                  <div
+                    class="w-10 h-10 rounded-full bg-gray-800 text-gray-500 flex items-center justify-center font-display italic font-bold z-10 border-4 border-background-dark border-gray-700"
+                  >
+                    04
+                  </div>
+                  <span
+                    class="text-[10px] font-mono font-bold text-gray-500 uppercase tracking-widest hidden md:block"
+                    >Tickets</span
+                  >
+                </div>
+                <div
+                  class="flex flex-col items-center gap-3 opacity-40"
+                >
+                  <div
+                    class="w-10 h-10 rounded-full bg-gray-800 text-gray-500 flex items-center justify-center font-display italic font-bold z-10 border-4 border-background-dark border-gray-700"
+                  >
+                    05
+                  </div>
+                  <span
+                    class="text-[10px] font-mono font-bold text-gray-500 uppercase tracking-widest hidden md:block"
+                    >Review</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-surface-dark border border-gray-800 p-8 lg:p-12 clip-notch relative shadow-2xl"
+            >
+              <div
+                class="absolute top-0 right-0 p-4 opacity-10 pointer-events-none"
+              >
+                <i
+                  class="ph-duotone ph-eye-slash text-8xl text-white"
+                ></i>
+              </div>
+              <form class="space-y-12">
+                <div class="space-y-6">
+                  <div class="flex items-center justify-between">
+                    <h2
+                      class="font-display italic text-2xl text-white flex items-center gap-3"
+                    >
+                      <i
+                        class="ph-fill ph-globe-hemisphere-west text-primary"
+                      ></i>
+                      VISIBILITY SETTINGS
+                    </h2>
+                    <span
+                      class="text-xs font-mono text-gray-500 bg-gray-900 px-2 py-1 border border-gray-800"
+                      >REQ. FIELD</span
+                    >
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <label class="cursor-pointer group relative">
+                      <input
+                        checked=""
+                        class="peer sr-only"
+                        name="visibility"
+                        type="radio"
+                      />
+                      <div
+                        class="h-full bg-[#151515] border border-gray-800 p-6 flex flex-col items-start transition-all duration-300 hover:border-primary group-hover:bg-[#1a1a1a] relative overflow-hidden"
+                      >
+                        <div
+                          class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary/10 to-transparent -mr-10 -mt-10 rounded-full blur-xl opacity-0 peer-checked:opacity-100 transition-opacity"
+                        ></div>
+                        <div
+                          class="w-12 h-12 rounded bg-gray-900 border border-gray-700 flex items-center justify-center mb-4 group-hover:border-primary/50 transition-colors"
+                        >
+                          <i
+                            class="ph-duotone ph-globe text-2xl text-gray-400 group-hover:text-primary transition-colors"
+                          ></i>
+                        </div>
+                        <h3
+                          class="font-display italic text-xl text-white mb-2 group-hover:text-primary transition-colors"
+                        >
+                          OPEN
+                        </h3>
+                        <p
+                          class="text-xs font-mono text-gray-500 leading-relaxed"
+                        >
+                          Visible on the map and feed. Anyone nearby can view and request access.
+                        </p>
+                        <div
+                          class="mt-4 opacity-0 peer-checked:opacity-100 transition-opacity"
+                        >
+                          <span
+                            class="text-[10px] font-bold text-primary uppercase tracking-widest flex items-center gap-1"
+                          >
+                            <i class="ph-fill ph-check-circle"></i>
+                            Selected
+                          </span>
+                        </div>
+                      </div>
+                    </label>
+                    <label class="cursor-pointer group relative">
+                      <input
+                        class="peer sr-only"
+                        name="visibility"
+                        type="radio"
+                      />
+                      <div
+                        class="h-full bg-[#151515] border border-gray-800 p-6 flex flex-col items-start transition-all duration-300 hover:border-accent-cyan group-hover:bg-[#1a1a1a] peer-checked:border-accent-cyan peer-checked:bg-accent-cyan/5"
+                      >
+                        <div
+                          class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-accent-cyan/10 to-transparent -mr-10 -mt-10 rounded-full blur-xl opacity-0 peer-checked:opacity-100 transition-opacity"
+                        ></div>
+                        <div
+                          class="w-12 h-12 rounded bg-gray-900 border border-gray-700 flex items-center justify-center mb-4 group-hover:border-accent-cyan/50 peer-checked:border-accent-cyan peer-checked:text-accent-cyan transition-colors"
+                        >
+                          <i
+                            class="ph-duotone ph-link text-2xl text-gray-400 group-hover:text-accent-cyan peer-checked:text-accent-cyan transition-colors"
+                          ></i>
+                        </div>
+                        <h3
+                          class="font-display italic text-xl text-white mb-2 group-hover:text-accent-cyan peer-checked:text-accent-cyan transition-colors"
+                        >
+                          EXTERNAL
+                        </h3>
+                        <p
+                          class="text-xs font-mono text-gray-500 leading-relaxed"
+                        >
+                          Hidden from the main map. Share link only for private or invite-only drops.
+                        </p>
+                        <div
+                          class="mt-4 opacity-0 peer-checked:opacity-100 transition-opacity"
+                        >
+                          <span
+                            class="text-[10px] font-bold text-accent-cyan uppercase tracking-widest flex items-center gap-1"
+                          >
+                            <i class="ph-fill ph-check-circle"></i>
+                            Selected
+                          </span>
+                        </div>
+                      </div>
+                    </label>
+                    <label class="cursor-pointer group relative">
+                      <input
+                        class="peer sr-only"
+                        name="visibility"
+                        type="radio"
+                      />
+                      <div
+                        class="h-full bg-[#151515] border border-gray-800 p-6 flex flex-col items-start transition-all duration-300 hover:border-accent-purple group-hover:bg-[#1a1a1a] peer-checked:border-accent-purple peer-checked:bg-accent-purple/5"
+                      >
+                        <div
+                          class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-accent-purple/10 to-transparent -mr-10 -mt-10 rounded-full blur-xl opacity-0 peer-checked:opacity-100 transition-opacity"
+                        ></div>
+                        <div
+                          class="w-12 h-12 rounded bg-gray-900 border border-gray-700 flex items-center justify-center mb-4 group-hover:border-accent-purple/50 peer-checked:border-accent-purple peer-checked:text-accent-purple transition-colors"
+                        >
+                          <i
+                            class="ph-duotone ph-crown text-2xl text-gray-400 group-hover:text-accent-purple peer-checked:text-accent-purple transition-colors"
+                          ></i>
+                        </div>
+                        <h3
+                          class="font-display italic text-xl text-white mb-2 group-hover:text-accent-purple peer-checked:text-accent-purple transition-colors"
+                        >
+                          MEMBERS ONLY
+                        </h3>
+                        <p
+                          class="text-xs font-mono text-gray-500 leading-relaxed"
+                        >
+                          Only verified members can view and join. Anti‑bot checks enforced.
+                        </p>
+                        <div
+                          class="mt-4 opacity-0 peer-checked:opacity-100 transition-opacity"
+                        >
+                          <span
+                            class="text-[10px] font-bold text-accent-purple uppercase tracking-widest flex items-center gap-1"
+                          >
+                            <i class="ph-fill ph-check-circle"></i>
+                            Selected
+                          </span>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+                <div
+                  class="h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent"
+                ></div>
+                <div class="space-y-6">
+                  <div class="flex items-center justify-between">
+                    <h2
+                      class="font-display italic text-2xl text-white flex items-center gap-3"
+                    >
+                      <i
+                        class="ph-fill ph-identification-card text-gray-400"
+                      ></i>
+                      AGE GATE
+                    </h2>
+                    <div class="flex items-center gap-2">
+                      <span
+                        class="w-2 h-2 bg-green-500 rounded-full animate-pulse"
+                      ></span>
+                      <span
+                        class="text-[10px] font-mono text-green-500 uppercase"
+                        >System Online</span
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="bg-[#111] border border-gray-800 p-8 clip-notch relative"
+                  >
+                    <p class="text-sm font-mono text-gray-400 mb-6">
+                      Select the required age band. Users must verify age before joining.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                      <label class="cursor-pointer">
+                        <input
+                          class="sr-only peer"
+                          name="age"
+                          type="radio"
+                        />
+                        <div
+                          class="skew-box w-32 h-12 flex items-center justify-center border border-gray-700 bg-gray-900 text-gray-400 hover:border-gray-500 hover:text-white transition-all peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary font-display italic font-bold"
+                        >
+                          <span class="unskew-text">NONE</span>
+                        </div>
+                      </label>
+                      <label class="cursor-pointer">
+                        <input
+                          checked=""
+                          class="sr-only peer"
+                          name="age"
+                          type="radio"
+                        />
+                        <div
+                          class="skew-box w-32 h-12 flex items-center justify-center border border-gray-700 bg-gray-900 text-gray-400 hover:border-gray-500 hover:text-white transition-all peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary font-display italic font-bold"
+                        >
+                          <span class="unskew-text">18+</span>
+                        </div>
+                      </label>
+                      <label class="cursor-pointer">
+                        <input
+                          class="sr-only peer"
+                          name="age"
+                          type="radio"
+                        />
+                        <div
+                          class="skew-box w-32 h-12 flex items-center justify-center border border-gray-700 bg-gray-900 text-gray-400 hover:border-gray-500 hover:text-white transition-all peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary font-display italic font-bold"
+                        >
+                          <span class="unskew-text">25+</span>
+                        </div>
+                      </label>
+                      <label class="cursor-pointer">
+                        <input
+                          class="sr-only peer"
+                          name="age"
+                          type="radio"
+                        />
+                        <div
+                          class="skew-box w-32 h-12 flex items-center justify-center border border-gray-700 bg-gray-900 text-gray-400 hover:border-gray-500 hover:text-white transition-all peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary font-display italic font-bold"
+                        >
+                          <span class="unskew-text">40+</span>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent"
+                ></div>
+                <div class="space-y-6">
+                  <div class="flex items-center justify-between">
+                    <h2
+                      class="font-display italic text-2xl text-white flex items-center gap-3"
+                    >
+                      <i
+                        class="ph-fill ph-lock-key text-gray-400"
+                      ></i>
+                      TIER ALLOWLIST
+                    </h2>
+                    <span
+                      class="text-[10px] font-mono text-accent-purple border border-accent-purple/30 bg-accent-purple/10 px-2 py-1 uppercase"
+                      >Advanced Feature</span
+                    >
+                  </div>
+                  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div
+                      class="bg-gradient-to-r from-[#1a1500] to-[#111] border border-gray-800 p-5 rounded-sm flex items-center justify-between group hover:border-primary/30 transition-colors"
+                    >
+                      <div class="flex items-center gap-4">
+                        <div
+                          class="w-12 h-12 rounded bg-yellow-900/20 border border-primary/20 flex items-center justify-center text-primary shadow-[0_0_10px_rgba(255,215,0,0.1)]"
+                        >
+                          <i class="ph-fill ph-star text-2xl"></i>
+                        </div>
+                        <div>
+                          <h4
+                            class="font-display italic text-white text-lg group-hover:text-primary transition-colors"
+                          >
+                            VIP TIER
+                          </h4>
+                          <p class="text-xs font-mono text-gray-500">
+                            Requires VIP access or higher.
+                          </p>
+                        </div>
+                      </div>
+                      <label
+                        class="relative inline-flex items-center cursor-pointer"
+                      >
+                        <input
+                          class="sr-only peer"
+                          type="checkbox"
+                          value=""
+                        />
+                        <div
+                          class="w-14 h-7 bg-gray-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-gray-400 after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary peer-checked:after:bg-white peer-checked:after:border-white shadow-inner"
+                        ></div>
+                      </label>
+                    </div>
+                    <div
+                      class="bg-gradient-to-r from-[#001a1d] to-[#111] border border-gray-800 p-5 rounded-sm flex items-center justify-between group hover:border-accent-cyan/30 transition-colors"
+                    >
+                      <div class="flex items-center gap-4">
+                        <div
+                          class="w-12 h-12 rounded bg-cyan-900/20 border border-accent-cyan/20 flex items-center justify-center text-accent-cyan shadow-[0_0_10px_rgba(0,224,255,0.1)]"
+                        >
+                          <i class="ph-fill ph-diamond text-2xl"></i>
+                        </div>
+                        <div>
+                          <h4
+                            class="font-display italic text-white text-lg group-hover:text-accent-cyan transition-colors"
+                          >
+                            COMPANY TIER
+                          </h4>
+                          <p class="text-xs font-mono text-gray-500">
+                            Company tier only. Invite‑only.
+                          </p>
+                        </div>
+                      </div>
+                      <label
+                        class="relative inline-flex items-center cursor-pointer"
+                      >
+                        <input
+                          checked=""
+                          class="sr-only peer"
+                          type="checkbox"
+                          value=""
+                        />
+                        <div
+                          class="w-14 h-7 bg-gray-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-gray-400 after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-accent-cyan peer-checked:after:bg-white peer-checked:after:border-white shadow-inner"
+                        ></div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+</section>

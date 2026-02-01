@@ -1,0 +1,448 @@
+<section id="publish-publish" class="screen-publish relative isolate transform-gpu bg-background-dark text-gray-100 font-body overflow-x-hidden selection:bg-primary selection:text-black transition-colors duration-300 min-h-screen">
+  <style>
+.screen-publish .clip-notch {
+        clip-path: polygon(
+          20px 0,
+          100% 0,
+          100% calc(100% - 20px),
+          calc(100% - 20px) 100%,
+          0 100%,
+          0 20px
+        );}
+.screen-publish .skew-box {
+        transform: skewX(-12deg);}
+.screen-publish .unskew-text {
+        transform: skewX(12deg);}
+.screen-publish .scanlines {
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0) 50%,
+          rgba(0, 0, 0, 0.2) 50%,
+          rgba(0, 0, 0, 0.2)
+        );
+        background-size: 100% 4px;
+        pointer-events: none;}
+.screen-publish .glow-box-primary {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);}
+.screen-publish .glow-box-success {
+        box-shadow: 0 0 15px rgba(0, 255, 148, 0.2);}
+  </style>
+<div
+      class="fixed inset-0 scanlines z-50 pointer-events-none opacity-30 h-full w-full mix-blend-overlay"
+    ></div>
+    <div
+      class="fixed inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_#000_100%)] z-40 pointer-events-none opacity-80"
+    ></div>
+    <div class="flex min-h-screen">
+      <main
+        class="flex-1 w-full relative min-h-screen flex flex-col"
+      >
+
+        <div class="flex-1 relative p-6 lg:p-12 overflow-y-auto">
+          <div
+            class="absolute inset-0 bg-black z-0 pointer-events-none"
+          >
+            <img
+              alt="Cyberpunk Background"
+              class="w-full h-full object-cover opacity-20 fixed"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2Cpl2r3-2b5U7KmgvBSKmXFE0DPk5yx0v5IG5H1lK0p1pfeZuK9dln1wSk7VITnryayl8tc5OgithlNG3yNjUd85Kdzvfwvl8bvHBn75p_ywU7Wqlgka4w-bQ-LutrB47re1hFngnBVfuKk65dhY2lhJaqTuPW3ZrIP8IcxWWVRy4bG6xyrSgeM5L_eQEgnNik0lXkrsM65PavSmHM4HPXQ5APmOXqqX5R92E5GDqyEHVOyQodNY8wXU29J8n1_GOx9g5ZHIRra2g"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/90 to-background-dark/80"
+            ></div>
+          </div>
+          <div class="relative z-10 max-w-7xl mx-auto">
+            <div
+              class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-gray-800 pb-6 gap-4"
+            >
+              <div>
+                <div class="text-xs font-mono text-accent-cyan mb-1">
+                  HOST PROTOCOL
+                </div>
+                <h1
+                  class="text-4xl lg:text-5xl font-display italic text-white"
+                >
+                  FINALIZE
+                  <span class="text-gray-600">&amp; PUBLISH</span>
+                </h1>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-20">
+              <div class="lg:col-span-7 space-y-6">
+                <div
+                  class="bg-[#0f0f0f]/90 backdrop-blur-md border border-gray-800 p-8 clip-notch relative group hover:border-gray-600 transition-all"
+                >
+                  <div class="absolute top-0 right-0 p-2 opacity-50">
+                    <i
+                      class="ph-bold ph-currency-circle-dollar text-3xl text-gray-600 group-hover:text-primary transition-colors"
+                    ></i>
+                  </div>
+                  <h3
+                    class="font-display italic text-2xl text-white mb-6"
+                  >
+                    PRICING <span class="text-primary">&amp; RULES</span>
+                  </h3>
+                  <div
+                    class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8"
+                  >
+                    <div>
+                      <label
+                        class="block text-xs font-mono text-gray-400 mb-2 uppercase tracking-wider"
+                        >Price (P)</label
+                      >
+                      <div class="relative">
+                        <input
+                          class="w-full bg-black border border-gray-700 text-white font-display text-xl p-4 pr-12 focus:border-primary focus:ring-0 outline-none transition-colors placeholder-gray-700"
+                          type="number"
+                          value="50"
+                        />
+                        <div
+                          class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 font-mono text-xs pointer-events-none"
+                        >
+                          VAL
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <label
+                        class="block text-xs font-mono text-gray-400 mb-2 uppercase tracking-wider"
+                        >Accepted Currency</label
+                      >
+                      <div
+                        class="grid grid-cols-2 gap-2 h-[62px] p-1 bg-black border border-gray-700"
+                      >
+                        <button
+                          class="bg-gray-800 text-white font-mono text-xs font-bold border border-gray-600 shadow-sm flex items-center justify-center gap-2"
+                        >
+                          <div
+                            class="w-2 h-2 rounded-full bg-blue-500"
+                          ></div>
+                          USDC
+                        </button>
+                        <button
+                          class="text-gray-500 hover:text-white font-mono text-xs hover:bg-gray-900 transition-colors flex items-center justify-center gap-2"
+                        >
+                          <div
+                            class="w-2 h-2 rounded-full bg-primary opacity-50"
+                          ></div>
+                          CLZTR
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="bg-gray-900/50 border border-dashed border-gray-700 p-5 flex flex-col md:flex-row items-center justify-between gap-4"
+                  >
+                    <div>
+                      <span
+                        class="text-xs font-mono text-gray-300 block mb-1 font-bold"
+                        ><i class="ph-bold ph-lock-key mr-1"></i>
+                        DEPOSIT (2P)</span
+                      >
+                      <span
+                        class="text-[10px] text-gray-500 block max-w-xs"
+                        >Refundable deposit held until event ends. Released after check‑in closes.</span
+                      >
+                    </div>
+                    <div
+                      class="text-right bg-black/40 p-3 rounded border border-gray-800 min-w-[140px]"
+                    >
+                      <div
+                        class="text-[10px] text-gray-500 font-mono mb-1"
+                      >
+                        AUTO-CALCULATED
+                      </div>
+                      <div
+                        class="font-display text-2xl text-accent-cyan"
+                      >
+                        250.00
+                        <span class="text-sm text-gray-500"
+                          >USDC</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="bg-[#0f0f0f]/90 backdrop-blur-md border border-gray-800 p-8 clip-notch relative"
+                >
+                  <div class="flex justify-between items-center mb-6">
+                    <h3
+                      class="font-display italic text-2xl text-white"
+                    >
+                      FINAL <span class="text-gray-600">CHECKLIST</span>
+                    </h3>
+                    <span
+                      class="text-[10px] font-mono bg-gray-900 px-2 py-1 text-gray-400 border border-gray-800"
+                      >ALL SYSTEMS GO</span
+                    >
+                  </div>
+                  <div class="space-y-3">
+                    <div
+                      class="flex items-center justify-between p-4 bg-black border-l-4 border-success relative overflow-hidden group hover:bg-gray-900/50 transition-colors"
+                    >
+                      <div
+                        class="flex items-center gap-5 relative z-10"
+                      >
+                        <div
+                          class="w-10 h-10 rounded bg-success/10 border border-success/20 flex items-center justify-center text-success shrink-0"
+                        >
+                          <i
+                            class="ph-bold ph-film-strip text-xl"
+                          ></i>
+                        </div>
+                        <div>
+                          <div
+                            class="text-sm font-display text-white italic tracking-wide"
+                          >
+                            MEDIA GATE
+                          </div>
+                          <div
+                            class="text-[10px] font-mono text-gray-500"
+                          >
+                            3 HIGH-RES IMAGES, 1 TRAILER MP4
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="flex items-center gap-3 relative z-10"
+                      >
+                        <span
+                          class="text-xs font-mono text-success font-bold hidden sm:block"
+                          >READY</span
+                        >
+                        <div
+                          class="w-6 h-6 rounded-full bg-success text-black flex items-center justify-center glow-box-success"
+                        >
+                          <i class="ph-bold ph-check text-xs"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex items-center justify-between p-4 bg-black border-l-4 border-success relative overflow-hidden group hover:bg-gray-900/50 transition-colors"
+                    >
+                      <div
+                        class="flex items-center gap-5 relative z-10"
+                      >
+                        <div
+                          class="w-10 h-10 rounded bg-success/10 border border-success/20 flex items-center justify-center text-success shrink-0"
+                        >
+                          <i class="ph-bold ph-timer text-xl"></i>
+                        </div>
+                        <div>
+                          <div
+                            class="text-sm font-display text-white italic tracking-wide"
+                          >
+                            TIME BUDGET
+                          </div>
+                          <div
+                            class="text-[10px] font-mono text-gray-500"
+                          >
+                            4 HOURS ALLOCATED (22:00 - 02:00)
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="flex items-center gap-3 relative z-10"
+                      >
+                        <span
+                          class="text-xs font-mono text-success font-bold hidden sm:block"
+                          >APPROVED</span
+                        >
+                        <div
+                          class="w-6 h-6 rounded-full bg-success text-black flex items-center justify-center glow-box-success"
+                        >
+                          <i class="ph-bold ph-check text-xs"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex items-center justify-between p-4 bg-black border-l-4 border-primary relative overflow-hidden group hover:bg-gray-900/50 transition-colors"
+                    >
+                      <div
+                        class="flex items-center gap-5 relative z-10"
+                      >
+                        <div
+                          class="w-10 h-10 rounded bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0"
+                        >
+                          <i
+                            class="ph-bold ph-shield-check text-xl"
+                          ></i>
+                        </div>
+                        <div>
+                          <div
+                            class="text-sm font-display text-white italic tracking-wide"
+                          >
+                            ACCESS & AGE
+                          </div>
+                          <div
+                            class="text-[10px] font-mono text-gray-500"
+                          >
+                            AGE GATE: 18+, VIP TIER ONLY
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="flex items-center gap-3 relative z-10"
+                      >
+                        <span
+                          class="text-xs font-mono text-primary font-bold hidden sm:block"
+                          >CONFIGURED</span
+                        >
+                        <div
+                          class="w-6 h-6 rounded-full bg-primary text-black flex items-center justify-center"
+                        >
+                          <i class="ph-bold ph-check text-xs"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="lg:col-span-5 space-y-6">
+                <div
+                  class="bg-[#0f0f0f] border border-gray-700 p-8 rounded-sm relative overflow-hidden group shadow-2xl"
+                >
+                  <div
+                    class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"
+                  ></div>
+                  <div
+                    class="absolute inset-0 bg-gradient-to-br from-gray-900 to-black opacity-90"
+                  ></div>
+                  <div class="absolute top-0 right-0 p-4 z-20">
+                    <span
+                      class="inline-flex items-center gap-2 bg-gray-900 border border-green-500/50 px-3 py-1 rounded text-xs font-bold text-green-500 font-mono shadow-[0_0_10px_rgba(0,255,148,0.2)]"
+                    >
+                      <span
+                        class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"
+                      ></span>
+                      DRAFT SAVED
+                    </span>
+                  </div>
+                  <div class="relative z-10 pt-2">
+                    <div class="text-gray-500 font-mono text-xs mb-2">
+                      ID: #8829A_TEMP
+                    </div>
+                    <h2
+                      class="text-4xl lg:text-5xl font-display italic text-white mb-4 leading-[0.9]"
+                    >
+                      READY FOR<br /><span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-success to-white"
+                        >PUBLISH</span
+                      >
+                    </h2>
+                    <p
+                      class="text-gray-400 font-mono text-xs leading-relaxed border-l-2 border-gray-700 pl-3"
+                    >
+                      Checklist complete. Publishing creates the
+                      event without a creation fee. Estimated time:
+                      <span class="text-white">~12s</span>.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="bg-black border border-gray-800 font-mono text-xs p-6 relative shadow-inner h-64 overflow-y-auto custom-scrollbar"
+                >
+                  <div
+                    class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent"
+                  ></div>
+                  <div
+                    class="sticky top-0 bg-black/90 backdrop-blur pb-2 border-b border-gray-800 mb-4 flex justify-between items-center z-10"
+                  >
+                    <span class="text-gray-500 font-bold"
+                      >PUBLISH PREVIEW</span
+                    >
+                    <span class="text-primary text-[10px]"
+                      >JSON_V2</span
+                    >
+                  </div>
+                  <div class="space-y-1.5 text-gray-500 font-medium">
+                    <p>
+                      <span class="text-accent-purple">const</span>
+                      eventConfig = {
+                    </p>
+                    <p class="pl-4">
+                      id:
+                      <span class="text-accent-cyan"
+                        >"evt_8829_x9"</span
+                      >,
+                    </p>
+                    <p class="pl-4">
+                      name:
+                      <span class="text-white"
+                        >"EVENT DRAFT"</span
+                      >,
+                    </p>
+                    <p class="pl-4">
+                      host_wallet:
+                      <span class="text-accent-cyan"
+                        >"0x71C...92A"</span
+                      >,
+                    </p>
+                    <p class="pl-4">
+                      timestamp_utc:
+                      <span class="text-primary">1715420000</span>,
+                    </p>
+                    <p class="pl-4">params: {</p>
+                    <p class="pl-8">
+                      max_capacity:
+                      <span class="text-primary">500</span>,
+                    </p>
+                    <p class="pl-8">
+                      age_gate_enforced:
+                      <span class="text-success">true</span>,
+                    </p>
+                    <p class="pl-8">
+                      tier_req:
+                      <span class="text-white">"VIP_OR_HIGHER"</span
+                      >,
+                    </p>
+                    <p class="pl-8">
+                      deposit_status:
+                      <span class="text-accent-purple"
+                        >"AWAITING_SIG"</span
+                      >
+                    </p>
+                    <p class="pl-4">},</p>
+                    <p class="pl-4">
+                      assets: [<span class="text-gray-600"
+                        >"img_1.jpg", "img_2.jpg", "trailer.mp4"</span
+                      >]
+                    </p>
+                    <p>}</p>
+                    <p class="mt-4 text-gray-600 animate-pulse">
+                      _Cursor waiting...
+                    </p>
+                  </div>
+                </div>
+                <div class="space-y-4 pt-4">
+                  <button
+                    class="w-full group relative py-6 bg-primary skew-box transition-all hover:scale-[1.02] active:scale-[0.98] glow-box-primary"
+                  >
+                    <div
+                      class="absolute inset-0 bg-white/40 opacity-0 group-hover:opacity-100 transition-opacity"
+                    ></div>
+                    <div
+                      class="unskew-text flex flex-col items-center justify-center gap-1 text-black"
+                    >
+                      <span
+                        class="font-display text-2xl lg:text-3xl italic font-black tracking-widest uppercase flex items-center gap-3"
+                      >
+                        PUBLISH EVENT
+                        <i class="ph-bold ph-rocket-launch"></i>
+                      </span>
+                      <span
+                        class="font-mono text-[10px] font-bold opacity-70 tracking-[0.2em]"
+                        >NO CREATION FEE</span
+                      >
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+</section>

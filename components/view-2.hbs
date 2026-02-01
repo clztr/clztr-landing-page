@@ -1,0 +1,890 @@
+<section id="view-2-view-2" class="screen-view-2 relative isolate transform-gpu bg-background-dark text-gray-200 font-body antialiased selection:bg-primary selection:text-black overflow-hidden h-screen flex flex-col md:flex-row">
+  <style>
+.screen-view-2 ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;}
+.screen-view-2 ::-webkit-scrollbar-track {
+        background: #0f0f12;}
+.screen-view-2 ::-webkit-scrollbar-thumb {
+        background: #333;}
+.screen-view-2 ::-webkit-scrollbar-thumb:hover {
+        background: #fcee0a;}
+.screen-view-2 .bg-grid {
+        background-size: 40px 40px;
+        background-image:
+          linear-gradient(
+            to right,
+            rgba(0, 229, 255, 0.05) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(0, 229, 255, 0.05) 1px,
+            transparent 1px
+          );}
+.screen-view-2 .bg-grid-orange {
+        background-size: 20px 20px;
+        background-image:
+          linear-gradient(
+            to right,
+            rgba(255, 107, 0, 0.1) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(255, 107, 0, 0.1) 1px,
+            transparent 1px
+          );}
+.screen-view-2 .dark .bg-grid {
+        background-image:
+          linear-gradient(
+            to right,
+            rgba(0, 229, 255, 0.03) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(0, 229, 255, 0.03) 1px,
+            transparent 1px
+          );}
+.screen-view-2 .clip-angled {
+        clip-path: polygon(
+          10px 0,
+          100% 0,
+          100% calc(100% - 10px),
+          calc(100% - 10px) 100%,
+          0 100%,
+          0 10px
+        );}
+.screen-view-2 .clip-angled-reverse {
+        clip-path: polygon(
+          0 0,
+          calc(100% - 10px) 0,
+          100% 10px,
+          100% 100%,
+          10px 100%,
+          0 calc(100% - 10px)
+        );}
+.screen-view-2 .animate-scan {
+        animation: scanline 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;}
+.screen-view-2 .map-pattern {
+        background-image: radial-gradient(
+          rgba(0, 229, 255, 0.2) 1px,
+          transparent 1px
+        );
+        background-size: 30px 30px;}
+.screen-view-2 .font-display { font-family: 'Orbitron', sans-serif; }
+.screen-view-2 .font-mono { font-family: 'Share Tech Mono', monospace; }
+  </style>
+<aside
+      class="w-full md:w-80 flex-shrink-0 border-r border-slate-800 bg-surface-dark/95 backdrop-blur z-20 flex flex-col h-full overflow-y-auto"
+    >
+      <div
+        class="p-6 border-b border-slate-800 flex items-center justify-between sticky top-0 bg-surface-dark z-10"
+      >
+        <div
+          class="text-3xl font-display font-black tracking-widest italic text-white"
+        >
+          CLZTR
+        </div>
+        <div
+          class="w-2 h-2 bg-primary rounded-full animate-pulse shadow-neon-yellow"
+        ></div>
+      </div>
+      <div class="p-6 border-b border-slate-800">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="material-icons text-neon-orange text-lg"
+            >admin_panel_settings</span
+          >
+          <h2
+            class="font-display font-bold text-neon-orange uppercase tracking-widest text-sm"
+          >
+            Consent & Permissions
+          </h2>
+        </div>
+        <div
+          class="bg-black border border-slate-800 p-1 relative group mb-6 shadow-[0_0_20px_rgba(255,107,0,0.1)]"
+        >
+          <div
+            class="absolute inset-0 bg-grid-orange pointer-events-none opacity-50"
+          ></div>
+          <div
+            class="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-neon-orange z-10"
+          ></div>
+          <div
+            class="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-neon-orange z-10"
+          ></div>
+          <div
+            class="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-neon-orange z-10"
+          ></div>
+          <div
+            class="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-neon-orange z-10"
+          ></div>
+          <div
+            class="relative p-5 flex flex-col items-center overflow-hidden z-0"
+          >
+            <div
+              class="w-full flex justify-between text-[7px] font-mono text-neon-orange/70 mb-4 tracking-widest"
+            >
+              <span>BOOT_SEQUENCE</span>
+              <span>REQ: CAMERA+LOCATION</span>
+            </div>
+            <div
+              class="relative w-36 h-36 mb-6 flex items-center justify-center"
+            >
+              <div
+                class="absolute inset-0 border border-neon-orange/20 rounded-full animate-spin-slow"
+              ></div>
+              <div
+                class="absolute inset-2 border border-neon-orange/10 rounded-full animate-spin-reverse border-dashed"
+              ></div>
+              <div class="relative z-10 opacity-90">
+                <span
+                  class="material-icons text-8xl text-neon-orange/80 drop-shadow-[0_0_8px_rgba(255,107,0,0.5)] scale-110"
+                  >face_unlock</span
+                >
+              </div>
+              <div
+                class="absolute top-0 w-full h-0.5 bg-neon-orange shadow-[0_0_15px_#FF6B00] animate-scan z-20"
+              ></div>
+              <div
+                class="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,transparent_50%,#000_100%)] z-10"
+              ></div>
+              <div
+                class="absolute inset-0 opacity-20 z-10"
+                style="
+                  background-image: radial-gradient(
+                    #ff6b00 1px,
+                    transparent 1px
+                  );
+                  background-size: 6px 6px;
+                "
+              ></div>
+              <div
+                class="absolute top-1/2 -right-14 transform -translate-y-1/2 flex items-center z-30"
+              >
+                <div class="w-10 h-[1px] bg-neon-orange"></div>
+                <span
+                  class="text-[7px] font-mono text-neon-orange border border-neon-orange px-1 bg-black/90 ml-0 uppercase whitespace-nowrap shadow-neon-orange"
+                  >Camera + Location</span
+                >
+              </div>
+              <div
+                class="absolute top-8 left-4 w-1 h-1 bg-neon-orange rounded-full animate-ping"
+              ></div>
+              <div
+                class="absolute bottom-8 right-6 w-1 h-1 bg-neon-orange rounded-full animate-ping delay-700"
+              ></div>
+            </div>
+            <div class="w-full space-y-3 mb-5">
+              <div>
+                <div class="flex justify-between items-end mb-1">
+                  <span class="text-[8px] font-mono text-slate-400"
+                    >PERMISSIONS</span
+                  >
+                  <span
+                    class="text-xs font-mono font-bold text-neon-orange animate-pulse"
+                    >2/2 ON</span
+                  >
+                </div>
+                <div
+                  class="w-full h-1 bg-slate-800 relative overflow-hidden"
+                >
+                  <div
+                    class="absolute top-0 left-0 h-full w-[99%] bg-neon-orange shadow-[0_0_10px_#FF6B00]"
+                  ></div>
+                  <div
+                    class="absolute top-0 left-0 h-full w-full bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent)] animate-shimmer"
+                  ></div>
+                </div>
+              </div>
+              <div
+                class="grid grid-cols-2 gap-2 text-[7px] font-mono text-neon-orange/60"
+              >
+                <div
+                  class="border border-neon-orange/20 p-1 bg-black/40"
+                >
+                  <div>DEVICE</div>
+                  <div class="text-white">12ms</div>
+                </div>
+                <div
+                  class="border border-neon-orange/20 p-1 bg-black/40"
+                >
+                  <div>CHECKS</div>
+                  <div class="text-white">AES-256</div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="w-full border border-neon-orange/50 rounded-full px-3 py-2 bg-neon-orange/10 text-center relative overflow-hidden group-hover:bg-neon-orange/20 transition-all cursor-pointer"
+            >
+              <div
+                class="absolute inset-0 bg-neon-orange/5 animate-pulse"
+              ></div>
+              <span
+                class="relative z-10 text-[10px] font-display font-bold tracking-[0.2em] text-neon-orange uppercase shadow-neon-orange flex items-center justify-center gap-2"
+              >
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-neon-orange shadow-[0_0_5px_#FF6B00]"
+                ></span>
+                CONTINUE
+              </span>
+            </div>
+          </div>
+        </div>
+        <nav class="space-y-1">
+          <a
+            class="flex items-center gap-3 px-3 py-2 text-sm font-bold text-primary bg-primary/10 border-l-2 border-primary transition-colors"
+            href="#"
+          >
+            <span class="material-icons text-sm">dashboard</span>
+            DASHBOARD
+          </a>
+          <a
+            class="flex items-center gap-3 px-3 py-2 text-sm font-bold text-slate-400 hover:text-white hover:bg-white/5 border-l-2 border-transparent transition-colors"
+            href="#"
+          >
+            <span class="material-icons text-sm">map</span> LIVE MAP
+          </a>
+          <a
+            class="flex items-center gap-3 px-3 py-2 text-sm font-bold text-slate-400 hover:text-white hover:bg-white/5 border-l-2 border-transparent transition-colors"
+            href="#"
+          >
+            <span class="material-icons text-sm"
+              >account_balance_wallet</span
+            >
+            WALLET
+          </a>
+          <a
+            class="flex items-center gap-3 px-3 py-2 text-sm font-bold text-slate-400 hover:text-white hover:bg-white/5 border-l-2 border-transparent transition-colors"
+            href="#"
+          >
+            <span class="material-icons text-sm">settings</span>
+            SETTINGS
+          </a>
+        </nav>
+      </div>
+      <div
+        class="mt-auto p-6 border-t border-slate-800 bg-gradient-to-t from-primary/5 to-transparent"
+      >
+        <div
+          class="text-[10px] text-slate-500 uppercase tracking-widest mb-2"
+        >
+          Current Tier
+        </div>
+        <div class="flex items-end justify-between">
+          <div>
+            <div
+              class="font-display font-black italic text-2xl text-white leading-none"
+            >
+              VIP
+            </div>
+            <div class="text-xs text-primary font-mono mt-1">
+              LVL.99 ACCESS
+            </div>
+          </div>
+          <div class="text-right">
+            <span class="material-icons text-primary/50 text-4xl"
+              >military_tech</span
+            >
+          </div>
+        </div>
+        <div class="mt-4 w-full bg-slate-800 h-1">
+          <div
+            class="bg-primary h-full w-[85%] shadow-[0_0_10px_#FCEE0A]"
+          ></div>
+        </div>
+        <div
+          class="flex justify-between text-[8px] text-slate-500 mt-1 font-mono"
+        >
+          <span>XP: 85,000</span>
+          <span>NEXT: COMPANY</span>
+        </div>
+      </div>
+    </aside>
+    <main
+      class="flex-1 relative flex flex-col h-full overflow-hidden bg-background-dark"
+    >
+      <header
+        class="h-16 border-b border-slate-800 bg-surface-dark/80 backdrop-blur flex items-center justify-between px-8 flex-shrink-0 z-10"
+      >
+        <div class="flex items-center gap-4">
+          <div
+            class="border border-accent/50 text-accent text-xs font-mono px-2 py-1 rounded bg-accent/10"
+          >
+            HOST.COMMAND
+            <span
+              class="inline-block w-2 h-2 bg-accent rounded-full ml-1 animate-pulse"
+            ></span>
+          </div>
+          <div
+            class="hidden lg:flex text-xs text-slate-500 font-mono gap-4"
+          >
+            <span>LAT: 35.9023 N</span>
+            <span>LON: 139.3421 W</span>
+            <span>SERVER: TOKYO_03</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <button
+            class="bg-slate-800 hover:bg-slate-700 text-white px-4 py-1.5 text-xs font-bold skew-x-[-10deg] border border-slate-600 transition-colors"
+          >
+            <span
+              class="inline-block skew-x-[10deg] flex items-center gap-2"
+            >
+              <span class="material-icons text-sm"
+                >notifications</span
+              >
+              ALERTS (3)
+            </span>
+          </button>
+          <div
+            class="w-8 h-8 rounded-full bg-gradient-to-tr from-primary to-accent border border-white/20"
+          ></div>
+        </div>
+      </header>
+      <div class="flex-1 overflow-y-auto overflow-x-hidden relative">
+        <div
+          class="fixed inset-0 pointer-events-none z-0 bg-grid opacity-30"
+        ></div>
+        <div
+          class="p-6 lg:p-10 max-w-[1920px] mx-auto relative z-10 space-y-6"
+        >
+          <section class="w-full grid lg:grid-cols-4 gap-6 h-[500px]">
+            <div
+              class="lg:col-span-3 bg-slate-900 border border-slate-700 relative overflow-hidden rounded-lg group shadow-2xl"
+            >
+              <div
+                class="absolute inset-0 map-pattern opacity-30"
+              ></div>
+              <div
+                class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/80"
+              ></div>
+              <div
+                class="absolute top-1/2 left-1/3 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-accent/20 rounded-full animate-[spin_10s_linear_infinite]"
+              ></div>
+              <div
+                class="absolute top-1/2 left-1/3 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-primary/20 rounded-full animate-[spin_15s_linear_infinite_reverse]"
+              ></div>
+              <div
+                class="absolute top-[40%] left-[30%] group/pin cursor-pointer"
+              >
+                <div
+                  class="w-3 h-3 bg-primary rounded-full shadow-neon-yellow animate-pulse"
+                ></div>
+                <div
+                  class="absolute left-4 top-0 bg-black/80 border border-primary text-primary text-[10px] px-2 py-1 whitespace-nowrap opacity-0 group-hover/pin:opacity-100 transition-opacity"
+                >
+                  PRESENCE_GATE_01
+                </div>
+              </div>
+              <div
+                class="absolute top-[60%] left-[45%] group/pin cursor-pointer"
+              >
+                <div
+                  class="w-3 h-3 bg-accent rounded-full shadow-neon-cyan animate-pulse"
+                ></div>
+                <div
+                  class="absolute left-4 top-0 bg-black/80 border border-accent text-accent text-[10px] px-2 py-1 whitespace-nowrap opacity-0 group-hover/pin:opacity-100 transition-opacity"
+                >
+                  VIP_AUTOPOP
+                </div>
+              </div>
+              <div class="absolute top-4 left-4">
+                <h2
+                  class="font-display font-black italic text-2xl text-white drop-shadow-md"
+                >
+                  MAP HOME
+                </h2>
+                <div class="flex items-center gap-2 mt-1">
+                  <span
+                    class="w-2 h-2 bg-green-500 rounded-full animate-pulse"
+                  ></span>
+                  <span class="text-xs font-mono text-green-400"
+                    >PRESENCE VERIFIED</span
+                  >
+                </div>
+              </div>
+              <div
+                class="absolute bottom-4 left-4 right-4 flex justify-between items-end pointer-events-none"
+              >
+                <div
+                  class="text-[10px] font-mono text-slate-400 bg-black/50 px-2 py-1"
+                >
+                  ZOOM: 125% <br />
+                  TILT: 45°
+                </div>
+                <div class="flex gap-2 pointer-events-auto">
+                  <button
+                    class="bg-black/80 hover:bg-accent hover:text-black text-white border border-slate-600 p-2 transition-colors"
+                  >
+                    <span class="material-icons">add</span>
+                  </button>
+                  <button
+                    class="bg-black/80 hover:bg-accent hover:text-black text-white border border-slate-600 p-2 transition-colors"
+                  >
+                    <span class="material-icons">remove</span>
+                  </button>
+                  <button
+                    class="bg-black/80 hover:bg-accent hover:text-black text-white border border-slate-600 p-2 transition-colors"
+                  >
+                    <span class="material-icons">my_location</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="lg:col-span-1 bg-surface-dark border border-slate-700 flex flex-col h-full"
+            >
+              <div
+                class="p-4 border-b border-slate-700 bg-slate-900/50"
+              >
+                <div class="flex justify-between items-center mb-1">
+                  <span
+                    class="text-[10px] bg-red-500/20 text-red-500 border border-red-500/50 px-2 py-0.5 font-bold uppercase"
+                    >Live Now</span
+                  >
+                  <span class="material-icons text-slate-500 text-sm"
+                    >more_horiz</span
+                  >
+                </div>
+                <h3
+                  class="font-display font-black italic text-xl text-white"
+                >
+                  EVENT PREVIEW
+                </h3>
+                <p class="text-xs text-slate-400">
+                  Locked media preview
+                </p>
+              </div>
+              <div class="p-4 flex-1 overflow-y-auto space-y-4">
+                <div class="grid grid-cols-2 gap-2">
+                  <div
+                    class="bg-black/30 p-2 border border-slate-800"
+                  >
+                    <div class="text-[9px] text-slate-500 uppercase">
+                      Capacity
+                    </div>
+                    <div class="text-lg font-mono text-accent">
+                      84%
+                    </div>
+                  </div>
+                  <div
+                    class="bg-black/30 p-2 border border-slate-800"
+                  >
+                    <div class="text-[9px] text-slate-500 uppercase">
+                      Price
+                    </div>
+                    <div class="text-lg font-mono text-primary">
+                      50 $CLZ
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="text-[10px] text-slate-500 uppercase mb-2"
+                  >
+                    Presence Nearby
+                  </div>
+                  <div class="space-y-2">
+                    <div
+                      class="flex items-center justify-between text-xs text-slate-300 border-b border-slate-800 pb-1"
+                    >
+                      <span class="flex items-center gap-2"
+                        ><div
+                          class="w-1.5 h-1.5 bg-green-500 rounded-full"
+                        ></div>
+                        Cyber_Wolf</span
+                      >
+                      <span class="font-mono text-slate-500"
+                        >2m ago</span
+                      >
+                    </div>
+                    <div
+                      class="flex items-center justify-between text-xs text-slate-300 border-b border-slate-800 pb-1"
+                    >
+                      <span class="flex items-center gap-2"
+                        ><div
+                          class="w-1.5 h-1.5 bg-green-500 rounded-full"
+                        ></div>
+                        Neon_Rider</span
+                      >
+                      <span class="font-mono text-slate-500"
+                        >Now</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="p-4 border-t border-slate-700 bg-black/20">
+                <button
+                  class="w-full bg-primary hover:bg-white text-black font-display font-black italic py-3 skew-x-[-10deg] transition-all hover:scale-[1.02]"
+                >
+                  <span
+                    class="inline-block skew-x-[10deg] flex items-center justify-center gap-2"
+                  >
+                    ACCESS
+                    <span class="material-icons text-sm"
+                      >arrow_forward</span
+                    >
+                  </span>
+                </button>
+              </div>
+            </div>
+          </section>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            <div
+              class="bg-surface-dark border border-slate-800 p-6 clip-angled relative group hover:border-primary/50 transition-colors"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-2">
+                  <div class="p-1 border border-primary rounded-full">
+                    <span class="material-icons text-primary text-sm"
+                      >bolt</span
+                    >
+                  </div>
+                  <h2
+                    class="font-display font-bold italic text-white uppercase text-lg"
+                  >
+                    JOIN EVENT (PAID)
+                  </h2>
+                </div>
+                <span
+                  class="text-[10px] bg-slate-800 text-slate-400 px-2 py-1 rounded"
+                  >JOIN FLOW</span
+                >
+              </div>
+              <div class="flex gap-1 h-12 mb-6">
+                <div
+                  class="flex-1 bg-primary skew-x-[-20deg] border-r border-black/50 opacity-100 transition-opacity hover:opacity-80"
+                ></div>
+                <div
+                  class="flex-1 bg-primary skew-x-[-20deg] border-r border-black/50 opacity-100 transition-opacity hover:opacity-80"
+                ></div>
+                <div
+                  class="flex-1 bg-primary skew-x-[-20deg] border-r border-black/50 opacity-100 transition-opacity hover:opacity-80"
+                ></div>
+                <div
+                  class="flex-1 bg-yellow-600 skew-x-[-20deg] border-r border-black/50 animate-pulse"
+                ></div>
+                <div
+                  class="flex-1 bg-slate-800 skew-x-[-20deg] border-r border-black/50"
+                ></div>
+              </div>
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                <div>
+                  <div
+                    class="text-[10px] text-slate-500 uppercase mb-1"
+                  >
+                    Price (P)
+                  </div>
+                  <div
+                    class="font-mono text-2xl text-white font-bold"
+                  >
+                    50
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div
+                    class="text-[10px] text-slate-500 uppercase mb-1"
+                  >
+                    Deposit (2P)
+                  </div>
+                  <div
+                    class="font-mono text-2xl text-primary font-bold"
+                  >
+                    100
+                  </div>
+                </div>
+              </div>
+              <button
+                class="w-full border border-accent text-accent hover:bg-accent hover:text-black font-display font-bold italic py-2 transition-colors uppercase text-sm"
+              >
+                Approve &amp; Join
+              </button>
+            </div>
+            <div
+              class="bg-surface-dark border border-slate-800 p-6 rounded-lg relative overflow-hidden group hover:border-green-500/50 transition-colors"
+            >
+              <div
+                class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity"
+              >
+                <span class="material-icons text-green-500"
+                  >swap_vert</span
+                >
+              </div>
+              <h2
+                class="font-display font-bold italic text-white uppercase text-lg mb-4"
+              >
+                BUY CLZTR
+              </h2>
+              <div
+                class="flex items-center justify-between bg-black/40 p-3 mb-2 rounded border border-slate-700"
+              >
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-bold"
+                  >
+                    $
+                  </div>
+                  <div>
+                    <div
+                      class="text-[10px] text-slate-400 font-bold uppercase"
+                    >
+                      USDC
+                    </div>
+                    <div class="font-mono font-bold text-white">
+                      2,500.00
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex justify-center -my-3 relative z-10">
+                <div
+                  class="w-6 h-6 rounded-full bg-slate-700 border border-slate-500 flex items-center justify-center text-slate-300 shadow-lg cursor-pointer hover:bg-white hover:text-black transition-colors"
+                >
+                  <span class="material-icons text-xs"
+                    >arrow_downward</span
+                  >
+                </div>
+              </div>
+              <div
+                class="flex items-center justify-between bg-primary/5 p-3 mb-4 rounded border border-primary/30 mt-2"
+              >
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-black text-xs font-bold"
+                  >
+                    C
+                  </div>
+                  <div>
+                    <div
+                      class="text-[10px] text-primary font-bold uppercase"
+                    >
+                      CLZTR
+                    </div>
+                    <div class="font-mono font-bold text-primary">
+                      2,500.00
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="w-full bg-slate-800 hover:bg-white hover:text-black text-white font-display font-bold italic py-2 transition-colors uppercase text-sm border border-slate-600"
+              >
+                Buy CLZTR
+              </button>
+            </div>
+            <div
+              class="bg-surface-dark border-l-4 border-red-500 p-6 relative overflow-hidden flex flex-col justify-between hover:bg-red-900/5 transition-colors"
+            >
+              <div class="absolute inset-0 bg-red-900/5 z-0"></div>
+              <div class="relative z-10">
+                <div class="flex justify-between items-start mb-2">
+                  <span
+                    class="bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 skew-x-[-10deg] inline-block"
+                    ><span class="inline-block skew-x-[10deg]"
+                      >RESTRICTED</span
+                    ></span
+                  >
+                  <span class="material-icons text-slate-500"
+                    >lock</span
+                  >
+                </div>
+                <h3
+                  class="font-display font-black italic text-2xl text-white mb-1"
+                >
+                  ENTRY GATE (18+)
+                </h3>
+                <p class="text-xs text-slate-400 mb-4">
+                  Presence + age verification required.
+                </p>
+                <div
+                  class="flex items-center gap-4 text-xs font-mono text-slate-300 border-t border-slate-700/50 pt-4 mt-2"
+                >
+                  <div class="flex items-center gap-1">
+                    <span
+                      class="material-icons text-sm text-green-500"
+                      >check_circle</span
+                    >
+                    Age: 18+
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <span
+                      class="material-icons text-sm text-green-500"
+                      >check_circle</span
+                    >
+                    Presence
+                  </div>
+                </div>
+              </div>
+              <button
+                class="mt-4 bg-transparent border border-red-500/50 text-red-500 font-display font-bold italic text-sm px-4 py-2 hover:bg-red-500 hover:text-white transition-colors w-full"
+              >
+                VERIFY AGE
+              </button>
+            </div>
+          </div>
+          <section>
+            <div
+              class="flex justify-between items-end mb-6 border-b border-slate-800 pb-2"
+            >
+              <h2
+                class="font-display font-black italic text-3xl text-white uppercase leading-none"
+              >
+                TIER UPSELL
+              </h2>
+              <a
+                class="text-xs font-mono text-accent hover:text-white transition-colors flex items-center gap-1"
+                href="#"
+                >VIEW ALL
+                <span class="material-icons text-[10px]"
+                  >arrow_forward</span
+                ></a
+              >
+            </div>
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+            >
+              <div
+                class="bg-surface-dark border-t-2 border-slate-500 p-6 hover:bg-slate-800 transition-all cursor-pointer group h-48 flex flex-col justify-between"
+              >
+                <div>
+                  <span
+                    class="text-[10px] bg-slate-700 text-slate-300 px-1 font-mono"
+                    >LVL.01</span
+                  >
+                  <h3
+                    class="font-display font-black italic text-xl text-white mt-2 group-hover:text-slate-200"
+                  >
+                    FREE
+                  </h3>
+                  <p class="text-[10px] text-slate-500 mt-1">
+                    Standard Issue Access.
+                  </p>
+                </div>
+                <div
+                  class="font-display font-bold italic text-xl text-white"
+                >
+                  FREE
+                </div>
+              </div>
+              <div
+                class="bg-surface-dark border-t-2 border-purple-500 p-6 hover:bg-purple-900/10 transition-all cursor-pointer group h-48 flex flex-col justify-between relative overflow-hidden"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-to-br from-purple-900/10 to-transparent pointer-events-none"
+                ></div>
+                <div class="relative z-10">
+                  <span
+                    class="text-[10px] bg-purple-900 text-purple-300 px-1 font-mono border border-purple-500/30"
+                    >LVL.02</span
+                  >
+                  <h3
+                    class="font-display font-black italic text-xl text-white mt-2 group-hover:text-purple-200"
+                  >
+                    ESSENTIAL
+                  </h3>
+                  <p class="text-[10px] text-purple-300/60 mt-1">
+                    CLZTR Events Only.
+                  </p>
+                </div>
+                <div
+                  class="font-display font-bold italic text-xl text-white relative z-10"
+                >
+                  50
+                  <span class="text-xs font-normal text-slate-400"
+                    >/mo</span
+                  >
+                </div>
+              </div>
+              <div
+                class="bg-gradient-to-b from-yellow-900/10 to-surface-dark border-t-2 border-primary p-6 hover:bg-yellow-900/20 transition-all cursor-pointer group h-48 flex flex-col justify-between border-x border-b border-transparent hover:border-primary/20"
+              >
+                <div>
+                  <div class="flex justify-between">
+                    <span
+                      class="text-[10px] bg-yellow-900 text-primary px-1 font-mono border border-primary/30"
+                      >LVL.99</span
+                    >
+                    <span class="text-primary text-xs">★</span>
+                  </div>
+                  <h3
+                    class="font-display font-black italic text-xl text-primary mt-2"
+                  >
+                    VIP
+                  </h3>
+                  <p class="text-[10px] text-primary/60 mt-1">
+                    Gold Status + Perks.
+                  </p>
+                </div>
+                <div
+                  class="font-display font-bold italic text-xl text-white"
+                >
+                  250
+                  <span class="text-xs font-normal text-slate-400"
+                    >/mo</span
+                  >
+                </div>
+              </div>
+              <div
+                class="bg-gradient-to-br from-cyan-900/20 to-slate-900 border border-accent p-6 shadow-neon-cyan relative overflow-hidden group h-48 flex flex-col justify-between hover:scale-[1.02] transition-transform"
+              >
+                <div
+                  class="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-accent/10 to-transparent"
+                ></div>
+                <div class="relative z-10">
+                  <div class="flex gap-2">
+                    <span
+                      class="text-[10px] bg-cyan-900 text-cyan-300 px-1 font-mono border border-cyan-500/30"
+                      >LVL.XX</span
+                    >
+                    <span
+                      class="text-[10px] bg-cyan-400 text-black font-bold px-1 uppercase"
+                      >Invite Only</span
+                    >
+                  </div>
+                  <h3
+                    class="font-display font-black italic text-2xl text-white mt-2 leading-none"
+                  >
+                    COMPANY
+                  </h3>
+                </div>
+                <div class="relative z-10">
+                  <div
+                    class="font-display font-black italic text-2xl text-white leading-none"
+                  >
+                    1,000
+                  </div>
+                  <div
+                    class="text-[8px] text-accent uppercase font-bold w-full"
+                  >
+                    CLZTR / YR
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <footer
+            class="pt-8 pb-4 border-t border-slate-800 flex justify-between items-end text-[10px] text-slate-500 font-mono"
+          >
+            <div>
+              <p>© 2024 CLZTR SYSTEMS.</p>
+              <p>ALL RIGHTS RESERVED.</p>
+            </div>
+            <div class="flex gap-4">
+              <a class="hover:text-primary" href="#">TERMS</a>
+              <a class="hover:text-primary" href="#">PRIVACY</a>
+              <a class="hover:text-primary" href="#">MANIFESTO</a>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </main>
+    <script>
+      // Force dark mode
+      document.documentElement.classList.add('dark');
+    </script>
+</section>
