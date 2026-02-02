@@ -46,7 +46,11 @@
             <img
               alt="Cyberpunk Background"
               class="w-full h-full object-cover opacity-20 fixed"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2Cpl2r3-2b5U7KmgvBSKmXFE0DPk5yx0v5IG5H1lK0p1pfeZuK9dln1wSk7VITnryayl8tc5OgithlNG3yNjUd85Kdzvfwvl8bvHBn75p_ywU7Wqlgka4w-bQ-LutrB47re1hFngnBVfuKk65dhY2lhJaqTuPW3ZrIP8IcxWWVRy4bG6xyrSgeM5L_eQEgnNik0lXkrsM65PavSmHM4HPXQ5APmOXqqX5R92E5GDqyEHVOyQodNY8wXU29J8n1_GOx9g5ZHIRra2g"
+              src="/assets/aida-1.jpg"
+              width="512"
+              height="512"
+              loading="lazy"
+              decoding="async"
             />
             <div
               class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/90 to-background-dark/80"
@@ -60,12 +64,12 @@
                 <div class="text-xs font-mono text-accent-cyan mb-1">
                   HOST PROTOCOL // PUBLISH
                 </div>
-                <h1
+                <h2
                   class="text-3xl sm:text-4xl lg:text-5xl font-display italic text-white"
                 >
                   FINALIZE
                   <span class="text-gray-600">&amp; PUBLISH</span>
-                </h1>
+                </h2>
               </div>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 pb-16 lg:pb-20">
@@ -89,11 +93,14 @@
                     <div>
                       <label
                         class="block text-xs font-mono text-gray-400 mb-2 uppercase tracking-wider"
+                        for="publish-price"
                         >Price (P)</label
                       >
                       <div class="relative">
                         <input
                           class="w-full bg-black border border-gray-700 text-white font-display text-xl p-4 pr-12 focus:border-primary focus:ring-0 outline-none transition-colors placeholder-gray-700"
+                          id="publish-price"
+                          aria-label="Price"
                           type="number"
                           value="50"
                           data-price-input
@@ -334,7 +341,7 @@
                   class="bg-[#0f0f0f] border border-gray-700 p-6 sm:p-8 rounded-sm relative overflow-hidden group shadow-2xl"
                 >
                   <div
-                    class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"
+                    class="absolute inset-0 bg-[url('/textures/carbon-fibre.png')] opacity-20"
                   ></div>
                   <div
                     class="absolute inset-0 bg-gradient-to-br from-gray-900 to-black opacity-90"

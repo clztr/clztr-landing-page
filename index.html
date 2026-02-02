@@ -2,109 +2,235 @@
 <html class="dark" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>CLZTR - Combined Views (Handlebars)</title>
+    <meta
+      content="width=device-width, initial-scale=1.0"
+      name="viewport"
+    />
+    <title>
+      CLZTR — Live Events, Access-First Discovery & Host Tools
+    </title>
+    <meta
+      name="description"
+      content="CLZTR is an access-first live events platform for discovering real-time experiences, hosting premium events, and managing media gates, tickets, and visibility with presence-verified entry."
+    />
+    <meta
+      name="keywords"
+      content="CLZTR, live events, event discovery, host tools, access control, presence verification, VIP events, media gate, tickets, nightlife, local experiences, event platform, event hosting, event management, ticketing platform, access-first events, real-time events, live map, crowd discovery, creator tools, host dashboard, age gate, liveness check, wallet connect, USDC payments, CLZTR token, premium experiences, invite-only events, members-only access, venue discovery, social events, nightlife platform"
+    />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large"
+    />
+    <meta name="author" content="CLZTR" />
+    <link rel="icon" href="/clztr_icon_32.png" sizes="32x32" />
+    <link rel="icon" href="/clztr_icon_192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/clztr_icon_192.png" />
+    <link rel="shortcut icon" href="/clztr_icon_32.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="canonical" href="https://clztr.com/" />
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link
+      rel="preconnect"
+      href="https://cdn.jsdelivr.net"
+      crossorigin
+    />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
+      crossorigin=""
+      href="https://fonts.gstatic.com"
+      rel="preconnect"
+    />
+    <meta
+      property="og:title"
+      content="CLZTR — Live Events, Access-First Discovery & Host Tools"
+    />
+    <meta
+      property="og:description"
+      content="Discover live experiences and host premium events with access-first controls, media gates, and presence-verified entry."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://clztr.com/" />
+    <meta property="og:image" content="https://clztr.com/og-image.png" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="CLZTR - Create. Discover. Arrive."
+    />
+    <meta property="og:site_name" content="CLZTR" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="CLZTR — Live Events, Access-First Discovery & Host Tools"
+    />
+    <meta
+      name="twitter:description"
+      content="Discover live experiences and host premium events with access-first controls, media gates, and presence-verified entry."
+    />
+    <meta name="twitter:image" content="https://clztr.com/og-image.png" />
+    <meta
+      name="twitter:image:alt"
+      content="CLZTR - Create. Discover. Arrive."
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/aida-1.jpg"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Russo+One&family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap"
-      rel="stylesheet"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Russo+One&family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=swap"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    <link
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
     />
     <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css"
     />
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,typography"></script>
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.8/dist/handlebars.min.js"></script>
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              primary: '#FFD700',
-              accent: '#00E5FF',
-              'neon-orange': '#FF6B00',
-              'background-light': '#F3F4F6',
-              'background-dark': '#050505',
-              'surface-light': '#FFFFFF',
-              'surface-dark': '#0F0F0F',
-              'secondary-dark': '#1A1A20',
-              'accent-cyan': '#00E0FF',
-              'accent-purple': '#A020F0',
-              'dim-gray': '#1A1A1A',
-              'mesh-orange': '#FF6B35',
-              success: '#00FF94',
-              error: '#FF2A2A',
-            },
-            fontFamily: {
-              display: ['"Russo One"', 'sans-serif'],
-              body: ['"Chakra Petch"', 'sans-serif'],
-              mono: ['"Share Tech Mono"', 'monospace'],
-            },
-            backgroundImage: {
-              'grid-pattern':
-                'linear-gradient(to right, #222 1px, transparent 1px), linear-gradient(to bottom, #222 1px, transparent 1px)',
-            },
-            screens: {
-              '3xl': '1600px',
-            },
-            boxShadow: {
-              'neon-yellow':
-                '0 0 10px rgba(252, 238, 10, 0.5), 0 0 20px rgba(252, 238, 10, 0.3)',
-              'neon-cyan':
-                '0 0 10px rgba(0, 229, 255, 0.5), 0 0 20px rgba(0, 229, 255, 0.3)',
-              'neon-orange':
-                '0 0 10px rgba(255, 107, 0, 0.5), 0 0 20px rgba(255, 107, 0, 0.3)',
-              'neon-white':
-                '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)',
-            },
-            animation: {
-              marquee: 'marquee 25s linear infinite',
-              'scan-fast': 'scanline 2s linear infinite',
-              'spin-slow': 'spin 10s linear infinite',
-              'spin-reverse': 'spin 15s linear infinite reverse',
-              shimmer: 'shimmer 2s infinite',
-              scan: 'scan 3s ease-in-out infinite',
-              'pulse-slow':
-                'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            },
-            keyframes: {
-              marquee: {
-                '0%': { transform: 'translateX(0%)' },
-                '100%': { transform: 'translateX(-100%)' },
-              },
-              scanline: {
-                '0%': { transform: 'translateY(-100%)', opacity: '0' },
-                '50%': { opacity: '1' },
-                '100%': { transform: 'translateY(100%)', opacity: '0' },
-              },
-              shimmer: {
-                '0%': { transform: 'translateX(-100%)' },
-                '100%': { transform: 'translateX(100%)' },
-              },
-              scan: {
-                '0%, 100%': { top: '0%' },
-                '50%': { top: '100%' },
-              },
-            },
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/duotone/style.css"
+    />
+    <link rel="stylesheet" href="/tailwind.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "name": "CLZTR",
+            "url": "https://clztr.com/",
+            "logo": "https://clztr.com/clztr_icon_1024.png",
+            "sameAs": [
+              "https://x.com/",
+              "https://instagram.com/",
+              "https://tiktok.com/",
+              "https://youtube.com/",
+              "https://discord.com/",
+              "https://telegram.org/",
+              "https://linkedin.com/"
+            ]
           },
-        },
-      };
+          {
+            "@type": "WebSite",
+            "name": "CLZTR",
+            "url": "https://clztr.com/",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://clztr.com/?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "name": "CLZTR — Live Events, Access-First Discovery & Host Tools",
+            "url": "https://clztr.com/",
+            "description": "CLZTR is an access-first live events platform for discovering real-time experiences, hosting premium events, and managing media gates, tickets, and visibility with presence-verified entry."
+          }
+        ]
+      }
     </script>
+    
     <style>
       :root {
         color-scheme: dark;
         --nav-offset: 96px;
+      }
+      @font-face {
+        font-family: 'Phosphor-Bold';
+        src:
+          url('https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/Phosphor-Bold.woff2')
+            format('woff2'),
+          url('https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/Phosphor-Bold.woff')
+            format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Phosphor-Fill';
+        src:
+          url('https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/Phosphor-Fill.woff2')
+            format('woff2'),
+          url('https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/Phosphor-Fill.woff')
+            format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Phosphor-Duotone';
+        src:
+          url('https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/duotone/Phosphor-Duotone.woff2')
+            format('woff2'),
+          url('https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/duotone/Phosphor-Duotone.woff')
+            format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
       }
       html {
         scroll-behavior: smooth;
@@ -114,12 +240,19 @@
         scroll-margin-top: var(--nav-offset);
       }
       body {
-        background: radial-gradient(
+        background:
+          radial-gradient(
             circle at top left,
             rgba(255, 215, 0, 0.08),
             transparent 40%
           ),
           #050505;
+      }
+      @supports (content-visibility: auto) {
+        main > section:not(:first-of-type) {
+          content-visibility: auto;
+          contain-intrinsic-size: 1000px;
+        }
       }
       .screen-boot,
       .screen-view-2,
@@ -138,12 +271,17 @@
       .screen-publish .scanlines {
         opacity: 0.12 !important;
       }
-      .screen-boot [class*="bg-[radial-gradient(circle_at_center"],
-      .screen-hostwizard [class*="bg-[radial-gradient(circle_at_center"],
-      .screen-createEvent [class*="bg-[radial-gradient(circle_at_center"],
-      .screen-event-creation [class*="bg-[radial-gradient(circle_at_center"],
-      .screen-mediaAssets [class*="bg-[radial-gradient(circle_at_center"],
-      .screen-publish [class*="bg-[radial-gradient(circle_at_center"] {
+      .screen-boot [class*='bg-[radial-gradient(circle_at_center'],
+      .screen-hostwizard
+        [class*='bg-[radial-gradient(circle_at_center'],
+      .screen-createEvent
+        [class*='bg-[radial-gradient(circle_at_center'],
+      .screen-event-creation
+        [class*='bg-[radial-gradient(circle_at_center'],
+      .screen-mediaAssets
+        [class*='bg-[radial-gradient(circle_at_center'],
+      .screen-publish
+        [class*='bg-[radial-gradient(circle_at_center'] {
         opacity: 0.35 !important;
       }
       .screen-boot .mix-blend-overlay,
@@ -180,9 +318,13 @@
         >
           <div class="text-3xl font-display font-black tracking-widest italic text-white flex items-center gap-1">
             <img
-              src="public/clztr_icon_1024.png"
+              src="/clztr_icon_64.png"
               alt="CLZTR Logo"
               class="w-8 h-auto object-contain"
+              width="64"
+              height="64"
+              loading="eager"
+              decoding="async"
             />
             CLZTR
           </div>
@@ -240,397 +382,10 @@
       </main>
     </script>
 
-    <script>
-      const app = document.getElementById('app');
-      const partials = [
-        'boot',
-        'coin-trade',
-        'hostwizard',
-        'createEvent',
-        'event-creation',
-        'mediaAssets',
-        'publish',
-        'mobile-access',
-        'footer',
-      ];
-
-      const initCoinTrade = () => {
-        const root = document.getElementById('coin-trade');
-        if (!root || window.__coinTradeInit) return;
-        window.__coinTradeInit = true;
-
-        const bg = document.getElementById('parallax-bg');
-        const card = document.getElementById('card-1');
-
-        if (bg) {
-          window.addEventListener('mousemove', (e) => {
-            const x = (window.innerWidth / 2 - e.pageX) / 45;
-            const y = (window.innerHeight / 2 - e.pageY) / 45;
-            bg.style.transform = `translateX(${x}px) translateY(${y}px) scale(1.05)`;
-          });
-        }
-
-        if (card) {
-          const handleTilt = (e) => {
-            const rect = card.getBoundingClientRect();
-            const cardX = rect.left + rect.width / 2;
-            const cardY = rect.top + rect.height / 2;
-            const mouseX = e.clientX - cardX;
-            const mouseY = e.clientY - cardY;
-            const rotateX = (mouseY / 20).toFixed(2);
-            const rotateY = -(mouseX / 20).toFixed(2);
-            card.style.transform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-          };
-
-          card.addEventListener('mousemove', handleTilt);
-          card.addEventListener('mouseleave', () => {
-            card.style.transform =
-              'perspective(500px) rotateX(0deg) rotateY(0deg)';
-          });
-        }
-
-        const tickingEls = root.querySelectorAll('.animate-ticking');
-        if (tickingEls.length) {
-          setInterval(() => {
-            tickingEls.forEach((el) => {
-              let val = parseFloat(el.innerText.replace(/,/g, ''));
-              val += (Math.random() - 0.3) * 10;
-              el.innerText = val.toLocaleString('en-US', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-              });
-            });
-          }, 100);
-        }
-      };
-
-      const initPublishPricing = () => {
-        const root = document.getElementById('publish-publish');
-        if (!root || window.__publishInit) return;
-        window.__publishInit = true;
-
-        const priceInput = root.querySelector('[data-price-input]');
-        const depositValue = root.querySelector('[data-deposit-value]');
-        const depositCurrency = root.querySelector('[data-deposit-currency]');
-        const currencyButtons = Array.from(
-          root.querySelectorAll('[data-currency]')
-        );
-        const feePills = Array.from(
-          root.querySelectorAll('[data-fee-pill]')
-        );
-        const feeValue = root.querySelector('[data-fee-value]');
-        const feeRate = root.querySelector('[data-fee-rate]');
-        const feeCurrency = root.querySelector('[data-fee-currency]');
-
-        if (!priceInput || !depositValue || !depositCurrency || !currencyButtons.length) {
-          return;
-        }
-
-        const format = (value) =>
-          Number.isFinite(value) ? value.toFixed(2) : '0.00';
-
-        let activeCurrency = 'USDC';
-        const formatRate = (rate) => {
-          const pct = rate * 100;
-          return Number.isInteger(pct) ? `${pct}%` : `${pct}%`;
-        };
-
-        const updatePricing = () => {
-          const price = parseFloat(priceInput.value);
-          const deposit = Number.isFinite(price) ? price * 2 : 0;
-          const rate = activeCurrency === 'CLZTR' ? 0.025 : 0.05;
-          const fee = Number.isFinite(price) ? price * rate : 0;
-          depositValue.textContent = format(deposit);
-          if (feeValue) feeValue.textContent = format(fee);
-          if (feeRate) feeRate.textContent = formatRate(rate);
-          if (feeCurrency) feeCurrency.textContent = activeCurrency;
-        };
-
-        const setCurrency = (currency) => {
-          activeCurrency = currency;
-          depositCurrency.textContent = currency;
-          currencyButtons.forEach((btn) => {
-            const isActive = btn.dataset.currency === currency;
-            btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-            btn.classList.toggle('bg-gray-800', isActive);
-            btn.classList.toggle('text-white', isActive);
-            btn.classList.toggle('border-gray-600', isActive);
-            btn.classList.toggle('shadow-sm', isActive);
-            btn.classList.toggle('text-gray-500', !isActive);
-            btn.classList.toggle('border-transparent', !isActive);
-            btn.classList.toggle('hover:text-white', !isActive);
-            btn.classList.toggle('hover:bg-gray-900', !isActive);
-          });
-          feePills.forEach((pill) => {
-            const isActive = pill.dataset.feePill === currency;
-            pill.classList.toggle('ring-1', isActive);
-            pill.classList.toggle('ring-white/20', isActive);
-            pill.classList.toggle('opacity-100', isActive);
-            pill.classList.toggle('opacity-50', !isActive);
-          });
-          updatePricing();
-        };
-
-        priceInput.addEventListener('input', updatePricing);
-        currencyButtons.forEach((btn) => {
-          btn.addEventListener('click', () => setCurrency(btn.dataset.currency));
-        });
-
-        const defaultCurrency =
-          currencyButtons.find((btn) => btn.getAttribute('aria-pressed') === 'true')
-            ?.dataset.currency || currencyButtons[0].dataset.currency;
-
-        setCurrency(defaultCurrency);
-        updatePricing();
-      };
-
-      const I18N_STORAGE_KEY = 'clztr:lang';
-      const SUPPORTED_LANGS = ['en', 'es', 'pt', 'ar', 'fr', 'zh', 'ja', 'ko'];
-      const RTL_LANGS = new Set(['ar']);
-      const i18nState = {
-        en: null,
-        cache: {},
-        current: 'en',
-        originals: new WeakMap(),
-        attrOriginals: new WeakMap(),
-      };
-
-      const normalizeText = (value) =>
-        value ? value.replace(/\s+/g, ' ').trim() : '';
-
-      const getOriginalText = (node) => {
-        if (!i18nState.originals.has(node)) {
-          i18nState.originals.set(node, node.nodeValue);
-        }
-        return i18nState.originals.get(node);
-      };
-
-      const getOriginalAttr = (el, attr) => {
-        let store = i18nState.attrOriginals.get(el);
-        if (!store) {
-          store = {};
-          i18nState.attrOriginals.set(el, store);
-        }
-        if (!(attr in store)) {
-          store[attr] = el.getAttribute(attr);
-        }
-        return store[attr];
-      };
-
-      const resolveLanguage = () => {
-        try {
-          const stored = localStorage.getItem(I18N_STORAGE_KEY);
-          if (SUPPORTED_LANGS.includes(stored)) return stored;
-        } catch (err) {
-          // ignore storage errors
-        }
-        const browser = (navigator.language || '').toLowerCase();
-        const base = browser.split('-')[0];
-        if (SUPPORTED_LANGS.includes(base)) return base;
-        return 'en';
-      };
-
-      const loadLocale = async (lang) => {
-        if (i18nState.cache[lang]) return i18nState.cache[lang];
-        const res = await fetch(`locales/${lang}.json`);
-        if (!res.ok) {
-          throw new Error(`Missing locale: ${lang}.json`);
-        }
-        const data = await res.json();
-        i18nState.cache[lang] = data;
-        return data;
-      };
-
-      const buildTranslationMap = (langMap) => {
-        const map = new Map();
-        Object.entries(i18nState.en || {}).forEach(([key, enText]) => {
-          const normalized = normalizeText(enText);
-          if (!normalized) return;
-          const translated = langMap?.[key];
-          map.set(normalized, translated && translated.trim() ? translated : enText);
-        });
-        return map;
-      };
-
-      const applyLanguage = (lang) => {
-        if (!app || !i18nState.en) return;
-        const langMap = i18nState.cache[lang] || {};
-        const translationMap = buildTranslationMap(langMap);
-        const iconSelector =
-          '.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons, .material-icons-outlined, .material-icons-round, .material-icons-sharp';
-
-        const walker = document.createTreeWalker(
-          app,
-          NodeFilter.SHOW_TEXT,
-          {
-            acceptNode: (node) => {
-              const parent = node.parentElement;
-              if (!parent) return NodeFilter.FILTER_REJECT;
-              const tag = parent.tagName;
-              if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT') {
-                return NodeFilter.FILTER_REJECT;
-              }
-              if (parent.closest('[data-i18n-ignore]')) {
-                return NodeFilter.FILTER_REJECT;
-              }
-              if (parent.closest(iconSelector)) {
-                return NodeFilter.FILTER_REJECT;
-              }
-              const original = getOriginalText(node);
-              return normalizeText(original)
-                ? NodeFilter.FILTER_ACCEPT
-                : NodeFilter.FILTER_REJECT;
-            },
-          },
-          false
-        );
-
-        while (walker.nextNode()) {
-          const node = walker.currentNode;
-          const original = getOriginalText(node);
-          const normalized = normalizeText(original);
-          const replacement = translationMap.get(normalized);
-          if (!replacement) continue;
-          const currentNormalized = normalizeText(node.nodeValue);
-          const replacementNormalized = normalizeText(replacement);
-          if (currentNormalized === replacementNormalized) continue;
-          const leading = original.match(/^\s*/)?.[0] ?? '';
-          const trailing = original.match(/\s*$/)?.[0] ?? '';
-          node.nodeValue = `${leading}${replacement}${trailing}`;
-        }
-
-        const attrTargets = app.querySelectorAll(
-          '[aria-label], [alt], [title], [placeholder]'
-        );
-        attrTargets.forEach((el) => {
-          if (el.closest('[data-i18n-ignore]') || el.closest(iconSelector)) {
-            return;
-          }
-          ['aria-label', 'alt', 'title', 'placeholder'].forEach((attr) => {
-            const original = getOriginalAttr(el, attr);
-            const normalized = normalizeText(original);
-            if (!normalized) return;
-            const replacement = translationMap.get(normalized);
-            if (!replacement) return;
-            const current = el.getAttribute(attr);
-            if (normalizeText(current) === normalizeText(replacement)) return;
-            el.setAttribute(attr, replacement);
-          });
-        });
-
-        document.documentElement.lang = lang;
-        document.documentElement.dir = RTL_LANGS.has(lang) ? 'rtl' : 'ltr';
-        i18nState.current = lang;
-        updateLanguageButtons(lang);
-      };
-
-      const updateLanguageButtons = (lang) => {
-        const buttons = document.querySelectorAll('[data-lang]');
-        buttons.forEach((btn) => {
-          const isActive = btn.dataset.lang === lang;
-          btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-          btn.classList.toggle('bg-gray-900', isActive);
-          btn.classList.toggle('text-white', isActive);
-          btn.classList.toggle('border-primary/60', isActive);
-        });
-      };
-
-      const setLanguage = async (lang) => {
-        const target = SUPPORTED_LANGS.includes(lang) ? lang : 'en';
-        await loadLocale('en');
-        await loadLocale(target);
-        applyLanguage(target);
-        try {
-          localStorage.setItem(I18N_STORAGE_KEY, target);
-        } catch (err) {
-          // ignore storage errors
-        }
-      };
-
-      const initI18n = async () => {
-        if (window.__i18nInit) return;
-        window.__i18nInit = true;
-        i18nState.en = await loadLocale('en');
-
-        document.querySelectorAll('[data-lang]').forEach((btn) => {
-          btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
-        });
-
-        const initial = resolveLanguage();
-        await loadLocale(initial);
-        applyLanguage(initial);
-      };
-
-      const initNav = () => {
-        const toggle = document.getElementById('nav-toggle');
-        const mobileNav = document.getElementById('mobile-nav');
-        if (!toggle || !mobileNav || window.__navInit) return;
-        window.__navInit = true;
-
-        const closeNav = () => {
-          mobileNav.classList.add('hidden');
-          toggle.setAttribute('aria-expanded', 'false');
-        };
-
-        toggle.addEventListener('click', () => {
-          const isOpen = !mobileNav.classList.contains('hidden');
-          if (isOpen) {
-            closeNav();
-            return;
-          }
-          mobileNav.classList.remove('hidden');
-          toggle.setAttribute('aria-expanded', 'true');
-        });
-
-        mobileNav.querySelectorAll('a').forEach((link) => {
-          link.addEventListener('click', closeNav);
-        });
-      };
-
-      const initFooterYear = () => {
-        const yearEl = document.querySelector('[data-year]');
-        if (!yearEl) return;
-        yearEl.textContent = new Date().getFullYear();
-      };
-
-      const renderApp = async () => {
-        try {
-          await Promise.all(
-            partials.map(async (name) => {
-              const res = await fetch(`components/${name}.hbs`);
-              if (!res.ok) {
-                throw new Error(`Missing partial: ${name}.hbs`);
-              }
-              const source = await res.text();
-              Handlebars.registerPartial(name, source);
-            })
-          );
-
-          const templateSource = document.getElementById('app-template').innerHTML;
-          const template = Handlebars.compile(templateSource);
-          app.innerHTML = template({});
-          await initI18n();
-          initNav();
-          initCoinTrade();
-          initPublishPricing();
-          initFooterYear();
-        } catch (err) {
-          app.innerHTML = `
-            <div class="min-h-screen flex items-center justify-center p-6">
-              <div class="max-w-xl text-center">
-                <h1 class="text-2xl font-display italic text-white mb-2">Render Error</h1>
-                <p class="text-sm text-red-400 font-mono mb-4">${err.message}</p>
-                <p class="text-xs text-gray-500 font-mono">
-                  If you opened this file via <span class="text-gray-300">file://</span>,
-                  start a local server so fetch() can load partials.
-                </p>
-              </div>
-            </div>
-          `;
-        }
-      };
-
-      renderApp();
-    </script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/handlebars@4.7.8/dist/handlebars.min.js"
+    ></script>
+    <script defer src="/app.js"></script>
   </body>
 </html>

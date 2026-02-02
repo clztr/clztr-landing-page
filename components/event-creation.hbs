@@ -89,11 +89,11 @@
           ></div>
           <div class="relative z-10 mx-auto">
             <div class="mb-12">
-              <h1
+              <h2
                 class="font-display italic text-3xl sm:text-4xl lg:text-5xl text-white mb-2"
               >
                 VISIBILITY <span class="text-primary">&amp; ACCESS</span>
-              </h1>
+              </h2>
               <p class="font-mono text-gray-500 text-sm mb-10">
                 Define how the event appears on the living map, who can see details,
                 and why access is locked.
@@ -208,6 +208,7 @@
                         checked=""
                         class="peer sr-only"
                         name="visibility"
+                        aria-label="Visibility open"
                         type="radio"
                       />
                       <div
@@ -249,6 +250,7 @@
                       <input
                         class="peer sr-only"
                         name="visibility"
+                        aria-label="Visibility external"
                         type="radio"
                       />
                       <div
@@ -290,6 +292,7 @@
                       <input
                         class="peer sr-only"
                         name="visibility"
+                        aria-label="Visibility members only"
                         type="radio"
                       />
                       <div
@@ -354,6 +357,7 @@
                         <input
                           class="sr-only peer"
                           name="age"
+                          aria-label="Age gate none"
                           type="radio"
                         />
                         <div
@@ -367,6 +371,7 @@
                           checked=""
                           class="sr-only peer"
                           name="age"
+                          aria-label="Age gate 18 plus"
                           type="radio"
                         />
                         <div
@@ -379,6 +384,7 @@
                         <input
                           class="sr-only peer"
                           name="age"
+                          aria-label="Age gate 25 plus"
                           type="radio"
                         />
                         <div
@@ -391,6 +397,7 @@
                         <input
                           class="sr-only peer"
                           name="age"
+                          aria-label="Age gate 40 plus"
                           type="radio"
                         />
                         <div
@@ -431,11 +438,11 @@
                           <i class="ph-fill ph-star text-xl sm:text-2xl"></i>
                         </div>
                         <div>
-                          <h4
+                          <h3
                             class="font-display italic text-white text-base sm:text-lg group-hover:text-primary transition-colors"
                           >
                             VIP TIER
-                          </h4>
+                          </h3>
                           <p class="text-[11px] sm:text-xs font-mono text-gray-500">
                             VIP+ only. Locked for lower tiers.
                           </p>
@@ -446,6 +453,7 @@
                       >
                         <input
                           class="sr-only peer"
+                          aria-label="Enable VIP tier access"
                           type="checkbox"
                           value=""
                         />
@@ -464,11 +472,11 @@
                           <i class="ph-fill ph-diamond text-xl sm:text-2xl"></i>
                         </div>
                         <div>
-                          <h4
+                          <h3
                             class="font-display italic text-white text-base sm:text-lg group-hover:text-accent-cyan transition-colors"
                           >
                             COMPANY TIER
-                          </h4>
+                          </h3>
                           <p class="text-[11px] sm:text-xs font-mono text-gray-500">
                             Company only. Invite or verified access.
                           </p>
@@ -480,6 +488,7 @@
                         <input
                           checked=""
                           class="sr-only peer"
+                          aria-label="Enable company tier access"
                           type="checkbox"
                           value=""
                         />

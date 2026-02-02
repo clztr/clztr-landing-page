@@ -1,0 +1,26 @@
+{
+  "name": "clztr-landing-page",
+  "version": "1.0.0",
+  "description": "Landing page for CLZTR",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "tailwindcss -i tailwind.input.css -o public/tailwind.css --minify",
+    "dev": "vite",
+    "build": "npm run build:css && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-zaid-cmhq-github:clztr/clztr-landing-page.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "tailwindcss": "^3.4.17",
+    "vite": "^5.4.2",
+    "vite-plugin-static-copy": "^1.0.6"
+  }
+}

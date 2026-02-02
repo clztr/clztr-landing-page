@@ -132,10 +132,13 @@
             <div>
               <label
                 class="block text-xs font-mono text-gray-400 uppercase mb-2"
+                for="hostwizard-event-name"
                 >Event Name</label
               >
               <input
                 class="w-full bg-[#111] border border-gray-700 text-white font-display italic p-3 focus:ring-1 focus:ring-primary focus:border-primary placeholder-gray-600 clip-notch text-sm sm:text-base"
+                id="hostwizard-event-name"
+                aria-label="Event name"
                 placeholder="ENTER EVENT TITLE"
                 type="text"
               />
@@ -143,11 +146,14 @@
             <div>
               <label
                 class="block text-xs font-mono text-gray-400 uppercase mb-2"
+                for="hostwizard-pin"
                 >Pin Address / Coordinates</label
               >
               <div class="relative">
                 <input
                   class="w-full bg-[#111] border border-gray-700 text-white font-mono text-sm p-3 pl-10 focus:ring-1 focus:ring-primary focus:border-primary clip-notch"
+                  id="hostwizard-pin"
+                  aria-label="Pin address or coordinates"
                   type="text"
                   value="35.6895° N, 139.6917° E"
                 />
@@ -160,6 +166,7 @@
               <div class="flex justify-between mb-2">
                 <label
                   class="block text-xs font-mono text-gray-400 uppercase"
+                  for="hostwizard-radius"
                   >Activation Radius</label
                 >
                 <span class="text-xs font-mono text-primary font-bold"
@@ -168,6 +175,8 @@
               </div>
               <input
                 class="w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-primary"
+                id="hostwizard-radius"
+                aria-label="Activation radius"
                 max="50"
                 min="1"
                 type="range"
@@ -191,7 +200,11 @@
           <img
             alt="Dark Map Topography"
             class="w-full h-full object-cover opacity-40 grayscale contrast-125 brightness-75 invert"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbAytlTBQRFZrUu443wlGwADvEej5UOJQLZG8eLG4AfWhgXKxVwr13CU-pqM5d60kcrx2D5hXLeiwKj_8ltcGhaJDGRzYke4Qa68GoYQaqxUmfRYB6qkd7hWjoIEb-Z8a6LZGzcSeVdx6tcy13pSXfac5T0dkqqjZ4m3w_nPX6Xi-Wj96Fl4jsO0YvPxwrMuYpVOtChn1sUnnZBK2pLr7PHf_-FysdYM6j94g1mEMdSxxnUHbsOdbFN-_ZrG8jXkJLK3y78Cy060ZH"
+            src="/assets/aida-3.jpg"
+            width="512"
+            height="512"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div
@@ -239,34 +252,35 @@
           <svg
             class="absolute inset-0 w-full h-full pointer-events-none opacity-40"
             xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 100 100"
           >
             <line
               stroke="#FFD700"
               stroke-dasharray="4 4"
               stroke-width="1"
               x1="0"
-              x2="100%"
-              y1="50%"
-              y2="50%"
+              x2="100"
+              y1="50"
+              y2="50"
             ></line>
             <line
               stroke="#FFD700"
               stroke-dasharray="4 4"
               stroke-width="1"
-              x1="50%"
-              x2="50%"
+              x1="50"
+              x2="50"
               y1="0"
-              y2="100%"
+              y2="100"
             ></line>
             <path
-              d="M 30% 30% L 50% 50% L 80% 20%"
+              d="M 30 30 L 50 50 L 80 20"
               fill="none"
               stroke="#00E0FF"
               stroke-opacity="0.5"
               stroke-width="1"
             ></path>
-            <circle cx="30%" cy="30%" fill="#00E0FF" r="3"></circle>
-            <circle cx="80%" cy="20%" fill="#00E0FF" r="3"></circle>
+            <circle cx="30" cy="30" fill="#00E0FF" r="3"></circle>
+            <circle cx="80" cy="20" fill="#00E0FF" r="3"></circle>
           </svg>
         </div>
         <div
@@ -277,16 +291,22 @@
           >
             <button
               class="w-8 h-8 flex items-center justify-center bg-gray-800 hover:bg-primary hover:text-black text-white transition-colors border border-gray-600"
+              type="button"
+              aria-label="Zoom in"
             >
               <i class="ph-bold ph-plus"></i>
             </button>
             <button
               class="w-8 h-8 flex items-center justify-center bg-gray-800 hover:bg-primary hover:text-black text-white transition-colors border border-gray-600"
+              type="button"
+              aria-label="Zoom out"
             >
               <i class="ph-bold ph-minus"></i>
             </button>
             <button
               class="w-8 h-8 flex items-center justify-center bg-gray-800 hover:bg-primary hover:text-black text-white transition-colors border border-gray-600"
+              type="button"
+              aria-label="Center map"
             >
               <i class="ph-bold ph-crosshair"></i>
             </button>

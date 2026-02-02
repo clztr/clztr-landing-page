@@ -108,7 +108,7 @@
                   >SESSION ACTIVE</span
                 >
               </div>
-              <h1
+              <h2
                 class="font-display italic text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white tracking-wide"
               >
                 CREATE
@@ -116,7 +116,7 @@
                   class="text-transparent bg-clip-text bg-gradient-to-r from-accent-purple to-white"
                   >EVENT</span
                 >
-              </h1>
+              </h2>
             </div>
             <div class="flex flex-col items-start md:items-end gap-2 md:mt-0">
               <span
@@ -197,7 +197,7 @@
                         class="absolute bottom-2 left-2 right-2 bg-gradient-to-t from-accent-purple/50 to-accent-purple h-[75%] shadow-[0_0_30px_rgba(160,32,240,0.3)] transition-all duration-1000 ease-out"
                       >
                         <div
-                          class="w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-30 mix-blend-overlay"
+                          class="w-full h-full bg-[url('/textures/carbon-fibre.png')] opacity-30 mix-blend-overlay"
                         ></div>
                         <div
                           class="absolute top-0 w-full h-1 bg-white opacity-50 animate-pulse"
@@ -235,7 +235,7 @@
                   class="absolute inset-0 skew-box bg-[#0a0a0a] border border-gray-700 z-0 shadow-2xl"
                 >
                   <div
-                    class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-5"
+                    class="absolute inset-0 bg-[url('/textures/diagmonds-light.png')] opacity-5"
                   ></div>
                 </div>
                 <div
@@ -256,6 +256,7 @@
                       <input
                         class="peer sr-only"
                         name="duration"
+                        aria-label="Duration 2 hours"
                         type="radio"
                       />
                       <div
@@ -280,6 +281,7 @@
                         checked=""
                         class="peer sr-only"
                         name="duration"
+                        aria-label="Duration 4 hours"
                         type="radio"
                       />
                       <div
@@ -308,6 +310,7 @@
                       <input
                         class="peer sr-only"
                         name="duration"
+                        aria-label="Duration 8 hours"
                         type="radio"
                       />
                       <div
@@ -332,11 +335,14 @@
                     <div class="relative">
                       <label
                         class="block text-accent-cyan font-mono text-xs uppercase mb-2 tracking-wider"
+                        for="create-event-start-time"
                         >Start Time</label
                       >
                       <div class="relative group">
                         <input
                           class="w-full bg-black/60 border border-gray-600 text-white font-display text-xl sm:text-2xl p-4 focus:border-accent-cyan focus:ring-1 focus:ring-accent-cyan focus:shadow-[0_0_15px_rgba(0,224,255,0.3)] transition-all outline-none rounded-none"
+                          id="create-event-start-time"
+                          aria-label="Start time"
                           type="time"
                           value="22:00"
                         />
@@ -358,11 +364,14 @@
                     >
                       <label
                         class="block text-gray-500 font-mono text-xs uppercase mb-2 tracking-wider"
+                        for="create-event-end-time"
                         >End Time (auto)</label
                       >
                       <div class="relative">
                         <input
                           class="w-full bg-black/30 border border-gray-800 text-gray-400 font-display text-xl sm:text-2xl p-4 outline-none rounded-none cursor-not-allowed"
+                          id="create-event-end-time"
+                          aria-label="End time"
                           readonly=""
                           type="time"
                           value="02:00"
