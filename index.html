@@ -104,9 +104,14 @@
     <style>
       :root {
         color-scheme: dark;
+        --nav-offset: 96px;
       }
       html {
         scroll-behavior: smooth;
+        scroll-padding-top: var(--nav-offset);
+      }
+      section[id] {
+        scroll-margin-top: var(--nav-offset);
       }
       body {
         background: radial-gradient(
@@ -182,21 +187,21 @@
             CLZTR
           </div>
           <nav class="hidden md:flex items-center gap-6 text-xs font-mono">
-            <a class="text-gray-400 hover:text-primary transition-colors" href="#boot">Boot</a>
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#boot-boot">Boot</a>
             <a class="text-gray-400 hover:text-primary transition-colors" href="#coin-trade">Economy</a>
-            <a class="text-gray-400 hover:text-primary transition-colors" href="#view-2">Consent</a>
             <a class="text-gray-400 hover:text-primary transition-colors" href="#hostwizard-hostwizard">Host</a>
             <a class="text-gray-400 hover:text-primary transition-colors" href="#createEvent-create-event">Budget</a>
             <a class="text-gray-400 hover:text-primary transition-colors" href="#event-creation-event-creation">Access</a>
             <a class="text-gray-400 hover:text-primary transition-colors" href="#mediaAssets-media-assets">Media</a>
             <a class="text-gray-400 hover:text-primary transition-colors" href="#publish-publish">Publish</a>
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#mobile-access">Mobile</a>
           </nav>
           <div class="flex items-center gap-3">
-            <button
+            <!-- <button
               class="bg-primary text-black px-4 py-2 text-xs font-display italic font-bold skew-box hover:bg-white transition-colors"
             >
               <span class="unskew-text">ACCESS</span>
-            </button>
+            </button> -->
             <button
               class="md:hidden w-10 h-10 flex items-center justify-center border border-gray-700 text-gray-200 hover:text-primary hover:border-primary transition-colors"
               id="nav-toggle"
@@ -213,14 +218,14 @@
           id="mobile-nav"
         >
           <div class="grid grid-cols-2 gap-3 text-xs font-mono">
-            <a class="text-gray-400 hover:text-primary transition-colors" href="#boot">Boot</a>
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#boot-boot">Boot</a>
             <a class="text-gray-400 hover:text-primary transition-colors" href="#coin-trade">Economy</a>
-            <a class="text-gray-400 hover:text-primary transition-colors" href="#view-2">Consent</a>
             <a class="text-gray-400 hover:text-primary transition-colors" href="#hostwizard-hostwizard">Host</a>
             <a class="text-gray-400 hover:text-primary transition-colors" href="#createEvent-create-event">Budget</a>
             <a class="text-gray-400 hover:text-primary transition-colors" href="#event-creation-event-creation">Access</a>
             <a class="text-gray-400 hover:text-primary transition-colors" href="#mediaAssets-media-assets">Media</a>
             <a class="text-gray-400 hover:text-primary transition-colors" href="#publish-publish">Publish</a>
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#mobile-access">Mobile</a>
           </div>
         </nav>
         {{> boot}}
@@ -310,6 +315,12 @@
         const currencyButtons = Array.from(
           root.querySelectorAll('[data-currency]')
         );
+        const feePills = Array.from(
+          root.querySelectorAll('[data-fee-pill]')
+        );
+        const feeValue = root.querySelector('[data-fee-value]');
+        const feeRate = root.querySelector('[data-fee-rate]');
+        const feeCurrency = root.querySelector('[data-fee-currency]');
 
         if (!priceInput || !depositValue || !depositCurrency || !currencyButtons.length) {
           return;
@@ -318,13 +329,25 @@
         const format = (value) =>
           Number.isFinite(value) ? value.toFixed(2) : '0.00';
 
-        const updateDeposit = () => {
+        let activeCurrency = 'USDC';
+        const formatRate = (rate) => {
+          const pct = rate * 100;
+          return Number.isInteger(pct) ? `${pct}%` : `${pct}%`;
+        };
+
+        const updatePricing = () => {
           const price = parseFloat(priceInput.value);
           const deposit = Number.isFinite(price) ? price * 2 : 0;
+          const rate = activeCurrency === 'CLZTR' ? 0.025 : 0.05;
+          const fee = Number.isFinite(price) ? price * rate : 0;
           depositValue.textContent = format(deposit);
+          if (feeValue) feeValue.textContent = format(fee);
+          if (feeRate) feeRate.textContent = formatRate(rate);
+          if (feeCurrency) feeCurrency.textContent = activeCurrency;
         };
 
         const setCurrency = (currency) => {
+          activeCurrency = currency;
           depositCurrency.textContent = currency;
           currencyButtons.forEach((btn) => {
             const isActive = btn.dataset.currency === currency;
@@ -338,9 +361,17 @@
             btn.classList.toggle('hover:text-white', !isActive);
             btn.classList.toggle('hover:bg-gray-900', !isActive);
           });
+          feePills.forEach((pill) => {
+            const isActive = pill.dataset.feePill === currency;
+            pill.classList.toggle('ring-1', isActive);
+            pill.classList.toggle('ring-white/20', isActive);
+            pill.classList.toggle('opacity-100', isActive);
+            pill.classList.toggle('opacity-50', !isActive);
+          });
+          updatePricing();
         };
 
-        priceInput.addEventListener('input', updateDeposit);
+        priceInput.addEventListener('input', updatePricing);
         currencyButtons.forEach((btn) => {
           btn.addEventListener('click', () => setCurrency(btn.dataset.currency));
         });
@@ -349,8 +380,185 @@
           currencyButtons.find((btn) => btn.getAttribute('aria-pressed') === 'true')
             ?.dataset.currency || currencyButtons[0].dataset.currency;
 
-        updateDeposit();
         setCurrency(defaultCurrency);
+        updatePricing();
+      };
+
+      const I18N_STORAGE_KEY = 'clztr:lang';
+      const SUPPORTED_LANGS = ['en', 'es', 'pt', 'ar', 'fr', 'zh', 'ja', 'ko'];
+      const RTL_LANGS = new Set(['ar']);
+      const i18nState = {
+        en: null,
+        cache: {},
+        current: 'en',
+        originals: new WeakMap(),
+        attrOriginals: new WeakMap(),
+      };
+
+      const normalizeText = (value) =>
+        value ? value.replace(/\s+/g, ' ').trim() : '';
+
+      const getOriginalText = (node) => {
+        if (!i18nState.originals.has(node)) {
+          i18nState.originals.set(node, node.nodeValue);
+        }
+        return i18nState.originals.get(node);
+      };
+
+      const getOriginalAttr = (el, attr) => {
+        let store = i18nState.attrOriginals.get(el);
+        if (!store) {
+          store = {};
+          i18nState.attrOriginals.set(el, store);
+        }
+        if (!(attr in store)) {
+          store[attr] = el.getAttribute(attr);
+        }
+        return store[attr];
+      };
+
+      const resolveLanguage = () => {
+        try {
+          const stored = localStorage.getItem(I18N_STORAGE_KEY);
+          if (SUPPORTED_LANGS.includes(stored)) return stored;
+        } catch (err) {
+          // ignore storage errors
+        }
+        const browser = (navigator.language || '').toLowerCase();
+        const base = browser.split('-')[0];
+        if (SUPPORTED_LANGS.includes(base)) return base;
+        return 'en';
+      };
+
+      const loadLocale = async (lang) => {
+        if (i18nState.cache[lang]) return i18nState.cache[lang];
+        const res = await fetch(`locales/${lang}.json`);
+        if (!res.ok) {
+          throw new Error(`Missing locale: ${lang}.json`);
+        }
+        const data = await res.json();
+        i18nState.cache[lang] = data;
+        return data;
+      };
+
+      const buildTranslationMap = (langMap) => {
+        const map = new Map();
+        Object.entries(i18nState.en || {}).forEach(([key, enText]) => {
+          const normalized = normalizeText(enText);
+          if (!normalized) return;
+          const translated = langMap?.[key];
+          map.set(normalized, translated && translated.trim() ? translated : enText);
+        });
+        return map;
+      };
+
+      const applyLanguage = (lang) => {
+        if (!app || !i18nState.en) return;
+        const langMap = i18nState.cache[lang] || {};
+        const translationMap = buildTranslationMap(langMap);
+        const iconSelector =
+          '.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons, .material-icons-outlined, .material-icons-round, .material-icons-sharp';
+
+        const walker = document.createTreeWalker(
+          app,
+          NodeFilter.SHOW_TEXT,
+          {
+            acceptNode: (node) => {
+              const parent = node.parentElement;
+              if (!parent) return NodeFilter.FILTER_REJECT;
+              const tag = parent.tagName;
+              if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT') {
+                return NodeFilter.FILTER_REJECT;
+              }
+              if (parent.closest('[data-i18n-ignore]')) {
+                return NodeFilter.FILTER_REJECT;
+              }
+              if (parent.closest(iconSelector)) {
+                return NodeFilter.FILTER_REJECT;
+              }
+              const original = getOriginalText(node);
+              return normalizeText(original)
+                ? NodeFilter.FILTER_ACCEPT
+                : NodeFilter.FILTER_REJECT;
+            },
+          },
+          false
+        );
+
+        while (walker.nextNode()) {
+          const node = walker.currentNode;
+          const original = getOriginalText(node);
+          const normalized = normalizeText(original);
+          const replacement = translationMap.get(normalized);
+          if (!replacement) continue;
+          const currentNormalized = normalizeText(node.nodeValue);
+          const replacementNormalized = normalizeText(replacement);
+          if (currentNormalized === replacementNormalized) continue;
+          const leading = original.match(/^\s*/)?.[0] ?? '';
+          const trailing = original.match(/\s*$/)?.[0] ?? '';
+          node.nodeValue = `${leading}${replacement}${trailing}`;
+        }
+
+        const attrTargets = app.querySelectorAll(
+          '[aria-label], [alt], [title], [placeholder]'
+        );
+        attrTargets.forEach((el) => {
+          if (el.closest('[data-i18n-ignore]') || el.closest(iconSelector)) {
+            return;
+          }
+          ['aria-label', 'alt', 'title', 'placeholder'].forEach((attr) => {
+            const original = getOriginalAttr(el, attr);
+            const normalized = normalizeText(original);
+            if (!normalized) return;
+            const replacement = translationMap.get(normalized);
+            if (!replacement) return;
+            const current = el.getAttribute(attr);
+            if (normalizeText(current) === normalizeText(replacement)) return;
+            el.setAttribute(attr, replacement);
+          });
+        });
+
+        document.documentElement.lang = lang;
+        document.documentElement.dir = RTL_LANGS.has(lang) ? 'rtl' : 'ltr';
+        i18nState.current = lang;
+        updateLanguageButtons(lang);
+      };
+
+      const updateLanguageButtons = (lang) => {
+        const buttons = document.querySelectorAll('[data-lang]');
+        buttons.forEach((btn) => {
+          const isActive = btn.dataset.lang === lang;
+          btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+          btn.classList.toggle('bg-gray-900', isActive);
+          btn.classList.toggle('text-white', isActive);
+          btn.classList.toggle('border-primary/60', isActive);
+        });
+      };
+
+      const setLanguage = async (lang) => {
+        const target = SUPPORTED_LANGS.includes(lang) ? lang : 'en';
+        await loadLocale('en');
+        await loadLocale(target);
+        applyLanguage(target);
+        try {
+          localStorage.setItem(I18N_STORAGE_KEY, target);
+        } catch (err) {
+          // ignore storage errors
+        }
+      };
+
+      const initI18n = async () => {
+        if (window.__i18nInit) return;
+        window.__i18nInit = true;
+        i18nState.en = await loadLocale('en');
+
+        document.querySelectorAll('[data-lang]').forEach((btn) => {
+          btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+        });
+
+        const initial = resolveLanguage();
+        await loadLocale(initial);
+        applyLanguage(initial);
       };
 
       const initNav = () => {
@@ -379,6 +587,12 @@
         });
       };
 
+      const initFooterYear = () => {
+        const yearEl = document.querySelector('[data-year]');
+        if (!yearEl) return;
+        yearEl.textContent = new Date().getFullYear();
+      };
+
       const renderApp = async () => {
         try {
           await Promise.all(
@@ -395,9 +609,11 @@
           const templateSource = document.getElementById('app-template').innerHTML;
           const template = Handlebars.compile(templateSource);
           app.innerHTML = template({});
+          await initI18n();
           initNav();
           initCoinTrade();
           initPublishPricing();
+          initFooterYear();
         } catch (err) {
           app.innerHTML = `
             <div class="min-h-screen flex items-center justify-center p-6">
