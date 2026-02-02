@@ -156,6 +156,90 @@ const initPublishPricing = () => {
 const I18N_STORAGE_KEY = 'clztr:lang';
 const SUPPORTED_LANGS = ['en', 'es', 'pt', 'ar', 'fr', 'zh', 'ja', 'ko'];
 const RTL_LANGS = new Set(['ar']);
+const GEO_TIMEOUT_MS = 1500;
+const LANGUAGE_LABELS = {
+  en: 'English',
+  es: 'Spanish',
+  pt: 'Portuguese',
+  ar: 'Arabic',
+  fr: 'French',
+  zh: 'Chinese',
+  ja: 'Japanese',
+  ko: 'Korean',
+};
+const LANGUAGE_SHORT_LABELS = {
+  en: 'EN',
+  es: 'ES',
+  pt: 'PT',
+  ar: 'AR',
+  fr: 'FR',
+  zh: 'ZH',
+  ja: 'JA',
+  ko: 'KO',
+};
+const GEO_PROVIDERS = [
+  {
+    url: 'https://ipapi.co/json/',
+    getCountryCode: (data) => data?.country_code || data?.country,
+  },
+  {
+    url: 'https://ipwho.is/?fields=country_code',
+    getCountryCode: (data) => data?.country_code,
+  },
+];
+const COUNTRY_LANGS = {
+  zh: ['CN', 'HK', 'MO', 'TW'],
+  ja: ['JP'],
+  ko: ['KR', 'KP'],
+  fr: ['FR', 'BE', 'CH', 'LU', 'MC'],
+  es: [
+    'ES',
+    'MX',
+    'AR',
+    'CO',
+    'CL',
+    'PE',
+    'VE',
+    'EC',
+    'GT',
+    'CU',
+    'BO',
+    'DO',
+    'HN',
+    'PY',
+    'SV',
+    'NI',
+    'CR',
+    'PA',
+    'UY',
+    'PR',
+  ],
+  pt: ['PT', 'BR', 'AO', 'MZ', 'CV', 'GW', 'ST', 'TL'],
+  ar: [
+    'AE',
+    'SA',
+    'EG',
+    'IQ',
+    'JO',
+    'KW',
+    'LB',
+    'LY',
+    'MA',
+    'OM',
+    'QA',
+    'SD',
+    'SY',
+    'TN',
+    'YE',
+    'DZ',
+    'BH',
+    'PS',
+    'MR',
+    'SO',
+    'DJ',
+    'KM',
+  ],
+};
 const i18nState = {
   en: null,
   cache: {},
@@ -163,6 +247,7 @@ const i18nState = {
   originals: new WeakMap(),
   attrOriginals: new WeakMap(),
 };
+let languageModalState = null;
 
 const normalizeText = (value) => (value ? value.replace(/\s+/g, ' ').trim() : '');
 
@@ -185,17 +270,72 @@ const getOriginalAttr = (el, attr) => {
   return store[attr];
 };
 
-const resolveLanguage = () => {
+const persistLanguage = (lang) => {
+  try {
+    localStorage.setItem(I18N_STORAGE_KEY, lang);
+  } catch (err) {
+    // ignore storage errors
+  }
+};
+
+const getStoredLanguage = () => {
   try {
     const stored = localStorage.getItem(I18N_STORAGE_KEY);
     if (SUPPORTED_LANGS.includes(stored)) return stored;
   } catch (err) {
     // ignore storage errors
   }
-  const browser = (navigator.language || '').toLowerCase();
-  const base = browser.split('-')[0];
-  if (SUPPORTED_LANGS.includes(base)) return base;
-  return 'en';
+  return null;
+};
+
+const fetchJsonWithTimeout = async (url, timeoutMs) => {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, { signal: controller.signal });
+    if (!res.ok) {
+      throw new Error(`Geo request failed: ${res.status}`);
+    }
+    return await res.json();
+  } finally {
+    clearTimeout(timeoutId);
+  }
+};
+
+const mapCountryToLang = (code) => {
+  if (!code) return null;
+  const upper = String(code).toUpperCase();
+  for (const [lang, countries] of Object.entries(COUNTRY_LANGS)) {
+    if (countries.includes(upper)) return lang;
+  }
+  return null;
+};
+
+const resolveGeoLanguage = async () => {
+  for (const provider of GEO_PROVIDERS) {
+    try {
+      const data = await fetchJsonWithTimeout(provider.url, GEO_TIMEOUT_MS);
+      const countryCode = provider.getCountryCode(data);
+      const lang = mapCountryToLang(countryCode);
+      if (lang) return lang;
+      if (countryCode) return null;
+    } catch (err) {
+      // ignore provider errors and try next
+    }
+  }
+  return null;
+};
+
+const resolveLanguage = async () => {
+  const stored = getStoredLanguage();
+  if (stored) return { lang: stored, fromStorage: true };
+
+  const geoLang = await resolveGeoLanguage();
+  if (SUPPORTED_LANGS.includes(geoLang)) {
+    return { lang: geoLang, fromStorage: false };
+  }
+
+  return { lang: 'en', fromStorage: false };
 };
 
 const loadLocale = async (lang) => {
@@ -288,6 +428,7 @@ const applyLanguage = (lang) => {
   document.documentElement.dir = RTL_LANGS.has(lang) ? 'rtl' : 'ltr';
   i18nState.current = lang;
   updateLanguageButtons(lang);
+  updateLanguageLabel(lang);
 };
 
 const updateLanguageButtons = (lang) => {
@@ -301,16 +442,22 @@ const updateLanguageButtons = (lang) => {
   });
 };
 
+const updateLanguageLabel = (lang) => {
+  const labelEl = document.querySelector('[data-language-label]');
+  const shortEl = document.querySelector('[data-language-label-short]');
+  if (!labelEl) return;
+  const label = LANGUAGE_LABELS[lang] || LANGUAGE_LABELS.en;
+  const shortLabel = LANGUAGE_SHORT_LABELS[lang] || LANGUAGE_SHORT_LABELS.en;
+  labelEl.textContent = label;
+  if (shortEl) shortEl.textContent = shortLabel;
+};
+
 const setLanguage = async (lang) => {
   const target = SUPPORTED_LANGS.includes(lang) ? lang : 'en';
   await loadLocale('en');
   await loadLocale(target);
   applyLanguage(target);
-  try {
-    localStorage.setItem(I18N_STORAGE_KEY, target);
-  } catch (err) {
-    // ignore storage errors
-  }
+  persistLanguage(target);
 };
 
 const initI18n = async () => {
@@ -319,12 +466,63 @@ const initI18n = async () => {
   i18nState.en = await loadLocale('en');
 
   document.querySelectorAll('[data-lang]').forEach((btn) => {
-    btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+    btn.addEventListener('click', async () => {
+      await setLanguage(btn.dataset.lang);
+      if (languageModalState?.modal?.contains(btn)) {
+        closeLanguageModal();
+      }
+    });
   });
 
-  const initial = resolveLanguage();
-  await loadLocale(initial);
-  applyLanguage(initial);
+  const resolved = await resolveLanguage();
+  await loadLocale(resolved.lang);
+  applyLanguage(resolved.lang);
+  if (!resolved.fromStorage) {
+    persistLanguage(resolved.lang);
+  }
+};
+
+const openLanguageModal = () => {
+  if (!languageModalState) return;
+  const { modal, openButton } = languageModalState;
+  const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+  if (scrollBarWidth > 0) {
+    document.body.style.paddingRight = `${scrollBarWidth}px`;
+  }
+  modal.classList.remove('hidden');
+  document.body.classList.add('overflow-hidden');
+  openButton?.setAttribute('aria-expanded', 'true');
+};
+
+const closeLanguageModal = () => {
+  if (!languageModalState) return;
+  const { modal, openButton } = languageModalState;
+  modal.classList.add('hidden');
+  document.body.classList.remove('overflow-hidden');
+  document.body.style.paddingRight = '';
+  openButton?.setAttribute('aria-expanded', 'false');
+};
+
+const initLanguageModal = () => {
+  if (window.__langModalInit) return;
+  window.__langModalInit = true;
+  const modal = document.getElementById('language-modal');
+  const openButton = document.getElementById('language-open');
+  if (!modal || !openButton) return;
+  const overlay = modal.querySelector('[data-modal-overlay]');
+  const closeButtons = modal.querySelectorAll('[data-modal-close]');
+  languageModalState = { modal, openButton };
+
+  openButton.addEventListener('click', openLanguageModal);
+  overlay?.addEventListener('click', closeLanguageModal);
+  closeButtons.forEach((btn) => btn.addEventListener('click', closeLanguageModal));
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    if (!modal.classList.contains('hidden')) {
+      closeLanguageModal();
+    }
+  });
 };
 
 const initNav = () => {
@@ -381,6 +579,17 @@ const initWhenVisible = (selector, init) => {
 
 const renderApp = async () => {
   try {
+    const hasPrerender = app && app.children.length > 0;
+    if (hasPrerender) {
+      initLanguageModal();
+      await initI18n();
+      initNav();
+      initWhenVisible('#coin-trade', initCoinTrade);
+      initWhenVisible('#publish-publish', initPublishPricing);
+      initFooterYear();
+      return;
+    }
+
     await Promise.all(
       partials.map(async (name) => {
         const res = await fetch(`components/${name}.hbs`);
@@ -395,6 +604,7 @@ const renderApp = async () => {
     const templateSource = document.getElementById('app-template').innerHTML;
     const template = Handlebars.compile(templateSource);
     app.innerHTML = template({});
+    initLanguageModal();
     await initI18n();
     initNav();
     initWhenVisible('#coin-trade', initCoinTrade);

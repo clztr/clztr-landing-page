@@ -7,8 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:css": "tailwindcss -i tailwind.input.css -o public/tailwind.css --minify",
     "dev": "vite",
-    "build": "npm run build:css && vite build",
-    "preview": "vite preview"
+    "build": "npm run build:css && vite build && npm run prerender",
+    "preview": "vite preview",
+    "prerender": "node scripts/prerender.js"
   },
   "repository": {
     "type": "git",

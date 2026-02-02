@@ -7,7 +7,7 @@
       name="viewport"
     />
     <title>
-      CLZTR — Live Events, Access-First Discovery & Host Tools
+      CLZTR — Map of what's next
     </title>
     <meta
       name="description"
@@ -340,7 +340,7 @@
             CLZTR
           </div>
           <nav class="hidden md:flex items-center gap-6 text-xs font-mono">
-            <a class="text-gray-400 hover:text-primary transition-colors" href="#boot-boot">Boot</a>
+            <a class="text-gray-400 hover:text-primary transition-colors" href="#boot-boot">Play</a>
             <a class="text-gray-400 hover:text-primary transition-colors" href="#coin-trade">Economy</a>
             <a class="text-gray-400 hover:text-primary transition-colors" href="#hostwizard-hostwizard">Host</a>
             <a class="text-gray-400 hover:text-primary transition-colors" href="#createEvent-create-event">Budget</a>
@@ -350,11 +350,21 @@
             <a class="text-gray-400 hover:text-primary transition-colors" href="#mobile-access">Mobile</a>
           </nav>
           <div class="flex items-center gap-3">
-            <!-- <button
-              class="bg-primary text-black px-4 py-2 text-xs font-display italic font-bold skew-box hover:bg-white transition-colors"
+            <button
+              class="bg-primary text-black px-3 sm:px-4 py-2 text-[10px] sm:text-xs font-display italic font-bold skew-box hover:bg-white transition-colors flex items-center gap-2 whitespace-nowrap"
+              id="language-open"
+              type="button"
+              aria-haspopup="dialog"
+              aria-controls="language-modal"
+              aria-expanded="false"
+              data-i18n-ignore
             >
-              <span class="unskew-text">ACCESS</span>
-            </button> -->
+              <span class="unskew-text flex items-center gap-2">
+                <i class="ph-bold ph-translate text-sm sm:text-base"></i>
+                <span class="hidden sm:inline" data-language-label>English</span>
+                <span class="sm:hidden" data-language-label-short>EN</span>
+              </span>
+            </button>
             <button
               class="md:hidden w-10 h-10 flex items-center justify-center border border-gray-700 text-gray-200 hover:text-primary hover:border-primary transition-colors"
               id="nav-toggle"
@@ -390,6 +400,48 @@
         {{> publish}}
         {{> mobile-access}}
         {{> footer}}
+        <div
+          id="language-modal"
+          class="fixed inset-0 z-[120] hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="language-modal-title"
+          data-i18n-ignore
+        >
+          <div
+            class="absolute inset-0 bg-black/80 backdrop-blur"
+            data-modal-overlay
+          ></div>
+          <div class="relative flex min-h-screen items-center justify-center p-6">
+            <div class="w-full max-w-xl border border-gray-800 bg-black/95 shadow-[0_0_40px_rgba(0,0,0,0.65)]">
+              <div class="flex items-center justify-between border-b border-gray-800 px-6 py-4">
+                <h2
+                  id="language-modal-title"
+                  class="text-lg font-display italic tracking-wide text-white"
+                >
+                  Select Language
+                </h2>
+                <button
+                  class="text-xs font-mono text-gray-400 hover:text-primary transition-colors"
+                  type="button"
+                  data-modal-close
+                >
+                  Close
+                </button>
+              </div>
+              <div class="grid grid-cols-2 gap-3 px-6 py-6 text-sm font-mono">
+                <button class="px-3 py-2 border border-gray-800 hover:border-primary/60 hover:text-primary transition" type="button" data-lang="en">English</button>
+                <button class="px-3 py-2 border border-gray-800 hover:border-primary/60 hover:text-primary transition" type="button" data-lang="es">Spanish</button>
+                <button class="px-3 py-2 border border-gray-800 hover:border-primary/60 hover:text-primary transition" type="button" data-lang="pt">Portuguese</button>
+                <button class="px-3 py-2 border border-gray-800 hover:border-primary/60 hover:text-primary transition" type="button" data-lang="ar">Arabic</button>
+                <button class="px-3 py-2 border border-gray-800 hover:border-primary/60 hover:text-primary transition" type="button" data-lang="fr">French</button>
+                <button class="px-3 py-2 border border-gray-800 hover:border-primary/60 hover:text-primary transition" type="button" data-lang="zh">Chinese</button>
+                <button class="px-3 py-2 border border-gray-800 hover:border-primary/60 hover:text-primary transition" type="button" data-lang="ja">Japanese</button>
+                <button class="px-3 py-2 border border-gray-800 hover:border-primary/60 hover:text-primary transition" type="button" data-lang="ko">Korean</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     </script>
 
