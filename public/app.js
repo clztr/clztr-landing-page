@@ -1,15 +1,4 @@
 const app = document.getElementById('app');
-const partials = [
-  'boot',
-  'coin-trade',
-  'hostwizard',
-  'createEvent',
-  'event-creation',
-  'mediaAssets',
-  'publish',
-  'mobile-access',
-  'footer',
-];
 
 const initCoinTrade = () => {
   const root = document.getElementById('coin-trade');
@@ -697,31 +686,7 @@ const initWhenVisible = (selector, init) => {
 
 const renderApp = async () => {
   try {
-    const hasPrerender = app && app.children.length > 0;
-    if (hasPrerender) {
-      initLanguageModal();
-      await initI18n();
-      initNav();
-      initWhenVisible('#coin-trade', initCoinTrade);
-      initWhenVisible('#publish-publish', initPublishPricing);
-      initFooterYear();
-      return;
-    }
-
-    await Promise.all(
-      partials.map(async (name) => {
-        const res = await fetch(`components/${name}.hbs`);
-        if (!res.ok) {
-          throw new Error(`Missing partial: ${name}.hbs`);
-        }
-        const source = await res.text();
-        Handlebars.registerPartial(name, source);
-      })
-    );
-
-    const templateSource = document.getElementById('app-template').innerHTML;
-    const template = Handlebars.compile(templateSource);
-    app.innerHTML = template({});
+    if (!app) return;
     initLanguageModal();
     await initI18n();
     initNav();
@@ -729,18 +694,7 @@ const renderApp = async () => {
     initWhenVisible('#publish-publish', initPublishPricing);
     initFooterYear();
   } catch (err) {
-    app.innerHTML = `
-      <div class="min-h-screen flex items-center justify-center p-6">
-        <div class="max-w-xl text-center">
-          <h1 class="text-2xl font-display italic text-white mb-2">Render Error</h1>
-          <p class="text-sm text-red-400 font-mono mb-4">${err.message}</p>
-          <p class="text-xs text-gray-500 font-mono">
-            If you opened this file via <span class="text-gray-300">file://</span>,
-            start a local server so fetch() can load partials.
-          </p>
-        </div>
-      </div>
-    `;
+    console.error('Init error:', err);
   }
 };
 
