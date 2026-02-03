@@ -47,5 +47,10 @@ if (!appRegex.test(html)) {
 }
 
 const injected = html.replace(appRegex, `<div id="app">${rendered}</div>`);
-fs.writeFileSync(indexPath, injected, 'utf8');
+const stamp = process.env.BUILD_STAMP || new Date().toISOString().replace(/[:.]/g, '-');
+const stamped = injected
+  .replace(/href=["']\/tailwind\.css["']/g, `href="/tailwind.css?v=${stamp}"`)
+  .replace(/src=["']\/app\.js["']/g, `src="/app.js?v=${stamp}"`);
+
+fs.writeFileSync(indexPath, stamped, 'utf8');
 console.log('prerender: injected app HTML into dist/index.html');
