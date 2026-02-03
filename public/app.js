@@ -531,6 +531,35 @@ const initNav = () => {
   if (!toggle || !mobileNav || window.__navInit) return;
   window.__navInit = true;
 
+  const navLinks = Array.from(
+    document.querySelectorAll('header nav a[href^="#"], #mobile-nav a[href^="#"]')
+  );
+  const linkMap = new Map();
+  navLinks.forEach((link) => {
+    const href = link.getAttribute('href') || '';
+    const id = href.startsWith('#') ? href.slice(1) : '';
+    if (!id) return;
+    const list = linkMap.get(id) || [];
+    list.push(link);
+    linkMap.set(id, list);
+  });
+
+  const setActiveLink = (id) => {
+    if (!id || !linkMap.has(id)) return;
+    linkMap.forEach((links, linkId) => {
+      links.forEach((link) => {
+        const isActive = linkId === id;
+        link.classList.toggle('text-primary', isActive);
+        link.classList.toggle('text-gray-400', !isActive);
+        if (isActive) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    });
+  };
+
   const closeNav = () => {
     mobileNav.classList.add('hidden');
     toggle.setAttribute('aria-expanded', 'false');
@@ -549,6 +578,95 @@ const initNav = () => {
   mobileNav.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', closeNav);
   });
+
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      const href = link.getAttribute('href') || '';
+      if (href.startsWith('#')) {
+        setActiveLink(href.slice(1));
+      }
+    });
+  });
+
+  const sectionIds = Array.from(linkMap.keys());
+  const sections = sectionIds
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
+
+  if (sections.length) {
+    let ticking = false;
+    const updateActiveFromScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        const rootStyles = getComputedStyle(document.documentElement);
+        const navOffset =
+          parseInt(rootStyles.getPropertyValue('--nav-offset'), 10) || 96;
+        const targetY = navOffset + 12;
+        let bestId = sectionIds[0];
+        let bestOffset = Infinity;
+        sections.forEach((section) => {
+          const rect = section.getBoundingClientRect();
+          const offset = Math.abs(rect.top - targetY);
+          if (offset < bestOffset) {
+            bestOffset = offset;
+            bestId = section.id;
+          }
+        });
+        setActiveLink(bestId);
+      });
+    };
+
+    if ('IntersectionObserver' in window) {
+      const ratios = new Map();
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              ratios.set(entry.target.id, entry.intersectionRatio);
+            } else {
+              ratios.delete(entry.target.id);
+            }
+          });
+          if (!ratios.size) {
+            updateActiveFromScroll();
+            return;
+          }
+          let bestId = null;
+          let bestRatio = 0;
+          ratios.forEach((ratio, id) => {
+            if (ratio > bestRatio) {
+              bestRatio = ratio;
+              bestId = id;
+            }
+          });
+          if (bestId) {
+            setActiveLink(bestId);
+          }
+        },
+        {
+          rootMargin: '-20% 0px -60% 0px',
+          threshold: [0.1, 0.25, 0.5, 0.75],
+        }
+      );
+
+      sections.forEach((section) => observer.observe(section));
+    }
+
+    window.addEventListener('scroll', updateActiveFromScroll, {
+      passive: true,
+    });
+    window.addEventListener('resize', updateActiveFromScroll);
+    updateActiveFromScroll();
+  }
+
+  const initialHash = window.location.hash?.slice(1);
+  if (initialHash && linkMap.has(initialHash)) {
+    setActiveLink(initialHash);
+  } else if (sectionIds.length) {
+    setActiveLink(sectionIds[0]);
+  }
 };
 
 const initFooterYear = () => {
