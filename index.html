@@ -90,7 +90,8 @@
     <link
       rel="preload"
       as="image"
-      href="/assets/aida-1.jpg"
+      href="/assets/aida-1.webp"
+      type="image/webp"
       fetchpriority="high"
     />
     <link
@@ -154,17 +155,50 @@
       />
     </noscript>
     <link
-      rel="stylesheet"
+      rel="preload"
+      as="style"
       href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
+      />
+    </noscript>
     <link
-      rel="stylesheet"
+      rel="preload"
+      as="style"
       href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css"
+      />
+    </noscript>
     <link
-      rel="stylesheet"
+      rel="preload"
+      as="style"
       href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/duotone/style.css"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/duotone/style.css"
+      />
+    </noscript>
     <link rel="stylesheet" href="/tailwind.css" />
     <script type="application/ld+json">
       {
@@ -555,16 +589,19 @@
         class='relative min-h-[75vh] md:h-[85vh] w-full overflow-hidden flex items-end pb-16 md:pb-20 px-4 sm:px-6 lg:px-16 border-b border-gray-800'
       >
         <div class='absolute inset-0 bg-black z-0'>
-          <img
-            alt='Cyberpunk City'
-            class='w-full h-full object-cover opacity-60 scale-105'
-            src='/assets/aida-1.jpg'
-            width='512'
-            height='512'
-            loading='eager'
-            decoding='async'
-            fetchpriority='high'
-          />
+          <picture class="block w-full h-full">
+            <source type="image/webp" srcset="/assets/aida-1.webp" />
+            <img
+              alt="Cyberpunk City"
+              class="w-full h-full object-cover opacity-60 scale-105"
+              src="/assets/aida-1.jpg"
+              width="512"
+              height="512"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </picture>
           <div
             class='absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent'
           ></div>
@@ -575,7 +612,7 @@
         <div
           class='relative z-10 w-full mx-auto flex flex-col md:flex-row items-start md:items-end justify-between gap-12'
         >
-          <div class='max-w-6xl'>
+          <div class=''>
             <div class='inline-flex items-center gap-3 mb-6 mt-4 sm:mt-6'>
               <span
                 class='bg-primary text-black px-2 py-1 text-[10px] sm:text-xs font-bold font-display skew-box'
@@ -719,15 +756,18 @@
                     <div
                       class='absolute inset-4 rounded-lg overflow-hidden bg-black/80 border border-white/5 shadow-2xl'
                     >
-                      <img
-                        alt='Wireframe holographic AI head scanning'
-                        class='w-full h-full object-cover opacity-90 mix-blend-screen filter contrast-125 sepia-[.3] hue-rotate-[170deg] brightness-125 hover:brightness-150 transition-all duration-700 holo-glow'
-                        src='/assets/aida-2.jpg'
-                        width='512'
-                        height='512'
-                        loading='lazy'
-                        decoding='async'
-                      />
+                      <picture class="block w-full h-full">
+                        <source type="image/webp" srcset="/assets/aida-2.webp" />
+                        <img
+                          alt="Wireframe holographic AI head scanning"
+                          class="w-full h-full object-cover opacity-90 mix-blend-screen filter contrast-125 sepia-[.3] hue-rotate-[170deg] brightness-125 hover:brightness-150 transition-all duration-700 holo-glow"
+                          src="/assets/aida-2.jpg"
+                          width="512"
+                          height="512"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </picture>
                       <div
                         class='absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-cyan-500/20 mix-blend-color-dodge pointer-events-none'
                       ></div>
@@ -963,15 +1003,18 @@
           <div
             class='absolute inset-0 z-0 opacity-40 mix-blend-screen'
           >
-            <img
-              alt='Map'
-              class='w-full h-full object-cover grayscale invert contrast-125'
-              src='/assets/aida-3.jpg'
-              width='512'
-              height='512'
-              loading='lazy'
-              decoding='async'
-            />
+            <picture class="block w-full h-full">
+              <source type="image/webp" srcset="/assets/aida-3.webp" />
+              <img
+                alt="Map"
+                class="w-full h-full object-cover grayscale invert contrast-125"
+                src="/assets/aida-3.jpg"
+                width="512"
+                height="512"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
           <div
             class="absolute inset-0 z-0 bg-[url('/textures/diagmonds-light.png')] opacity-10"
@@ -1844,7 +1887,7 @@
                       >100,000</span>
                       <span
                         class='font-mono text-xs text-cyan-200'
-                      >CLZTR/YR</span>
+                      >CLZTR/MO</span>
                     </div>
                     <button
                       class='w-full py-3 border border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-black font-display italic text-sm uppercase hover:shadow-[0_0_30px_rgba(0,224,255,0.4)] transition-all skew-box relative overflow-hidden group/btn'
@@ -3204,15 +3247,18 @@
         class="flex-1 relative bg-[#050505] overflow-hidden group min-h-[60vh] lg:min-h-screen"
       >
         <div class="absolute inset-0 z-0">
-          <img
-            alt="Dark Map Topography"
-            class="w-full h-full object-cover opacity-40 grayscale contrast-125 brightness-75 invert"
-            src="/assets/aida-3.jpg"
-            width="512"
-            height="512"
-            loading="lazy"
-            decoding="async"
-          />
+          <picture class="block w-full h-full">
+            <source type="image/webp" srcset="/assets/aida-3.webp" />
+            <img
+              alt="Dark Map Topography"
+              class="w-full h-full object-cover opacity-40 grayscale contrast-125 brightness-75 invert"
+              src="/assets/aida-3.jpg"
+              width="512"
+              height="512"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         </div>
         <div
           class="absolute inset-0 z-10 map-grid opacity-30 pointer-events-none"
@@ -4648,15 +4694,18 @@
                 <div
                   class='aspect-square bg-gray-800 relative group overflow-hidden border border-gray-600'
                 >
-                  <img
-                    alt='Uploaded map photo 1'
-                    class='w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0'
-                    src='/assets/aida-1.jpg'
-                    width='512'
-                    height='512'
-                    loading='lazy'
-                    decoding='async'
-                  />
+                  <picture class="block w-full h-full">
+                    <source type="image/webp" srcset="/assets/aida-1.webp" />
+                    <img
+                      alt="Uploaded map photo 1"
+                      class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0"
+                      src="/assets/aida-1.jpg"
+                      width="512"
+                      height="512"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
                   <div
                     class='absolute top-2 right-2 p-1 bg-black/80 rounded hover:bg-red-500/80 cursor-pointer transition-colors w-8 h-8 flex items-center justify-center'
                   >
@@ -4669,15 +4718,18 @@
                 <div
                   class='aspect-square bg-gray-800 relative group overflow-hidden border border-gray-600'
                 >
-                  <img
-                    alt='Uploaded map photo 2'
-                    class='w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0'
-                    src='/assets/aida-3.jpg'
-                    width='512'
-                    height='512'
-                    loading='lazy'
-                    decoding='async'
-                  />
+                  <picture class="block w-full h-full">
+                    <source type="image/webp" srcset="/assets/aida-3.webp" />
+                    <img
+                      alt="Uploaded map photo 2"
+                      class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0"
+                      src="/assets/aida-3.jpg"
+                      width="512"
+                      height="512"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
                   <div
                     class='absolute top-2 right-2 p-1 bg-black/80 rounded hover:bg-red-500/80 cursor-pointer transition-colors w-8 h-8 flex items-center justify-center'
                   >
@@ -4773,15 +4825,18 @@
                     <div
                       class='w-10 h-10 rounded-full border border-primary p-0.5'
                     >
-                      <img
-                        alt='User Avatar'
-                        class='w-full h-full rounded-full object-cover'
-                        src='/assets/aida-4.jpg'
-                        width='512'
-                        height='512'
-                        loading='lazy'
-                        decoding='async'
-                      />
+                      <picture class="block w-full h-full">
+                        <source type="image/webp" srcset="/assets/aida-4.webp" />
+                        <img
+                          alt="User Avatar"
+                          class="w-full h-full rounded-full object-cover"
+                          src="/assets/aida-4.jpg"
+                          width="512"
+                          height="512"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </picture>
                     </div>
                     <div>
                       <div
@@ -4816,15 +4871,18 @@
                       ></i>
                     </div>
                   </div>
-                  <img
-                    alt='Map Preview'
-                    class='w-full h-full object-cover opacity-80'
-                    src='/assets/aida-1.jpg'
-                    width='512'
-                    height='512'
-                    loading='lazy'
-                    decoding='async'
-                  />
+                  <picture class="block w-full h-full">
+                    <source type="image/webp" srcset="/assets/aida-1.webp" />
+                    <img
+                      alt="Map Preview"
+                      class="w-full h-full object-cover opacity-80"
+                      src="/assets/aida-1.jpg"
+                      width="512"
+                      height="512"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
                   <div
                     class='absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent opacity-90 z-10'
                   ></div>
@@ -4951,15 +5009,18 @@
           <div
             class="absolute inset-0 bg-black z-0 pointer-events-none"
           >
-            <img
-              alt="Cyberpunk Background"
-              class="w-full h-full object-cover opacity-20 fixed"
-              src="/assets/aida-1.jpg"
-              width="512"
-              height="512"
-              loading="lazy"
-              decoding="async"
-            />
+            <picture class="block w-full h-full">
+              <source type="image/webp" srcset="/assets/aida-1.webp" />
+              <img
+                alt="Cyberpunk Background"
+                class="w-full h-full object-cover opacity-20 fixed"
+                src="/assets/aida-1.jpg"
+                width="512"
+                height="512"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
             <div
               class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/90 to-background-dark/80"
             ></div>

@@ -197,15 +197,18 @@
         class="flex-1 relative bg-[#050505] overflow-hidden group min-h-[60vh] lg:min-h-screen"
       >
         <div class="absolute inset-0 z-0">
-          <img
-            alt="Dark Map Topography"
-            class="w-full h-full object-cover opacity-40 grayscale contrast-125 brightness-75 invert"
-            src="/assets/aida-3.jpg"
-            width="512"
-            height="512"
-            loading="lazy"
-            decoding="async"
-          />
+          <picture class="block w-full h-full">
+            <source type="image/webp" srcset="/assets/aida-3.webp" />
+            <img
+              alt="Dark Map Topography"
+              class="w-full h-full object-cover opacity-40 grayscale contrast-125 brightness-75 invert"
+              src="/assets/aida-3.jpg"
+              width="512"
+              height="512"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         </div>
         <div
           class="absolute inset-0 z-10 map-grid opacity-30 pointer-events-none"

@@ -143,9 +143,9 @@ const initPublishPricing = () => {
 };
 
 const I18N_STORAGE_KEY = 'clztr:lang';
+const I18N_AUTO_FLAG_KEY = 'clztr:lang:auto';
 const SUPPORTED_LANGS = ['en', 'es', 'pt', 'ar', 'fr', 'zh', 'ja', 'ko'];
 const RTL_LANGS = new Set(['ar']);
-const GEO_TIMEOUT_MS = 1500;
 const LANGUAGE_LABELS = {
   en: 'English',
   es: 'Spanish',
@@ -165,69 +165,6 @@ const LANGUAGE_SHORT_LABELS = {
   zh: 'ZH',
   ja: 'JA',
   ko: 'KO',
-};
-const GEO_PROVIDERS = [
-  {
-    url: 'https://ipapi.co/json/',
-    getCountryCode: (data) => data?.country_code || data?.country,
-  },
-  {
-    url: 'https://ipwho.is/?fields=country_code',
-    getCountryCode: (data) => data?.country_code,
-  },
-];
-const COUNTRY_LANGS = {
-  zh: ['CN', 'HK', 'MO', 'TW'],
-  ja: ['JP'],
-  ko: ['KR', 'KP'],
-  fr: ['FR', 'BE', 'CH', 'LU', 'MC'],
-  es: [
-    'ES',
-    'MX',
-    'AR',
-    'CO',
-    'CL',
-    'PE',
-    'VE',
-    'EC',
-    'GT',
-    'CU',
-    'BO',
-    'DO',
-    'HN',
-    'PY',
-    'SV',
-    'NI',
-    'CR',
-    'PA',
-    'UY',
-    'PR',
-  ],
-  pt: ['PT', 'BR', 'AO', 'MZ', 'CV', 'GW', 'ST', 'TL'],
-  ar: [
-    'AE',
-    'SA',
-    'EG',
-    'IQ',
-    'JO',
-    'KW',
-    'LB',
-    'LY',
-    'MA',
-    'OM',
-    'QA',
-    'SD',
-    'SY',
-    'TN',
-    'YE',
-    'DZ',
-    'BH',
-    'PS',
-    'MR',
-    'SO',
-    'DJ',
-    'KM',
-  ],
 };
 const i18nState = {
   en: null,
@@ -277,52 +214,70 @@ const getStoredLanguage = () => {
   return null;
 };
 
-const fetchJsonWithTimeout = async (url, timeoutMs) => {
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+const getAutoDetectFlag = () => {
   try {
-    const res = await fetch(url, { signal: controller.signal });
-    if (!res.ok) {
-      throw new Error(`Geo request failed: ${res.status}`);
-    }
-    return await res.json();
-  } finally {
-    clearTimeout(timeoutId);
+    return localStorage.getItem(I18N_AUTO_FLAG_KEY) === 'true';
+  } catch (err) {
+    // ignore storage errors
+  }
+  return false;
+};
+
+const setAutoDetectFlag = () => {
+  try {
+    localStorage.setItem(I18N_AUTO_FLAG_KEY, 'true');
+  } catch (err) {
+    // ignore storage errors
   }
 };
 
-const mapCountryToLang = (code) => {
-  if (!code) return null;
-  const upper = String(code).toUpperCase();
-  for (const [lang, countries] of Object.entries(COUNTRY_LANGS)) {
-    if (countries.includes(upper)) return lang;
-  }
-  return null;
+const matchSupportedLanguage = (value) => {
+  if (!value) return null;
+  const normalized = String(value).toLowerCase().replace('_', '-');
+  if (SUPPORTED_LANGS.includes(normalized)) return normalized;
+  const base = normalized.split('-')[0];
+  return SUPPORTED_LANGS.includes(base) ? base : null;
 };
 
-const resolveGeoLanguage = async () => {
-  for (const provider of GEO_PROVIDERS) {
-    try {
-      const data = await fetchJsonWithTimeout(provider.url, GEO_TIMEOUT_MS);
-      const countryCode = provider.getCountryCode(data);
-      const lang = mapCountryToLang(countryCode);
-      if (lang) return lang;
-      if (countryCode) return null;
-    } catch (err) {
-      // ignore provider errors and try next
-    }
+const resolveSystemLanguage = () => {
+  const candidates = [];
+  if (Array.isArray(navigator.languages)) {
+    candidates.push(...navigator.languages);
+  }
+  if (navigator.language) candidates.push(navigator.language);
+  if (navigator.userLanguage) candidates.push(navigator.userLanguage);
+
+  const seen = new Set();
+  for (const candidate of candidates) {
+    if (!candidate) continue;
+    const key = String(candidate).toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    const match = matchSupportedLanguage(candidate);
+    if (match) return match;
   }
   return null;
 };
 
 const resolveLanguage = async () => {
   const stored = getStoredLanguage();
-  if (stored) return { lang: stored, fromStorage: true };
+  const autoFlag = getAutoDetectFlag();
 
-  const geoLang = await resolveGeoLanguage();
-  if (SUPPORTED_LANGS.includes(geoLang)) {
-    return { lang: geoLang, fromStorage: false };
+  if (stored && !autoFlag) {
+    const systemLang = resolveSystemLanguage();
+    setAutoDetectFlag();
+    if (SUPPORTED_LANGS.includes(systemLang)) return { lang: systemLang, fromStorage: false };
+    return { lang: stored, fromStorage: true };
   }
+
+  if (autoFlag) {
+    if (stored) return { lang: stored, fromStorage: true };
+    return { lang: 'en', fromStorage: false };
+  }
+
+  const systemLang = resolveSystemLanguage();
+  setAutoDetectFlag();
+  if (SUPPORTED_LANGS.includes(systemLang)) return { lang: systemLang, fromStorage: false };
 
   return { lang: 'en', fromStorage: false };
 };

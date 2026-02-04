@@ -172,16 +172,19 @@
         class='relative min-h-[75vh] md:h-[85vh] w-full overflow-hidden flex items-end pb-16 md:pb-20 px-4 sm:px-6 lg:px-16 border-b border-gray-800'
       >
         <div class='absolute inset-0 bg-black z-0'>
-          <img
-            alt='Cyberpunk City'
-            class='w-full h-full object-cover opacity-60 scale-105'
-            src='/assets/aida-1.jpg'
-            width='512'
-            height='512'
-            loading='eager'
-            decoding='async'
-            fetchpriority='high'
-          />
+          <picture class='block w-full h-full'>
+            <source type='image/webp' srcset='/assets/aida-1.webp' />
+            <img
+              alt='Cyberpunk City'
+              class='w-full h-full object-cover opacity-60 scale-105'
+              src='/assets/aida-1.jpg'
+              width='512'
+              height='512'
+              loading='eager'
+              decoding='async'
+              fetchpriority='high'
+            />
+          </picture>
           <div
             class='absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent'
           ></div>
@@ -336,15 +339,21 @@
                     <div
                       class='absolute inset-4 rounded-lg overflow-hidden bg-black/80 border border-white/5 shadow-2xl'
                     >
-                      <img
-                        alt='Wireframe holographic AI head scanning'
-                        class='w-full h-full object-cover opacity-90 mix-blend-screen filter contrast-125 sepia-[.3] hue-rotate-[170deg] brightness-125 hover:brightness-150 transition-all duration-700 holo-glow'
-                        src='/assets/aida-2.jpg'
-                        width='512'
-                        height='512'
-                        loading='lazy'
-                        decoding='async'
-                      />
+                      <picture class='block w-full h-full'>
+                        <source
+                          type='image/webp'
+                          srcset='/assets/aida-2.webp'
+                        />
+                        <img
+                          alt='Wireframe holographic AI head scanning'
+                          class='w-full h-full object-cover opacity-90 mix-blend-screen filter contrast-125 sepia-[.3] hue-rotate-[170deg] brightness-125 hover:brightness-150 transition-all duration-700 holo-glow'
+                          src='/assets/aida-2.jpg'
+                          width='512'
+                          height='512'
+                          loading='lazy'
+                          decoding='async'
+                        />
+                      </picture>
                       <div
                         class='absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-cyan-500/20 mix-blend-color-dodge pointer-events-none'
                       ></div>
@@ -580,15 +589,18 @@
           <div
             class='absolute inset-0 z-0 opacity-40 mix-blend-screen'
           >
-            <img
-              alt='Map'
-              class='w-full h-full object-cover grayscale invert contrast-125'
-              src='/assets/aida-3.jpg'
-              width='512'
-              height='512'
-              loading='lazy'
-              decoding='async'
-            />
+            <picture class='block w-full h-full'>
+              <source type='image/webp' srcset='/assets/aida-3.webp' />
+              <img
+                alt='Map'
+                class='w-full h-full object-cover grayscale invert contrast-125'
+                src='/assets/aida-3.jpg'
+                width='512'
+                height='512'
+                loading='lazy'
+                decoding='async'
+              />
+            </picture>
           </div>
           <div
             class="absolute inset-0 z-0 bg-[url('/textures/diagmonds-light.png')] opacity-10"
@@ -1461,7 +1473,7 @@
                       >100,000</span>
                       <span
                         class='font-mono text-xs text-cyan-200'
-                      >CLZTR/YR</span>
+                      >CLZTR/MO</span>
                     </div>
                     <button
                       class='w-full py-3 border border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-black font-display italic text-sm uppercase hover:shadow-[0_0_30px_rgba(0,224,255,0.4)] transition-all skew-box relative overflow-hidden group/btn'
